@@ -45,3 +45,10 @@ target/
 .mule/
 .DS_Store
 velocity.log
+
+# ------------ #
+# ACB-specific #
+# ------------ #
+.tooling-project
+src/main/resources/embedded*
+.vscode/
