@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:ms-webcrawler="http://www.mulesoft.org/schema/mule/ms-webcrawler" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ms-webcrawler http://www.mulesoft.org/schema/mule/ms-webcrawler/current/mule-ms-webcrawler.xsd">
+	<flow name="mule-webcrawler-get-sitemap-subflow" doc:id="825cd563-6295-463e-b34e-4d4f00a548c6" >
+		<logger level="INFO" doc:name="START" doc:id="7ca2ca59-8874-42a8-af70-2bed7258375a" message="START - Webcrawler Get Sitemap Operation"/>
+		<ms-webcrawler:get-sitemap doc:name="[Crawl] Get sitemap" doc:id="d1c7ccae-a68e-4cca-95fd-9c883dcbd6c2"  config-ref="MuleSoft_WebCrawler_Connector_Config" url="#[attributes.queryParams.url]" maxDepth="#[attributes.queryParams.depth]" restrictToPath="true"/>
+		<ee:transform doc:name="Prepare response" doc:id="97b6b46e-d279-4671-9cd8-6a82e886335b" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="END" doc:id="ac56237d-9e2b-4207-aeab-2deeff407fe4" message="END - Webcrawler Get Sitemap Operation"/>
+	</flow>
+	<flow name="mule-webcrawler-scan-website-subflow" doc:id="78f78580-ad9c-41da-87ba-791c43068db9" >
+		<logger level="INFO" doc:name="START" doc:id="0ab9615f-aef9-4549-a1d0-97918fcb9112" message="START - Webcrawler Website Scan Operation"/>
+		<ms-webcrawler:crawl-website-full-scan doc:name="[Crawl] Website (Full Scan)" doc:id="c2226a63-0924-411b-a0f0-cd3470dd43bb" config-ref="MuleSoft_WebCrawler_Connector_Config" url="#[attributes.queryParams.url]" outputFormat="TEXT" downloadPath="/Users/kseniiatarantsova/AnypointStudio/mule-dreamin-2025/mule-webcrawler/src/main/resources/mac/" maxDepth="#[attributes.queryParams.depth]" regexUrlsFilterLogic="EXCLUDE" getMetaTags="true" downloadImages="true" downloadDocuments="true"/>
+		<ee:transform doc:name="Prepare response" doc:id="9ddc3b6c-625a-450d-9791-1e5d65daccb3" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="END" doc:id="77a67c0f-7baf-4334-be8c-b7f99340dd2d" message="END - Webcrawler Website Scan Operation"/>
+	</flow>
+	<flow name="mule-webcrawler-download-images-subflow" doc:id="df91d829-bffc-40d3-ae1a-730418fa1c9b" >
+		<logger level="INFO" doc:name="START" doc:id="775518de-ab23-4a5a-853d-9713bc41467b" message="START - Webcrawler Download Images Operation"/>
+		<ms-webcrawler:page-download-image doc:name="[Page] Download image" doc:id="baa1371c-c5d4-4812-ab88-4152db5b29d8" url="#[attributes.queryParams.url]" downloadPath="/Users/kseniiatarantsova/AnypointStudio/mule-dreamin-2025/mule-webcrawler/src/main/resources/mac/" config-ref="MuleSoft_WebCrawler_Connector_Config"/>
+		<logger level="INFO" doc:name="END" doc:id="5a541b22-3291-46a6-a5d9-9b57bb602c1e" message="END - Webcrawler Download Images Operation"/>
+	</flow>
+	<flow name="mule-webcrawler-download-documents-subflow" doc:id="a04dd4aa-e543-46aa-83cc-a1cafb795a2c" >
+		<logger level="INFO" doc:name="START" doc:id="3ae9b09d-c935-49d8-be1a-7dbb1af95fad" message="START - Webcrawler Download Documents Operation"/>
+		<ms-webcrawler:page-download-document doc:name="[Page] Download document" doc:id="eb5cbc88-55a5-42f6-a679-7745b3a87eff" downloadPath="/Users/kseniiatarantsova/AnypointStudio/mule-dreamin-2025/mule-webcrawler/src/main/resources/mac/" url="#[attributes.queryParams.url]"/>
+		<logger level="INFO" doc:name="END" doc:id="857aad07-7c77-4682-94b3-db1397c6eeae" message="END - Webcrawler Download Documents Operation"/>
+	</flow>
+	<flow name="mule-webcrawler-get-content-subflow" doc:id="5abede07-3c7b-4dae-9068-0328ca4d073b" >
+		<logger level="INFO" doc:name="START" doc:id="93198cf3-217d-4667-a571-8592e4fec480" message="START - Webcrawler Get Content Operation"/>
+		<ms-webcrawler:page-content doc:name="[Page] Get content" doc:id="ce0d8c74-0dd8-4c39-aa25-eee58dfcdfbd" config-ref="MuleSoft_WebCrawler_Connector_Config" url="#[attributes.queryParams.url]" outputFormat="TEXT"/>
+		<ee:transform doc:name="Prepare response" doc:id="2d288386-93df-4dbe-9baf-bcf92ba92497" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="END" doc:id="2ad43407-726e-488c-bc36-aba33fa78233" message="END - Webcrawler Get Content Operation"/>
+	</flow>
+	<flow name="mule-webcrawler-get-insights-subflow" doc:id="0805e5c0-f72d-463d-b880-ed8ed7c5ef3b" >
+		<logger level="INFO" doc:name="START" doc:id="af581c8c-98bd-4bf6-8131-b84277d1f993" message="START - Webcrawler Get Insights Operation"/>
+		<ms-webcrawler:page-insights doc:name="[Page] Get insights" doc:id="83af2095-048c-4480-becb-d357bba424af" config-ref="MuleSoft_WebCrawler_Connector_Config" url="#[attributes.queryParams.url]"/>
+		<ee:transform doc:name="Prepare response" doc:id="59d3baa7-2d0a-45d7-bf3d-9a2f4e6e22a4" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="END" doc:id="55bbcdf4-ebeb-4c96-838f-110510288993" message="END - Webcrawler Get Insights Operation"/>
+	</flow>
+	<flow name="mule-webcrawler-get-meta-tags-subflow" doc:id="88e3d414-8376-4bec-85cd-e09b08be55a9" >
+		<logger level="INFO" doc:name="START" doc:id="f872be71-c5eb-4dcc-a8c6-e77399dfe48f" message="START - Webcrawler Get Meta Tags Operation"/>
+		<ms-webcrawler:page-meta-tags doc:name="[Page] Get meta tags" doc:id="60b37c31-db48-4e38-8b57-e96a4bf9a4ed" config-ref="MuleSoft_WebCrawler_Connector_Config" url="#[attributes.queryParams.url]"/>
+		<ee:transform doc:name="Prepare response" doc:id="aad99b60-7b6b-4f19-9879-7f38c1d179eb" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="END" doc:id="42124a86-4b16-49f8-bcb8-03155a5fc582" message="END - Webcrawler Get Meta Tags Operation"/>
+	</flow>
+	<flow name="mule-webcrawler-search-subflow" doc:id="9408175b-8044-4581-8ad8-2845f9efd123" >
+		<logger level="INFO" doc:name="START" doc:id="8e902763-81fc-419c-84d3-e0f805a9de4f" message="START - Webcrawler Search Operation"/>
+		<ms-webcrawler:search-google doc:name="[Search] Google" doc:id="966f2bc2-b3bd-4074-9358-1a22c62a9d11" query="#[payload.query]" apiKey="#[payload.googleApiKey]"/>
+		<logger level="INFO" doc:name="END" doc:id="899a6353-ad70-4711-8465-69916ca864b1" message="END - Webcrawler Search Operation"/>
+	</flow>
+</mule>

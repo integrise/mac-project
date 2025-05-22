@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:whisperer="http://www.mulesoft.org/schema/mule/whisperer" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd 
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/whisperer http://www.mulesoft.org/schema/mule/whisperer/current/mule-whisperer.xsd">
+	<flow name="mule-whisperer-speech-to-text-subflow" doc:id="2878a1d7-cfdc-4f56-ad47-5b254793dc84" >
+		<logger level="INFO" doc:name="START" doc:id="69061c96-c500-4b7a-acbb-cad61f4d7c31" message="START - Whisperer Speech To Text Operation"/>
+		<file:read doc:name="Read .wav file" doc:id="72e53ee4-0a3a-449b-8a23-7c6fd00cc28e" path="${app.home}/audio.wav"/>
+		<whisperer:speech-to-text doc:name="Speech to Text" doc:id="ad87d494-b834-4b33-a216-9416172ace28" config-ref="MAC_Whisperer_Config"/>
+		<ee:transform doc:name="Response Payload" doc:id="50dfdda5-da76-4237-b826-d2b4b8f83c98" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"text": payload
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="END" doc:id="4b9fe8a6-db28-47c9-b9c6-530d800f461f" message="END - Whisperer Speech To Text Operation"/>
+	</flow>
+	<flow name="mule-whisperer-text-to-speech-subflow" doc:id="a562d6e4-0ca8-4d89-8b20-0cdd61a94d44" >
+		<logger level="INFO" doc:name="START" doc:id="59d61176-9e68-456d-95de-d1113fb8edc3" message="START - Whisperer Text To Speech Operation"/>
+		<whisperer:text-to-speech doc:name="Text to Speech" doc:id="fd99e6bc-0f95-4688-be63-174f0438ae61" config-ref="MAC_Whisperer_Config">
+			<whisperer:text ><![CDATA[#[payload.text]]]></whisperer:text>
+		</whisperer:text-to-speech>
+		<file:write doc:name="Write .mp3 file" doc:id="a46c63e0-ea51-49af-ba44-8a8404ae7b14" path="#[p('audio.path') ++ 'audio.mp3']"/>
+		<ee:transform doc:name="Response Payload" doc:id="5a6c9769-c51a-45f4-aa6d-ca7d0e2e585c" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{ 
+	"message": "Success. Check .mp3 file inside the project's folder."
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="END" doc:id="28307c37-0193-4e85-b467-804b4564f006" message="END - Whisperer Text To Speech Operation"/>
+	</flow>
+</mule>
