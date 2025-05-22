@@ -72,15 +72,21 @@
             <classifier>mule-plugin</classifier>
         </dependency>
         <dependency>
-            <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-file-connector</artifactId>
-            <version>1.5.3</version>
+            <groupId>com.mulesoft.connectors</groupId>
+            <artifactId>mule4-agentforce-connector</artifactId>
+            <version>1.0.1</version>
             <classifier>mule-plugin</classifier>
         </dependency>
         <dependency>
             <groupId>com.mulesoft.connectors</groupId>
-            <artifactId>mule4-agentforce-connector</artifactId>
-            <version>1.0.1</version>
+            <artifactId>mule4-einstein-ai-connector</artifactId>
+            <version>1.2.0</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-file-connector</artifactId>
+            <version>1.5.3</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     </dependencies>

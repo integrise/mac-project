@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties" xmlns:whisperer="http://www.mulesoft.org/schema/mule/whisperer" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ms-webcrawler="http://www.mulesoft.org/schema/mule/ms-webcrawler" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ms-agentforce="http://www.mulesoft.org/schema/mule/ms-agentforce" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties" xmlns:whisperer="http://www.mulesoft.org/schema/mule/whisperer" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ms-webcrawler="http://www.mulesoft.org/schema/mule/ms-webcrawler" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ms-agentforce="http://www.mulesoft.org/schema/mule/ms-agentforce" xmlns:ms-einstein-ai="http://www.mulesoft.org/schema/mule/ms-einstein-ai" xmlns:file="http://www.mulesoft.org/schema/mule/file" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/ms-webcrawler http://www.mulesoft.org/schema/mule/ms-webcrawler/current/mule-ms-webcrawler.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/whisperer http://www.mulesoft.org/schema/mule/whisperer/current/mule-whisperer.xsd
 http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd
-	http://www.mulesoft.org/schema/mule/ms-agentforce http://www.mulesoft.org/schema/mule/ms-agentforce/current/mule-ms-agentforce.xsd">
+	http://www.mulesoft.org/schema/mule/ms-agentforce http://www.mulesoft.org/schema/mule/ms-agentforce/current/mule-ms-agentforce.xsd
+	http://www.mulesoft.org/schema/mule/ms-einstein-ai http://www.mulesoft.org/schema/mule/ms-einstein-ai/current/mule-ms-einstein-ai.xsd
+	http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
 	<ms-webcrawler:config name="MuleSoft_WebCrawler_Connector_Config" doc:name="MuleSoft WebCrawler Connector Config" doc:id="1233dd5d-c884-43aa-aa51-eb8ea8225654">
 		<ms-webcrawler:http-connection userAgent="Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" />
 	</ms-webcrawler:config>
@@ -22,4 +24,12 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
 			<ms-agentforce:oauth-client-credentials clientId="${secure::salesforce.clientId}" clientSecret="${secure::salesforce.clientSecret}" tokenUrl="${secure::salesforce.tokenUrl}"></ms-agentforce:oauth-client-credentials>
 		</ms-agentforce:oauth-client-credentials-connection>
 	</ms-agentforce:config>
+	<ms-einstein-ai:config doc:name="Einstein AI Config" name="EinsteinAI-config">
+		<ms-einstein-ai:oauth-client-credentials-connection>
+			<ms-einstein-ai:oauth-client-credentials clientId="${secure::salesforce.clientId}" clientSecret="${secure::salesforce.clientSecret}" tokenUrl="${secure::salesforce.tokenUrl}"></ms-einstein-ai:oauth-client-credentials>
+		</ms-einstein-ai:oauth-client-credentials-connection>
+	</ms-einstein-ai:config>
+	<file:config doc:name="File Config" name="File-config">
+		<file:connection workingDir="#[Mule::p('app.home')]"></file:connection>
+	</file:config>
 </mule>
