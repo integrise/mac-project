@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<sub-flow name="mule-ai-chain-agent-subflow" doc:id="52a02c53-3d87-499c-bd83-7c96c666fc97" />
+	<sub-flow name="mule-ai-chain-chat-subflow" doc:id="590cab38-865b-4445-a8b4-12117bede9d5" />
+	<sub-flow name="mule-ai-chain-embeddings-add-document-subflow" doc:id="60ad7b71-9812-46c2-a08a-5be8f8cc5931" />
+	<sub-flow name="mule-ai-chain-embeddings-add-folder-subflow" doc:id="b91598b4-4615-47e8-bff5-894444e2cc3d" />
+	<sub-flow name="mule-ai-chain-embeddings-store-info-subflow" doc:id="f27fbe31-39f2-4b95-ab86-a555746326e6" />
+	<sub-flow name="mule-ai-chain-embeddings-store-new-subflow" doc:id="4bd4136d-df90-4931-81ad-a1c5e7a59f56" />
+	<sub-flow name="mule-ai-chain-embeddings-store-query-subflow" doc:id="3739c248-4157-4afe-98fd-df62997168e2" />
+	<sub-flow name="mule-ai-chain-image-read-subflow" doc:id="58a0d8f4-75b5-49ad-95af-a2dbb8c827f2" />
+	<sub-flow name="mule-ai-chain-image-generate-subflow" doc:id="2712fb47-779b-4d0c-8c6c-cd36f24d075b" />
+	<sub-flow name="mule-ai-chain-rag-subflow" doc:id="714a1e46-0879-46c4-8bef-b26aec744849" />
+	<sub-flow name="mule-ai-chain-sentiment-subflow" doc:id="18cd583a-49e2-470a-a623-6c71442e9efc" />
+	<sub-flow name="mule-ai-chain-tools-native-subflow" doc:id="609cb7a3-1f0a-40f5-8d2e-07fbd4f00796" />
+	<sub-flow name="mule-ai-chain-tools-service-subflow" doc:id="e13bf751-5822-4b02-81de-d36a95d53c0d" />
+	<sub-flow name="mule-ai-chain-toxicity-subflow" doc:id="8d7e00de-5320-4296-8d40-6dccf0b7f12e" />
+</mule>

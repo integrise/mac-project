@@ -47,13 +47,6 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>3601e070-90dc-4a3a-b659-ee1347ae831c</groupId>
-			<artifactId>mac-api</artifactId>
-			<version>1.0.0</version>
-			<classifier>raml</classifier>
-			<type>zip</type>
-		</dependency>
-		<dependency>
 			<groupId>org.mule.modules</groupId>
 			<artifactId>mule-apikit-module</artifactId>
 			<version>1.11.5</version>
@@ -81,6 +74,25 @@
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-file-connector</artifactId>
 			<version>1.5.3</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>3601e070-90dc-4a3a-b659-ee1347ae831c</groupId>
+			<artifactId>mac-api</artifactId>
+			<version>1.0.1</version>
+			<classifier>raml</classifier>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.connectors</groupId>
+			<artifactId>mule4-inference-connector</artifactId>
+			<version>0.5.8</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.connectors</groupId>
+			<artifactId>mule4-aichain-connector</artifactId>
+			<version>1.0.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
