@@ -76,20 +76,20 @@ output application/json
         <flow-ref doc:name="mule-whisperer-text-to-speech-subflow" doc:id="5a8fe0a9-057d-4071-9a8e-6f960c6c750e" name="mule-whisperer-text-to-speech-subflow" />
     </flow>
     <flow name="post:\inference\agent:application\json:mac-api-config">
-        <logger level="INFO" message="post:\inference\agent:application\json:mac-api-config" />
+		<flow-ref doc:name="mule-inference-agent-subflow" doc:id="d8592cc8-012c-4856-8921-1d8329ce6106" name="mule-inference-agent-subflow"/>
     </flow>
     <flow name="post:\aichain\agent:application\json:mac-api-config">
 		<flow-ref doc:name="mule-ai-chain-agent-subflow" doc:id="4bdee330-12bc-4721-9cb8-76500597c776" name="mule-ai-chain-agent-subflow"/>
     </flow>
     <flow name="post:\inference\chat\answer:application\json:mac-api-config">
-        <logger level="INFO" message="post:\inference\chat\answer:application\json:mac-api-config" />
+		<flow-ref doc:name="mule-inference-chat-answer-subflow" doc:id="e42f7e53-c96c-47d0-aec5-ee62f2b46487" name="mule-inference-chat-answer-subflow"/>
     </flow>
     <flow name="post:\aichain\chat:application\json:mac-api-config">
 		<set-variable value="#[attributes.queryParams.memory]" doc:name="VL Set inMemory" doc:id="1325cbe0-59e6-4420-ac58-131decfb1381" variableName="inMemory"/>
 		<flow-ref doc:name="mule-ai-chain-chat-subflow" doc:id="469ed7aa-5f01-480b-86e8-53eca496ddda" name="mule-ai-chain-chat-subflow"/>
     </flow>
     <flow name="post:\inference\chat\completion:application\json:mac-api-config">
-        <logger level="INFO" message="post:\inference\chat\completion:application\json:mac-api-config" />
+		<flow-ref doc:name="mule-inference-chat-completion-subflow" doc:id="ab02297b-a90b-4cf7-81bc-5beb9d88a29a" name="mule-inference-chat-completion-subflow"/>
     </flow>
     <flow name="post:\aichain\embeddings\store\add\document:mac-api-config">
 		<flow-ref doc:name="mule-ai-chain-embeddings-add-document-subflow" doc:id="b409bb66-cb52-415f-9df6-8b1945a1479b" name="mule-ai-chain-embeddings-add-document-subflow"/>
@@ -101,7 +101,7 @@ output application/json
 		<flow-ref doc:name="mule-ai-chain-image-generate-subflow" doc:id="e80e3496-26ef-4a0c-82e6-cb48ae2d102e" name="mule-ai-chain-image-generate-subflow"/>
     </flow>
     <flow name="post:\inference\chat\image:application\json:mac-api-config">
-        <logger level="INFO" message="post:\inference\chat\image:application\json:mac-api-config" />
+		<flow-ref doc:name="mule-inference-image-subflow" doc:id="872128db-9045-4dc0-b8df-12b94a8f4314" name="mule-inference-image-subflow"/>
     </flow>
     <flow name="post:\aichain\embeddings\store\info:application\json:mac-api-config">
 		<flow-ref doc:name="mule-ai-chain-embeddings-store-info-subflow" doc:id="4a971a68-a802-4a43-a3a4-832e6c199a85" name="mule-ai-chain-embeddings-store-info-subflow"/>
@@ -128,10 +128,10 @@ output application/json
 		<flow-ref doc:name="mule-ai-chain-tools-service-subflow" doc:id="1df76505-6ce4-40ca-a8f1-f87d29e916d5" name="mule-ai-chain-tools-service-subflow"/>
     </flow>
     <flow name="post:\inference\chat\tools:application\json:mac-api-config">
-        <logger level="INFO" message="post:\inference\chat\tools:application\json:mac-api-config" />
+		<flow-ref doc:name="mule-inference-tools-subflow" doc:id="60e5a4cf-188e-4379-860a-f6fa6c5403ea" name="mule-inference-tools-subflow"/>
     </flow>
     <flow name="post:\inference\chat\toxicity:application\json:mac-api-config">
-        <logger level="INFO" message="post:\inference\chat\toxicity:application\json:mac-api-config" />
+		<flow-ref doc:name="mule-inference-toxicity-subflow" doc:id="b87dec35-5467-482b-92aa-78305df36e6f" name="mule-inference-toxicity-subflow"/>
     </flow>
     <flow name="post:\aichain\toxicity:application\json:mac-api-config">
 		<flow-ref doc:name="mule-ai-chain-toxicity-subflow" doc:id="a603b1cc-7f98-4230-bb45-011a080b0d00" name="mule-ai-chain-toxicity-subflow"/>

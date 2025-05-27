@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+	<sub-flow name="mule-inference-agent-subflow" doc:id="725eeb16-ab7f-4f9e-bf24-3c7e0417f343" >
+		<logger level="INFO" doc:name="START" doc:id="392a25db-d59d-45a4-b876-5908aa3d61c0" message="START - MuleSoft Inference Agent Operation" />
+		<logger level="INFO" doc:name="END" doc:id="11af9a4b-53bb-42bd-b5aa-ab0a9c6a4ac6" message="END - MuleSoft Inference Agent Operation" />
+	</sub-flow>
+	<sub-flow name="mule-inference-chat-answer-subflow" doc:id="fc1a6b2b-c883-4b07-a291-d49715c1bc47" >
+		<logger level="INFO" doc:name="START" doc:id="eaf3b873-7330-4cd9-aebd-d3f676df6376" message="START - MuleSoft Inference Chat Answer Operation" />
+		<logger level="INFO" doc:name="END" doc:id="2d6064cb-6e2a-403c-be49-bef1c07baa13" message="END - MuleSoft Inference Chat Answer Operation" />
+	</sub-flow>
+	<sub-flow name="mule-inference-chat-completion-subflow" doc:id="250f66ae-d05e-4a57-adfe-9d7946de5414" >
+		<logger level="INFO" doc:name="START" doc:id="852563ac-eef3-43c2-b329-d9594efe0451" message="START - MuleSoft Inference Chat Completion Operation" />
+		<logger level="INFO" doc:name="END" doc:id="45915191-7180-4cbe-b84c-4d205bd5af8b" message="END - MuleSoft Inference Chat Completion Operation" />
+	</sub-flow>
+	<sub-flow name="mule-inference-image-subflow" doc:id="04e8ca33-5203-4248-a762-be0900eddde0" >
+		<logger level="INFO" doc:name="START" doc:id="54e4437d-cbb9-4a4c-8be6-13643649ea7f" message="START - MuleSoft Inference Image Operation" />
+		<logger level="INFO" doc:name="END" doc:id="40574ae6-a666-440c-8919-6e658521d55f" message="END - MuleSoft Inference Image Operation" />
+	</sub-flow>
+	<sub-flow name="mule-inference-tools-subflow" doc:id="c59dcb70-3a57-42b9-9f08-524262e1f6db" >
+		<logger level="INFO" doc:name="START" doc:id="4b31a4c7-e45c-409c-a54e-7f900d27130d" message="START - MuleSoft Inference Tools Operation" />
+		<logger level="INFO" doc:name="END" doc:id="f1ef40a1-42a1-4c6d-a6fc-d1a177b355b2" message="END - MuleSoft Inference Tools Operation" />
+	</sub-flow>
+	<sub-flow name="mule-inference-toxicity-subflow" doc:id="c71ed959-4c10-4ba2-b723-a048c0eab24a" >
+		<logger level="INFO" doc:name="START" doc:id="608de089-6c66-422f-9aa7-925edd2b1880" message="START - MuleSoft Inference Toxicity Operation" />
+		<logger level="INFO" doc:name="END" doc:id="48a75fc2-df07-4114-b7ad-a9836dd4230d" message="END - MuleSoft Inference Toxicity Operation" />
+	</sub-flow>
+</mule>
