@@ -1,0 +1,6 @@
+MuleSoft Interview Questions for Experienced
+18. What do you mean by Flow in Mule?
+A flow is the sequence of the message processors. In a flow, we combine multiple processors to handle a message's receipt, processing, and routing.
+
+19. What is Subflow in a mule?
+Subflows are scopes using which you can group event processors, like main flows. However, they lack event sources and error handling scope. A subflow improves the application performance.

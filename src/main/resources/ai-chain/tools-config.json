@@ -1,0 +1,11 @@
+[
+    {
+        "action":"Execute GET requests for API endpoints.",
+        "url": "https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/612eb739-4266-4f4c-bf2f-29953c153d80/accounts-api/1.0.1/m/accounts",
+        "method": "GET",
+        "headers": "",
+        "example-payload":"{}",
+        "query": ["Get all accounts","Show accounts"],
+        "description": "Get all accounts from a CRM. "
+    }
+]

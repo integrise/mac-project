@@ -1,0 +1,57 @@
+RAG Operations
+RAG | Load Document
+The RAG load document operation retrieves information based on a plain text prompt from an in-memory embedding store. In this context, "RAG" stands for Retrieval-Augmented Generation, which combines the retrieval of relevant documents with the generation of responses. This technique enhances the performance of language models by providing them with specific context or background information from the retrieved documents, allowing them to generate more informed and accurate responses.
+
+Input Configuration
+Module Configuration
+This refers to the MuleSoft AI Chain LLM Configuration set up in the Getting Started section.
+
+General Operation Fields
+Data: The prompt to be sent to the LLM along with the embedding store to respond to.
+Context Path: Contains the full file path for the document to be ingested into the embedding store. Ensure the file path is accessible. You can also use a DataWeave expression for this field, e.g., mule.home ++ "/apps/" ++ app.name ++ "/customer-service.pdf".
+Context Operation Field
+File Type: The type of the document to be ingested into the embedding store. Currently, two file types are supported:
+text: Any type of text files (JSON, XML, TXT, CSV, etc.)
+any: Any type of files (XLSX, DOCX, PPTX, PDF, etc.)
+url: Only single URL supported
+XML Configuration
+Below is the XML configuration for this operation:
+
+<ms-aichain:rag-load-document 
+  doc:name="RAG load document" 
+  doc:id="3d3edd66-4970-4dad-a5bf-2a8eae123da4" 
+  config-ref="MAC_AI_Llm_configuration" 
+  data="#[payload.prompt]" 
+  contextPath="#[payload.contextPath]"
+/>
+
+Output Configuration
+Response Payload
+This operation responds with a json payload containing the main LLM response. Additionally, attributes such as token usage are included as part of the metadata (attributes), but not within the main payload.
+
+Example Response Payload
+{
+  "response": "Wakanda, a technologically advanced and environmentally conscious nation in Africa, is renowned for its unique integration of ancient traditions with cutting-edge innovations, powered by the rare metal Vibranium. With a population of 12.5 million, it emphasizes sustainable growth, quality education, and healthcare, while maintaining a zero carbon footprint through advanced eco-tech solutions. Despite its peaceful nature, Wakanda's formidable military and cultural heritage, led by King T’Challa and the Dora Milaje, ensure its resilience and unity as a symbol of progress and tradition."
+}
+
+Attributes
+Along with the JSON payload, the operation also returns attributes, which include information about token usage:
+
+{
+  "tokenUsage": {
+      "outputCount": 9,
+      "totalCount": 18,
+      "inputCount": 9
+  }
+}
+
+tokenUsage: The token usage metadata, returned as attributes.
+outputCount: The number of tokens used to generate the output.
+totalCount: The total number of tokens used for input and output.
+inputCount: The number of tokens used to process the input.
+Example Use Cases
+This operation is useful in scenarios where you need to retrieve information from a document based on a plain text prompt, such as:
+
+Knowledge Management: Extracting specific information from documents stored in a knowledge base.
+Customer Support: Retrieving relevant data from customer service documents to assist with inquiries.
+Research: Accessing information from research papers or documents based on specific queries.

@@ -85,6 +85,7 @@ output application/json
         <logger level="INFO" message="post:\inference\chat\answer:application\json:mac-api-config" />
     </flow>
     <flow name="post:\aichain\chat:application\json:mac-api-config">
+		<set-variable value="#[attributes.queryParams.memory]" doc:name="VL Set inMemory" doc:id="1325cbe0-59e6-4420-ac58-131decfb1381" variableName="inMemory"/>
 		<flow-ref doc:name="mule-ai-chain-chat-subflow" doc:id="469ed7aa-5f01-480b-86e8-53eca496ddda" name="mule-ai-chain-chat-subflow"/>
     </flow>
     <flow name="post:\inference\chat\completion:application\json:mac-api-config">

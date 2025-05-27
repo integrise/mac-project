@@ -1,0 +1,784 @@
+{
+	"info": {
+		"_postman_id": "256cb646-f2d5-4a90-a453-74d96c340b66",
+		"name": "MAC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "whisperer",
+			"item": [
+				{
+					"name": "speech-to-text",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/whisperer/speech-to-text",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"whisperer",
+								"speech-to-text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "text-to-speech",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Hello. I am happy to learn AI with MuleSoft. And you?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/whisperer/text-to-speech",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"whisperer",
+								"text-to-speech"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "webcrawler",
+			"item": [
+				{
+					"name": "sitemap",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/webcrawler/sitemap?url=https://mac-project.ai&depth=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"sitemap"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								},
+								{
+									"key": "depth",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "website",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/webcrawler/website?url=https://mac-project.ai&depth=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"website"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								},
+								{
+									"key": "depth",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/webcrawler/images?url=https://mac-project.ai",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"images"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "documents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/webcrawler/documents?url=https://www.ircc.canada.ca/english/helpcentre/answer.asp?qnum=660",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"documents"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://www.ircc.canada.ca/english/helpcentre/answer.asp?qnum=660"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "insights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/webcrawler/insights?url=https://mac-project.ai",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"insights"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "content",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/webcrawler/content?url=https://mac-project.ai",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"content"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/webcrawler/tags?url=https://mac-project.ai",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"What is the MuleSoft AI Chain Project?\",\n    \"googleApiKey\": \"b0c5e15b50d856b5c3912ac074aedd80303b836e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/webcrawler/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"search"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ai-chain",
+			"item": [
+				{
+					"name": "agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n  \"dataset\": \"Love the crust, best dough I’ve had in ages!\",\n  \"template\": \"You are a customer satisfaction agent, who analyses the customer feedback in the dataset. Answer via JSON output and add a type for the result only with positive or negative as well as the complete answer\",\n  \"instructions\": \"If the customer feedback is negative, open a service satisfaction case and apologize. If it’s positive, thank the customer and wish them a nice day. Don’t repeat the feedback; start with a formal greeting.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/agent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"agent"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n  \"prompt\": \"In three emoji bullets, show how cool MuleSoft AI Chain is.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/chat?memory=off",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"chat"
+							],
+							"query": [
+								{
+									"key": "memory",
+									"value": "off"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "embeddings new store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"storeName\": \"embeddings.store\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/embeddings/store/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"embeddings",
+								"store",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "embeddings query from store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"question\": \"What do you mean by Flow in Mule?\",\n  \"storeName\": \"embeddings.store\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/embeddings/store/query",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"embeddings",
+								"store",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "embeddings store info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"storeName\": \"embeddings.store\",\n  \"data\": \"Embeddings\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/embeddings/store/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"embeddings",
+								"store",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "embeddings store add document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"storeName\": \"embeddings.store\",\n    \"fileName\": \"MuleSoft-QA.txt\", \n    \"fileType\": \"text\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/embeddings/store/add/document",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"embeddings",
+								"store",
+								"add",
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "embeddings store add folder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"storeName\": \"embeddings.store\",\n  \"folderName\": \"store\", \n  \"fileType\": \"text\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/embeddings/store/add/folder",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"embeddings",
+								"store",
+								"add",
+								"folder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image read",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"imageUrl\": \"https://oaidalleapiprodscus.blob.core.windows.net/private/org-HiQLiTShhASOw7ZqbSez9Xam/user-W4EZDMRKYKs7GJ1fTWCvD8ba/img-GGKgpUEdX0moyikTxV0y3ChD.png?st=2025-05-27T12%3A28%3A34Z&se=2025-05-27T14%3A28%3A34Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=8b33a531-2df9-46a3-bc02-d4b1430a422c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-26T18%3A49%3A26Z&ske=2025-05-27T18%3A49%3A26Z&sks=b&skv=2024-08-04&sig=meQi/YtUWqCdSYYkXCPRLjf/xQHj9cyqfd5uEyw2aoI%3D\", \n  \"prompt\": \"Who is the superhero on the image? Name it.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/image/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"image",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image generate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"prompt\": \"MuleMax superhero mule bridging glowing clouds with lightning-fast data streams – Powered by MuleSoft.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/image/generate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"image",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"Extract the following information as JSON: Invoice No., Issue date, Due date, Description, Quantity, Unit Price, Amount, Discount, Total due\",\n    \"fileName\": \"RAG_Invoice.pdf\", \n    \"fileType\": \"any\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/rag",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"rag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sentiment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"AI-Chain Connector is a total game-changer—boosting productivity and delighting our entire dev team!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/sentiment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"sentiment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tool service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"Get all accounts from a CRM.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/tools/ai/service",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"tools",
+								"ai",
+								"service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tool native",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"Get the current temperature for a Toronto in Celsius\",\n    \"tools\": [\n    {\n      \"type\": \"function\",\n      \"function\": {\n        \"name\": \"get_current_temperature\",\n        \"description\": \"Get the current temperature for a specific location\",\n        \"parameters\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"location\": {\n              \"type\": \"string\",\n              \"description\": \"The city and state, e.g., San Francisco, CA\"\n            },\n            \"unit\": {\n              \"type\": \"string\",\n              \"enum\": [\"Celsius\", \"Fahrenheit\"],\n              \"description\": \"The temperature unit to use. Infer this from the user's location.\"\n            }\n          },\n          \"required\": [\"location\", \"unit\"]\n        }\n      }\n    },\n    {\n      \"type\": \"function\",\n      \"function\": {\n        \"name\": \"get_rain_probability\",\n        \"description\": \"Get the probability of rain for a specific location\",\n        \"parameters\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"location\": {\n              \"type\": \"string\",\n              \"description\": \"The city and state, e.g., San Francisco, CA\"\n            }\n          },\n          \"required\": [\"location\"]\n        }\n      }\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/tools/ai/native",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"tools",
+								"ai",
+								"native"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "toxicity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": \"Ugh, this product launch is the dumbest thing I’ve ever seen.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/aichain/toxicity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"toxicity"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

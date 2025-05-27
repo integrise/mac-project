@@ -1,20 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
-	<sub-flow name="mule-ai-chain-agent-subflow" doc:id="52a02c53-3d87-499c-bd83-7c96c666fc97" />
-	<sub-flow name="mule-ai-chain-chat-subflow" doc:id="590cab38-865b-4445-a8b4-12117bede9d5" />
-	<sub-flow name="mule-ai-chain-embeddings-add-document-subflow" doc:id="60ad7b71-9812-46c2-a08a-5be8f8cc5931" />
-	<sub-flow name="mule-ai-chain-embeddings-add-folder-subflow" doc:id="b91598b4-4615-47e8-bff5-894444e2cc3d" />
-	<sub-flow name="mule-ai-chain-embeddings-store-info-subflow" doc:id="f27fbe31-39f2-4b95-ab86-a555746326e6" />
-	<sub-flow name="mule-ai-chain-embeddings-store-new-subflow" doc:id="4bd4136d-df90-4931-81ad-a1c5e7a59f56" />
-	<sub-flow name="mule-ai-chain-embeddings-store-query-subflow" doc:id="3739c248-4157-4afe-98fd-df62997168e2" />
-	<sub-flow name="mule-ai-chain-image-read-subflow" doc:id="58a0d8f4-75b5-49ad-95af-a2dbb8c827f2" />
-	<sub-flow name="mule-ai-chain-image-generate-subflow" doc:id="2712fb47-779b-4d0c-8c6c-cd36f24d075b" />
-	<sub-flow name="mule-ai-chain-rag-subflow" doc:id="714a1e46-0879-46c4-8bef-b26aec744849" />
-	<sub-flow name="mule-ai-chain-sentiment-subflow" doc:id="18cd583a-49e2-470a-a623-6c71442e9efc" />
-	<sub-flow name="mule-ai-chain-tools-native-subflow" doc:id="609cb7a3-1f0a-40f5-8d2e-07fbd4f00796" />
-	<sub-flow name="mule-ai-chain-tools-service-subflow" doc:id="e13bf751-5822-4b02-81de-d36a95d53c0d" />
-	<sub-flow name="mule-ai-chain-toxicity-subflow" doc:id="8d7e00de-5320-4296-8d40-6dccf0b7f12e" />
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:ms-aichain="http://www.mulesoft.org/schema/mule/ms-aichain"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ms-aichain http://www.mulesoft.org/schema/mule/ms-aichain/current/mule-ms-aichain.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<sub-flow name="mule-ai-chain-agent-subflow" doc:id="52a02c53-3d87-499c-bd83-7c96c666fc97" >
+		<logger level="INFO" doc:name="START" doc:id="980060b7-9d45-4e0f-84cc-20f19eca0104" message="START - AI Chain Agent Operation" />
+		<ms-aichain:agent-define-prompt-template doc:name="Agent define prompt template" doc:id="8c33b615-9cb8-47e8-acf7-cab6ec3636a9" config-ref="MuleSoft_AI_Chain_Config">
+			<ms-aichain:dataset ><![CDATA[#[payload.dataset default '']]]></ms-aichain:dataset>
+			<ms-aichain:template ><![CDATA[#[payload.template default '']]]></ms-aichain:template>
+			<ms-aichain:instructions ><![CDATA[#[payload.instructions default '']]]></ms-aichain:instructions>
+		</ms-aichain:agent-define-prompt-template>
+		<ee:transform doc:name="Prepare Response" doc:id="3e262605-5060-4124-87d2-ff404f5cace0" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+    "response": read(payload.response replace "```" with "" replace "json" with "", "application/json")
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="END" doc:id="fb984210-6442-4a54-bf5c-e79305393315" message="END - AI Chain Agent Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-chat-subflow" doc:id="590cab38-865b-4445-a8b4-12117bede9d5" >
+		<logger level="INFO" doc:name="START" doc:id="8987e985-3777-4bcf-95fd-6042686a6051" message="START - AI Chain Chat Operation" />
+		<choice doc:name="Choice to Answer Prompt with Memory" doc:id="85be4ff9-bf8c-4a46-a3c6-8497e2089b28" >
+			<when expression="#['on' == vars.inMemory]">
+				<ms-aichain:chat-answer-prompt-with-memory doc:name="Chat answer prompt with memory" doc:id="fe2f400f-92b8-4ed3-a80d-ab06bb10f8a3" config-ref="MuleSoft_AI_Chain_Config" memoryName="#[p('aiChain.chat.memory.name')]" maxMessages="#[p('aiChain.chat.maxMessages')]" dbFilePath='#[mule.home ++ "/apps/" ++ app.name ++ "/ai-chain/memory.db"]'>
+					<ms-aichain:data ><![CDATA[#[payload.prompt]]]></ms-aichain:data>
+				</ms-aichain:chat-answer-prompt-with-memory>
+			</when>
+			<otherwise >
+				<ms-aichain:chat-answer-prompt doc:name="Chat answer prompt" doc:id="6faf65da-3ba6-434a-8a32-41da285905a3" config-ref="MuleSoft_AI_Chain_Config">
+					<ms-aichain:prompt ><![CDATA[#[payload.prompt]]]></ms-aichain:prompt>
+				</ms-aichain:chat-answer-prompt>
+			</otherwise>
+		</choice>
+		<ee:transform doc:name="Prepare Response" doc:id="ffb4427b-95bd-4fc5-81a8-26301aec4455">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+    response: payload.response replace "\n" with ""
+}]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+		<logger level="INFO" doc:name="END" doc:id="2ecca510-e628-4383-8838-a16c1d498f7d" message="END - AI Chain Chat Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-embeddings-add-document-subflow" doc:id="60ad7b71-9812-46c2-a08a-5be8f8cc5931" >
+		<logger level="INFO" doc:name="START" doc:id="1f33f773-3f9f-401c-8a7f-1ec32ca83dd5" message="START - AI Chain Embeddings Add Document Operation" />
+		<ms-aichain:embedding-add-document-to-store doc:name="Embedding add document to store" doc:id="cb3846df-d41a-477f-a432-99326bad35e2" storeName='#[payload.storeName]' contextPath='#[mule.home ++ "/apps/" ++ app.name ++ "/ai-chain/" ++ payload.fileName]' maxSegmentSizeInChars="2000" maxOverlapSizeInChars="200" fileType="#[payload.fileType]"/>
+		<logger level="INFO" doc:name="END" doc:id="25f384c9-8829-4da7-a8c2-032738a7cae5" message="END - AI Chain Embeddings Add Document Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-embeddings-add-folder-subflow" doc:id="b91598b4-4615-47e8-bff5-894444e2cc3d" >
+		<logger level="INFO" doc:name="START" doc:id="95541598-08e4-4e49-8ca7-d05b0b43e560" message="START - AI Chain Embeddings Add Folder Operation" />
+		<ms-aichain:embedding-add-folder-to-store doc:name="Embedding add folder to store" doc:id="9b872a6f-e30c-4a2c-bb6c-808a27ca103b" storeName='#[payload.storeName]' contextPath='#[mule.home ++ "/apps/" ++ app.name ++ "/ai-chain/" ++ payload.folderName]' maxSegmentSizeInChars="2000" maxOverlapSizeInChars="200" fileType="#[payload.fileType]"/>
+		<logger level="INFO" doc:name="END" doc:id="4c135b86-6590-4a85-9e9b-0d14448893df" message="END - AI Chain Embeddings Add Folder Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-embeddings-store-info-subflow" doc:id="f27fbe31-39f2-4b95-ab86-a555746326e6" >
+		<logger level="INFO" doc:name="START" doc:id="9df21bdc-fb8e-4194-89c5-5c814697e75a" message="START - AI Chain Embeddings Get Info from Store Operation" />
+		<ms-aichain:embedding-get-info-from-store doc:name="Embedding get info from store" doc:id="9a56267a-e684-410f-a101-f08172b19176" config-ref="MuleSoft_AI_Chain_Config" storeName='#[payload.storeName]' getLatest="true">
+			<ms-aichain:data ><![CDATA[#[payload.data]]]></ms-aichain:data>
+		</ms-aichain:embedding-get-info-from-store>
+		<logger level="INFO" doc:name="END" doc:id="e0db5d64-aadc-44e4-baa5-a0da0d66f7de" message="END - AI Chain Embeddings Get Info from Store Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-embeddings-store-new-subflow" doc:id="4bd4136d-df90-4931-81ad-a1c5e7a59f56" >
+		<logger level="INFO" doc:name="START" doc:id="2bed149c-3920-4926-9bb9-a06d11f929a9" message="START - AI Chain Embeddings New Store Operation" />
+		<ms-aichain:embedding-new-store doc:name="Embedding new store" doc:id="3622cc5a-80be-4a9c-a2b5-5c9653da2c7c" storeName='#[payload.storeName]'/>
+		<logger level="INFO" doc:name="END" doc:id="85ae0933-0456-46aa-866b-e033447ed5b0" message="END - AI Chain Embeddings New Store Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-embeddings-store-query-subflow" doc:id="3739c248-4157-4afe-98fd-df62997168e2" >
+		<logger level="INFO" doc:name="START" doc:id="d785197b-6ec8-44f6-946f-fc44c90fd9ef" message="START - AI Chain Embeddings Query From Store Operation" />
+		<ms-aichain:embedding-query-from-store doc:name="Embedding query from store" doc:id="7de168da-d40b-4d46-a12d-0f80fde5b109" storeName='#[payload.storeName]' maxResults="3" minScore="0.7">
+			<ms-aichain:question ><![CDATA[#[payload.question]]]></ms-aichain:question>
+		</ms-aichain:embedding-query-from-store>
+		<logger level="INFO" doc:name="END" doc:id="5f0e3408-0422-4d4e-9746-4e28ac2750f5" message="END - AI Chain Embeddings Query From Store Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-image-read-subflow" doc:id="58a0d8f4-75b5-49ad-95af-a2dbb8c827f2" >
+		<logger level="INFO" doc:name="START" doc:id="564a3875-7055-4047-b6ee-728a668b5a68" message="START - AI Chain Image Read Operation" />
+		<ms-aichain:image-read doc:name="Image read" doc:id="0d97b063-1e04-4535-ae18-6f257ce71ede" config-ref="MuleSoft_AI_Chain_Config" contextURL="#[payload.imageUrl]">
+			<ms-aichain:data ><![CDATA[#[payload.prompt]]]></ms-aichain:data>
+		</ms-aichain:image-read>
+		<logger level="INFO" doc:name="END" doc:id="94d85f13-39d5-46a1-a10b-6011228a5be6" message="END - AI Chain Image Read Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-image-generate-subflow" doc:id="2712fb47-779b-4d0c-8c6c-cd36f24d075b" >
+		<logger level="INFO" doc:name="START" doc:id="848642f1-e829-4226-8125-00a6af003ffc" message="START - AI Chain Image Generate Operation" />
+		<ms-aichain:image-generate doc:name="Image generate" doc:id="21708c1f-8080-4389-85dd-7e0454ddd292" config-ref="MuleSoft_AI_Chain_Config">
+			<ms-aichain:data ><![CDATA[#[payload.prompt]]]></ms-aichain:data>
+		</ms-aichain:image-generate>
+		<logger level="INFO" doc:name="END" doc:id="30aff441-1328-40b2-b40d-77af09766afc" message="END - AI Chain Image Generate Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-rag-subflow" doc:id="714a1e46-0879-46c4-8bef-b26aec744849" >
+		<logger level="INFO" doc:name="START" doc:id="7d0ed7b3-96e9-4d26-8704-b4eb751e5727" message="START - AI Chain Rag Load Document Operation" />
+		<ms-aichain:rag-load-document doc:name="Rag load document" doc:id="28c38184-03a0-4ad4-b78e-c0748ac733ab" config-ref="MuleSoft_AI_Chain_Config" contextPath='#[mule.home ++ "/apps/" ++ app.name ++ "/ai-chain/" ++ payload.fileName]' fileType="#[payload.fileType]">
+			<ms-aichain:data ><![CDATA[#[payload.prompt]]]></ms-aichain:data>
+		</ms-aichain:rag-load-document>
+		<ee:transform doc:name="Prepare Response" doc:id="e8c08289-dbd9-4d70-94cf-429aba900d4b">
+			<ee:message>
+				<ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+    "response": read(payload.response replace "```" with "" replace "json" with "", "application/json")
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="END" doc:id="2c00d596-da61-4671-bb4c-c50722714df3" message="END - AI Chain Rag Load Document Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-sentiment-subflow" doc:id="18cd583a-49e2-470a-a623-6c71442e9efc" >
+		<logger level="INFO" doc:name="START" doc:id="c71a5246-ba6b-41be-a6a7-1973d78456fb" message="START - AI Chain Sentiment Analyzer Operation" />
+		<ms-aichain:sentiment-analyze doc:name="Sentiment analyze" doc:id="20b8bd44-6ddc-4637-9e9b-1483424c3f12" config-ref="MuleSoft_AI_Chain_Config" generateResponse="true">
+			<ms-aichain:data ><![CDATA[#[payload.prompt]]]></ms-aichain:data>
+		</ms-aichain:sentiment-analyze>
+		<logger level="INFO" doc:name="END" doc:id="31a63783-d90d-4b18-9f71-72363672325a" message="END - AI Chain Sentiment Analyzer Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-tools-native-subflow" doc:id="609cb7a3-1f0a-40f5-8d2e-07fbd4f00796" >
+		<logger level="INFO" doc:name="START" doc:id="c8ce3690-2336-4a3c-8b33-31ec631c2936" message="START - AI Chain Tools Use AI Native Operation" />
+		<ms-aichain:tools-use-ai-native doc:name="Tools use ai native" doc:id="9225ea00-9bca-4a8a-ac62-ff5d48bf8aab" config-ref="MuleSoft_AI_Chain_Config" toolsArray="#[payload.tools]">
+			<ms-aichain:data ><![CDATA[#[payload.prompt]]]></ms-aichain:data>
+		</ms-aichain:tools-use-ai-native>
+		<logger level="INFO" doc:name="END" doc:id="580a02f4-aa63-4ebd-b750-b57b9a3ef13e" message="END - AI Chain Tools Use AI Native Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-tools-service-subflow" doc:id="e13bf751-5822-4b02-81de-d36a95d53c0d" >
+		<logger level="INFO" doc:name="START" doc:id="4f057441-38a5-4555-acf4-6071d0b5bbd7" message="START - AI Chain Tools Use AI Service Operation" />
+		<ms-aichain:tools-use-ai-service doc:name="Tools use ai service" doc:id="7b93e872-845c-4654-905a-68b675d8ab23" config-ref="MuleSoft_AI_Chain_Config" toolConfig='#[mule.home ++ "/apps/" ++ app.name ++ "/ai-chain/tools-config.json"]'>
+			<ms-aichain:data ><![CDATA[#[payload.prompt]]]></ms-aichain:data>
+		</ms-aichain:tools-use-ai-service>
+		<logger level="INFO" doc:name="END" doc:id="7225e464-3e6f-4c33-8928-757d4c039d6a" message="END - AI Chain Tools Use AI Service Operation" />
+	</sub-flow>
+	<sub-flow name="mule-ai-chain-toxicity-subflow" doc:id="8d7e00de-5320-4296-8d40-6dccf0b7f12e" >
+		<logger level="INFO" doc:name="START" doc:id="87d48238-a526-4cce-a1fd-301f9ca3fb27" message="START - AI Chain Toxicity Detection Operation" />
+		<ms-aichain:toxicity-detection doc:name="Toxicity detection" doc:id="1883c0c3-41b9-47c3-aa1e-e6dccaf34cfa" config-ref="MuleSoft_AI_Chain_Config" input="#[payload.data]"/>
+		<logger level="INFO" doc:name="END" doc:id="517434de-50e0-4564-b884-bbc85fdddbf5" message="END - AI Chain Toxicity Detection Operation" />
+	</sub-flow>
 </mule>

@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>com.mulesoft.connectors</groupId>
 			<artifactId>mule4-aichain-connector</artifactId>
-			<version>1.0.0</version>
+			<version>1.2.0</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
