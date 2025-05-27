@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties" xmlns:whisperer="http://www.mulesoft.org/schema/mule/whisperer"
-	xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns:ms-webcrawler="http://www.mulesoft.org/schema/mule/ms-webcrawler" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:ms-aichain="http://www.mulesoft.org/schema/mule/ms-aichain" xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
+	xmlns:whisperer="http://www.mulesoft.org/schema/mule/whisperer"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ms-webcrawler="http://www.mulesoft.org/schema/mule/ms-webcrawler" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/ms-webcrawler http://www.mulesoft.org/schema/mule/ms-webcrawler/current/mule-ms-webcrawler.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/whisperer http://www.mulesoft.org/schema/mule/whisperer/current/mule-whisperer.xsd
-http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd
+http://www.mulesoft.org/schema/mule/ms-aichain http://www.mulesoft.org/schema/mule/ms-aichain/current/mule-ms-aichain.xsd">
 	<ms-webcrawler:config name="MuleSoft_WebCrawler_Connector_Config" doc:name="MuleSoft WebCrawler Connector Config" doc:id="1233dd5d-c884-43aa-aa51-eb8ea8225654" >
 		<ms-webcrawler:http-connection userAgent="Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" />
 	</ms-webcrawler:config>
@@ -18,4 +19,5 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
 		<whisperer:openai-connection apiKey="${secure::openai.api.key}" />
 	</whisperer:config>
 	<configuration doc:name="Configuration" doc:id="dac644ec-e157-441b-a0dc-19597130443e" defaultErrorHandler-ref="global-error-handling" />
+	<ms-aichain:config name="MuleSoft_AI_Chain_Config" doc:name="MuleSoft AI Chain Config" doc:id="a1a21db4-df42-48bc-b6d9-18bc0c348b37" llmType="OPENAI" configType="Environment Variables" modelName="gpt-4o-mini" filePath="-"/>
 </mule>

@@ -1,0 +1,162 @@
+Toxicity Detection Operations
+Toxicity | Detection
+The Toxicity | Detection operation is useful to classify and score any harmful content by the user or the LLM.
+
+Input Configuration
+Module Configuration
+This refers to the MuleSoft AI Chain LLM Configuration set up in the Getting Started section.
+
+General Operation Fields
+input: The input to be checked on harmful content.
+XML Configuration
+Below is the XML configuration for this operation:
+
+<ms-aichain:toxicity-detection 
+   doc:name="Toxicity detection" 
+   doc:id="c7e47148-ef40-4ec4-9b54-65f5c0a03b15" 
+   config-ref="MISTRAL_AI" 
+   input="#[payload.prompt]"
+/>
+ 
+
+Output Configuration
+Response Payload
+This operation responds with a json payload containing the toxicity detection and rating.
+
+Example Response Payload (Mistral)
+This is an example from the Mistral Moderation Model.
+
+{
+    "response": {
+        "model": "mistral-moderation-latest",
+        "id": "d664b37f6cff48b7a762aba1a2dfb12d",
+        "results": [
+            {
+                "category_scores": {
+                    "pii": 0.00017952919006347656,
+                    "violence_and_threats": 0.0006070137023925781,
+                    "law": 0.00000476837158203125,
+                    "dangerous_and_criminal_content": 0.0002613067626953125,
+                    "selfharm": 0.00006604194641113281,
+                    "financial": 0.0000311732292175293,
+                    "hate_and_discrimination": 0.7958984375,
+                    "health": 0.00003319978713989258,
+                    "sexual": 0.00015842914581298828
+                },
+                "categories": {
+                    "pii": false,
+                    "violence_and_threats": false,
+                    "law": false,
+                    "dangerous_and_criminal_content": false,
+                    "selfharm": false,
+                    "financial": false,
+                    "hate_and_discrimination": true,
+                    "health": false,
+                    "sexual": false
+                }
+            }
+        ]
+    }
+}
+
+Example Response Payload (OpenAI)
+This is an example from the OpenAI Moderation Model.
+
+{
+    "response": {
+        "model": "omni-moderation-latest",
+        "id": "modr-7aaa8518ac1c3886d2dcb6c43e833f12",
+        "results": [
+            {
+                "category_scores": {
+                    "illicit/violent": 0.0000022474089854291757,
+                    "self-harm/instructions": 0.0000027535691114583474,
+                    "harassment": 0.5699403734868076,
+                    "violence/graphic": 0.000006302758756443267,
+                    "illicit": 0.000016865275398914433,
+                    "self-harm/intent": 0.000002840974294610978,
+                    "hate/threatening": 0.0000010783312222985275,
+                    "sexual/minors": 0.000002355261854303796,
+                    "harassment/threatening": 0.0008374506033373245,
+                    "hate": 0.007200823403173291,
+                    "self-harm": 0.000007662101864956481,
+                    "sexual": 0.00012448433020883747,
+                    "violence": 0.0005300709180442588
+                },
+                "flagged": true,
+                "category_applied_input_types": {
+                    "illicit/violent": [
+                        "text"
+                    ],
+                    "self-harm/instructions": [
+                        "text"
+                    ],
+                    "harassment": [
+                        "text"
+                    ],
+                    "violence/graphic": [
+                        "text"
+                    ],
+                    "illicit": [
+                        "text"
+                    ],
+                    "self-harm/intent": [
+                        "text"
+                    ],
+                    "hate/threatening": [
+                        "text"
+                    ],
+                    "sexual/minors": [
+                        "text"
+                    ],
+                    "harassment/threatening": [
+                        "text"
+                    ],
+                    "hate": [
+                        "text"
+                    ],
+                    "self-harm": [
+                        "text"
+                    ],
+                    "sexual": [
+                        "text"
+                    ],
+                    "violence": [
+                        "text"
+                    ]
+                },
+                "categories": {
+                    "illicit/violent": false,
+                    "self-harm/instructions": false,
+                    "harassment": true,
+                    "violence/graphic": false,
+                    "illicit": false,
+                    "self-harm/intent": false,
+                    "hate/threatening": false,
+                    "sexual/minors": false,
+                    "harassment/threatening": false,
+                    "hate": false,
+                    "self-harm": false,
+                    "sexual": false,
+                    "violence": false
+                }
+            }
+        ]
+    }
+}
+
+Attributes
+Along with the JSON payload, the operation also returns attributes, which include information about token and tool usage:
+
+{
+    "attributes": {
+        "tokenUsage": null,
+        "additionalAttributes": {}
+    }
+}
+
+Example Use Cases
+This operation can be particularly useful in various scenarios, such as:
+
+Detecting Toxic Inputs: Detect and block toxic input by the user to be send to the LLM.
+Detecting Harmful Responses: Filter out toxic LLM response that could be harmful to the user.

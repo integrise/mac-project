@@ -10,7 +10,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 http://www.mulesoft.org/schema/mule/whisperer http://www.mulesoft.org/schema/mule/whisperer/current/mule-whisperer.xsd">
 	<flow name="mule-whisperer-speech-to-text-subflow" doc:id="2878a1d7-cfdc-4f56-ad47-5b254793dc84" >
 		<logger level="INFO" doc:name="START" doc:id="69061c96-c500-4b7a-acbb-cad61f4d7c31" message="START - Whisperer Speech To Text Operation"/>
-		<file:read doc:name="Read .wav file" doc:id="72e53ee4-0a3a-449b-8a23-7c6fd00cc28e" path="${app.home}/audio.wav"/>
+		<file:read doc:name="Read .wav file" doc:id="72e53ee4-0a3a-449b-8a23-7c6fd00cc28e" path="${app.home}/whisperer/audio.wav"/>
 		<whisperer:speech-to-text doc:name="Speech to Text" doc:id="ad87d494-b834-4b33-a216-9416172ace28" config-ref="MAC_Whisperer_Config"/>
 		<ee:transform doc:name="Response Payload" doc:id="50dfdda5-da76-4237-b826-d2b4b8f83c98" >
 			<ee:message >
@@ -29,7 +29,7 @@ output application/json
 		<whisperer:text-to-speech doc:name="Text to Speech" doc:id="fd99e6bc-0f95-4688-be63-174f0438ae61" config-ref="MAC_Whisperer_Config">
 			<whisperer:text ><![CDATA[#[payload.text]]]></whisperer:text>
 		</whisperer:text-to-speech>
-		<file:write doc:name="Write .mp3 file" doc:id="a46c63e0-ea51-49af-ba44-8a8404ae7b14" path="#[p('audio.path') ++ 'audio.mp3']"/>
+		<file:write doc:name="Write .mp3 file" doc:id="a46c63e0-ea51-49af-ba44-8a8404ae7b14" path='#[mule.home ++ "/apps/" ++ app.name ++ "/whisperer/audio.mp3"]'/>
 		<ee:transform doc:name="Response Payload" doc:id="5a6c9769-c51a-45f4-aa6d-ca7d0e2e585c" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0

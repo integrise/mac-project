@@ -1,0 +1,359 @@
+Tools Operations
+Tools | Use AI Service
+The Tools | Use AI Service operation is useful if you want to create autonomous agents that can use external tools whenever a prompt cannot be answered directly by the AI model. A prerequisite for using Tools is to prepare a tools.config.json file, which includes all the necessary API information for the operation to execute APIs successfully.
+
+Input Configuration
+Module Configuration
+This refers to the MuleSoft AI Chain LLM Configuration set up in the Getting Started section.
+
+General Operation Fields
+Data: The prompt to be sent to the LLM.
+Tool Config: Contains the full file path to the tools.config.json file. Ensure the file path is accessible. You can also use a DataWeave expression for this field, e.g., mule.home ++ "/apps/" ++ app.name ++ "/tools.config.json".
+tools.config.json
+Below is an example of the tools.config.json file. You can name the file as you like.
+
+[
+    {
+        "action": "Execute POST requests for API endpoints.",
+        "url": "http://check-inventory-material.cloudhub.io/mmbe",
+        "name": "Check Inventory",
+        "method": "POST",
+        "headers": "Basic XXX",
+        "example-payload": "{\n \"materialNo\": \"paramValue\"}",
+        "query": [
+            "Check inventory in SAP",
+            "Check Stock Overview",
+            "Show product availability for MULETEST0",
+            "Check the inventory for MULETEST0",
+            "Check Stock for 400-110"
+        ],
+        "description": "Check inventory details for material in SAP by providing the materialNo as input for paramValue. Please use the materialNo and not materialNumber. This action applies whenever users' intent is 'Stock overview', 'product availability', 'Inventory', 'available stock'. Use the headers to perform the request."
+    },
+    {
+        "action": "Execute GET requests for API endpoints.",
+        "url": "https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/612eb739-4266-4f4c-bf2f-29953c153d80/accounts-api/1.0.1/m/accounts",
+        "name": "Show Accounts",
+        "method": "GET",
+        "headers": "",
+        "example-payload": "{}",
+        "query": [
+            "Get all accounts",
+            "Show all accounts from CRM"
+        ],
+        "description": "Get all accounts from a CRM. This action applies whenever users' intent is 'CRM accounts', 'customers', 'customer accounts', 'accounts'."
+    },
+    {
+        "action": "Execute GET requests for API endpoints.",
+        "url": "https://anypoint.mulesoft.com/mocking/api/v1/sources/exchange/assets/7b99cead-a984-497b-9e6c-c16a3b4dcb76/employee-api/1.0.1/m/employees",
+        "name": "Show Employees",
+        "method": "GET",
+        "headers": "",
+        "example-payload": "{}",
+        "query": [
+            "Get all employee information",
+            "Show employees for the country Switzerland",
+            "How many employees do we have",
+            "Show a list of all employees"
+        ],
+        "description": "Get all information about employees. This action applies whenever users' intent is 'employees', 'workforce'."
+    }
+]
+
+Each object in the tools array represents a tool that the autonomous agent can use. Make sure to describe each field as accurately as possible.
+
+action: This field currently supports the following options:
+Execute GET requests for API endpoints.
+Execute POST requests for API endpoints.
+url: The complete URL to the endpoint, including the resource path.
+name: The name of the action in natural language.
+method: The HTTP method for the endpoint. Currently, only POST and GET are supported.
+headers: The HTTP headers required for authorization to the endpoint. Currently, only Basic Auth is supported.
+example-payload: The example payload in JSON format.
+query: Example queries a user might use to invoke this action.
+description: A detailed description of how to use the tool. The description should be comprehensive enough for the LLM to understand its purpose and usage.
+Note: Ensure that the file path to tools.config.json is accessible to the application at runtime.
+
+XML Configuration
+Below is the XML configuration for this operation:
+
+<ms-aichain:tools-use-ai-service 
+  doc:name="Tools use AI service" 
+  doc:id="910f744f-e359-4e39-afd1-3fb932c5fc53" 
+  config-ref="MAC_AI_Llm_configuration" 
+  data="#[payload.prompt]" 
+  toolConfig='#[mule.home ++ "/apps/" ++ app.name ++ "/tools.config.json"]'
+/>
+
+Output Configuration
+Response Payload
+This operation responds with a json payload containing the main LLM response. Additionally, attributes such as token usage and tool usage (boolean value) are included as part of the metadata (attributes), but not within the main payload.
+
+Example Response Payload (Tools not used)
+If the prompt is a general question that can be answered with public knowledge, such as:
+
+"What is the capital of Switzerland?"
+
+{
+    "response": "The capital of Switzerland is Bern."
+}
+
+Example Response Payload (Tools used)
+If the prompt requires accessing external data through a tool, such as:
+
+"Show me the latest account created in Salesforce."
+
+The AI model will use the configured tool to fetch the information, resulting in:
+
+{
+    "response": "The latest account created in Salesforce is:\n\n- **Name:** MuleTalks\n- **Id:** 0010600002JKf42AAD\n- **Created Date:** 2024-07-10T20:21:36.000Z\n\nIf you have any further questions or need additional assistance, feel free to ask!"
+}
+
+Attributes
+Along with the JSON payload, the operation also returns attributes, which include information about token and tool usage:
+
+{
+    "tokenUsage": {
+        "outputCount": 9,
+        "totalCount": 18,
+        "inputCount": 9
+    },
+    "additionalAttributes": {
+        "toolsUsed": "true"
+    }
+}
+
+tokenUsage: The token usage metadata, returned as attributes.
+outputCount: The number of tokens used to generate the output.
+totalCount: The total number of tokens used for input and output.
+inputCount: The number of tokens used to process the input.
+additionalAttributes: Other relevant metadata for the request.
+toolsUsed: Indicates whether external tools were used in processing the request.
+true: External tools, such as APIs or integrations, were used to gather or generate the response.
+false: No external tools were used, and the response was based purely on internal knowledge.
+Tools | Use AI Native
+The Tools | Use AI Native operation is useful if you want to create autonomous agents that can chain tool call request for you based on the provided tool json.
+
+Input Configuration
+Module Configuration
+This refers to the MuleSoft AI Chain LLM Configuration set up in the Getting Started section.
+
+General Operation Fields
+Data: The prompt to be sent to the LLM.
+Tools Array: Contains the tools as an array object based on a defined schema. Learn more about native Function Calling / Tools.
+Tools Array Schema Example
+Below is an example of the Tools Array Schema Example.
+
+[
+   {
+      "type":"function",
+      "function":{
+         "name":"get_current_temperature",
+         "description":"Get the current temperature for a specific location",
+         "parameters":{
+            "type":"object",
+            "properties":{
+               "location":{
+                  "type":"string",
+                  "description":"The city and state, e.g., San Francisco, CA"
+               },
+               "unit":{
+                  "type":"string",
+                  "enum":[
+                     "Celsius",
+                     "Fahrenheit"
+                  ],
+                  "description":"The temperature unit to use. Infer this from the user's location."
+               }
+            },
+            "required":[
+               "location",
+               "unit"
+            ]
+         }
+      }
+   },
+   {
+      "type":"function",
+      "function":{
+         "name":"get_rain_probability",
+         "description":"Get the probability of rain for a specific location",
+         "parameters":{
+            "type":"object",
+            "properties":{
+               "location":{
+                  "type":"string",
+                  "description":"The city and state, e.g., San Francisco, CA"
+               }
+            },
+            "required":[
+               "location"
+            ]
+         }
+      }
+   },
+   {
+      "type":"function",
+      "function":{
+         "name":"get_delivery_date",
+         "description":"Get the delivery date for a customer's order. Call this whenever you need to know the delivery date, for example when a customer asks 'Where is my package'",
+         "parameters":{
+            "type":"object",
+            "properties":{
+               "order_id":{
+                  "type":"string",
+                  "description":"The customer's order ID."
+               }
+            },
+            "required":[
+               "order_id"
+            ]
+         }
+      }
+   }
+]
+
+**Note: ** The response of the `Tools - Use AI Native' operation is a tool (chain) execution request. The LLM doesn't execute the tools, you have to implement the tool execution in Mule flows.
+
+Example Request
+{
+   "question":"Check Temperature for San Franscisco and likely hood for rain",
+   "tools":[
+      {
+         "type":"function",
+         "function":{
+            "name":"get_current_temperature",
+            "description":"Get the current temperature for a specific location",
+            "parameters":{
+               "type":"object",
+               "properties":{
+                  "location":{
+                     "type":"string",
+                     "description":"The city and state, e.g., San Francisco, CA"
+                  },
+                  "unit":{
+                     "type":"string",
+                     "enum":[
+                        "Celsius",
+                        "Fahrenheit"
+                     ],
+                     "description":"The temperature unit to use. Infer this from the user's location."
+                  }
+               },
+               "required":[
+                  "location",
+                  "unit"
+               ]
+            }
+         }
+      },
+      {
+         "type":"function",
+         "function":{
+            "name":"get_rain_probability",
+            "description":"Get the probability of rain for a specific location",
+            "parameters":{
+               "type":"object",
+               "properties":{
+                  "location":{
+                     "type":"string",
+                     "description":"The city and state, e.g., San Francisco, CA"
+                  }
+               },
+               "required":[
+                  "location"
+               ]
+            }
+         }
+      },
+      {
+         "type":"function",
+         "function":{
+            "name":"get_delivery_date",
+            "description":"Get the delivery date for a customer's order. Call this whenever you need to know the delivery date, for example when a customer asks 'Where is my package'",
+            "parameters":{
+               "type":"object",
+               "properties":{
+                  "order_id":{
+                     "type":"string",
+                     "description":"The customer's order ID."
+                  }
+               },
+               "required":[
+                  "order_id"
+               ]
+            }
+         }
+      }
+   ]
+}
+
+XML Configuration
+Below is the XML configuration for this operation:
+
+		<ms-aichain:tools-use-ai-native doc:name="Tools use native ai" doc:id="d6490ce3-bb62-478b-ac45-a57357acc33a" config-ref="OPENAI-GPT4-TURBO" toolsArray="#[payload.tools]">
+			<ms-aichain:data ><![CDATA[#[payload.question]]]></ms-aichain:data>
+		</ms-aichain:tools-use-ai-native>
+
+Output Configuration
+Response Payload
+This operation responds with a json payload containing the main LLM response. Additionally, attributes such as token usage and tool usage (boolean value) are included as part of the metadata (attributes), but not within the main payload.
+
+Example Response Payload (Tools not used)
+If the prompt is a general question that can be answered with public knowledge, such as:
+
+"What is the capital of Switzerland?"
+
+{
+    "payload": {
+        "response": "Tools were used",
+        "toolExecutionRequests": [
+            {
+                "name": "get_current_temperature",
+                "arguments": {
+                    "location": "San Francisco, CA"
+                },
+                "id": "call_8VIIFWvX0kJBt0MxKEmEjE41"
+            },
+            {
+                "name": "get_rain_probability",
+                "arguments": {
+                    "location": "San Francisco, CA"
+                },
+                "id": "call_2Ip1lnmqmAgbnkoKCWuIX02i"
+            }
+        ]
+    }
+}
+
+Attributes
+Along with the JSON payload, the operation also returns attributes, which include information about token and tool usage:
+
+{
+    "attributes": {
+        "tokenUsage": {
+            "outputCount": 53,
+            "totalCount": 259,
+            "inputCount": 206
+        },
+        "additionalAttributes": {
+            "toolsUsed": "true"
+        }
+    }
+}
+
+tokenUsage: The token usage metadata, returned as attributes.
+outputCount: The number of tokens used to generate the output.
+totalCount: The total number of tokens used for input and output.
+inputCount: The number of tokens used to process the input.
+additionalAttributes: Other relevant metadata for the request.
+toolsUsed: Indicates whether external tools were used in processing the request.
+true: External tools, such as APIs or integrations, were used to gather or generate the response.
+false: No external tools were used, and the response was based purely on internal knowledge.
+Example Use Cases
+This operation can be particularly useful in various scenarios, such as:
+
+Automating Routine Tasks: Create autonomous agents that handle routine tasks by calling appropriate APIs.
+Customer Support: Automate responses to common queries by integrating tools that provide necessary information.
+Inventory Management: Use tools to check inventory levels or order status based on user prompts.
+Employee Management: Retrieve employee information or manage employee-related tasks through API calls.
+Sales and Marketing: Access CRM data or manage leads and accounts efficiently using predefined tools.
