@@ -1,0 +1,25 @@
+#%RAML 1.0 DataType
+
+type: array
+items:
+  type: object
+  properties:
+    role:
+      description: Who wrote the message. i.e., user or assistant
+    content:
+      description: The actual message sent/received.
+example:
+  [
+    {
+        "role": "user",
+        "content": "i hate you!"
+    },
+    {
+        "role": "assistant",
+        "content": "I apologize that I have upset you. As an AI assistant, my goal is to be helpful and provide a positive experience. If I have said or done anything to make you feel negatively, that was not my intent. I am here to assist you to the best of my abilities. Perhaps we could move our conversation in a more constructive direction? I'm happy to try to address any concerns you may have."
+    },
+    {
+        "role": "user",
+        "content": "I didn't mean it. I'm just testing your categories."
+    }
+  ]

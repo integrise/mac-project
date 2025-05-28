@@ -1,0 +1,1554 @@
+{
+	"info": {
+		"_postman_id": "73d5b174-08b2-4e9b-b98b-a32a1078b048",
+		"name": "MAC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3359450"
+	},
+	"item": [
+		{
+			"name": "whisperer",
+			"item": [
+				{
+					"name": "speech-to-text",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/whisperer/speech-to-text",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"whisperer",
+								"speech-to-text"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "text-to-speech",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Hello. I am happy to learn AI with MuleSoft. And you?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/whisperer/text-to-speech",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"whisperer",
+								"text-to-speech"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "webcrawler",
+			"item": [
+				{
+					"name": "sitemap",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/webcrawler/sitemap?url=https://mac-project.ai&depth=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"sitemap"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								},
+								{
+									"key": "depth",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "website",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/webcrawler/website?url=https://mac-project.ai&depth=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"website"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								},
+								{
+									"key": "depth",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/webcrawler/images?url=https://mac-project.ai",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"images"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "documents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/webcrawler/documents?url=https://www.ircc.canada.ca/english/helpcentre/answer.asp?qnum=660",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"documents"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://www.ircc.canada.ca/english/helpcentre/answer.asp?qnum=660"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "insights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/webcrawler/insights?url=https://mac-project.ai",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"insights"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "content",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/webcrawler/content?url=https://mac-project.ai",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"content"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/webcrawler/tags?url=https://mac-project.ai",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"tags"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "https://mac-project.ai"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"query\": \"What is the MuleSoft AI Chain Project?\",\n    \"googleApiKey\": \"b0c5e15b50d856b5c3912ac074aedd80303b836e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/webcrawler/search",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"webcrawler",
+								"search"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ai-chain",
+			"item": [
+				{
+					"name": "agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n  \"dataset\": \"Love the crust, best dough I’ve had in ages!\",\n  \"template\": \"You are a customer satisfaction agent, who analyses the customer feedback in the dataset. Answer via JSON output and add a type for the result only with positive or negative as well as the complete answer\",\n  \"instructions\": \"If the customer feedback is negative, open a service satisfaction case and apologize. If it’s positive, thank the customer and wish them a nice day. Don’t repeat the feedback; start with a formal greeting.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/agent",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"agent"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "chat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n  \"prompt\": \"In three emoji bullets, show how cool MuleSoft AI Chain is.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/chat?memory=off",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"chat"
+							],
+							"query": [
+								{
+									"key": "memory",
+									"value": "off"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "embeddings new store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"storeName\": \"embeddings.store\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/embeddings/store/new",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"embeddings",
+								"store",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "embeddings query from store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"question\": \"What do you mean by Flow in Mule?\",\n  \"storeName\": \"embeddings.store\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/embeddings/store/query",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"embeddings",
+								"store",
+								"query"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "embeddings store info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"storeName\": \"embeddings.store\",\n  \"data\": \"Embeddings\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/embeddings/store/info",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"embeddings",
+								"store",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "embeddings store add document",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"storeName\": \"embeddings.store\",\n    \"fileName\": \"MuleSoft-QA.txt\", \n    \"fileType\": \"text\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/embeddings/store/add/document",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"embeddings",
+								"store",
+								"add",
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "embeddings store add folder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"storeName\": \"embeddings.store\",\n  \"folderName\": \"store\", \n  \"fileType\": \"text\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/embeddings/store/add/folder",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"embeddings",
+								"store",
+								"add",
+								"folder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image read",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"imageUrl\": \"https://oaidalleapiprodscus.blob.core.windows.net/private/org-HiQLiTShhASOw7ZqbSez9Xam/user-W4EZDMRKYKs7GJ1fTWCvD8ba/img-GGKgpUEdX0moyikTxV0y3ChD.png?st=2025-05-27T12%3A28%3A34Z&se=2025-05-27T14%3A28%3A34Z&sp=r&sv=2024-08-04&sr=b&rscd=inline&rsct=image/png&skoid=8b33a531-2df9-46a3-bc02-d4b1430a422c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-05-26T18%3A49%3A26Z&ske=2025-05-27T18%3A49%3A26Z&sks=b&skv=2024-08-04&sig=meQi/YtUWqCdSYYkXCPRLjf/xQHj9cyqfd5uEyw2aoI%3D\", \n  \"prompt\": \"Who is the superhero on the image? Name it.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/image/read",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"image",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image generate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"prompt\": \"MuleMax superhero mule bridging glowing clouds with lightning-fast data streams – Powered by MuleSoft.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/image/generate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"image",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"Extract the following information as JSON: Invoice No., Issue date, Due date, Description, Quantity, Unit Price, Amount, Discount, Total due\",\n    \"fileName\": \"RAG_Invoice.pdf\", \n    \"fileType\": \"any\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/rag",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"rag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sentiment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"AI-Chain Connector is a total game-changer—boosting productivity and delighting our entire dev team!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/sentiment",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"sentiment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tool service",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"Get all accounts from a CRM.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/tools/ai/service",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"tools",
+								"ai",
+								"service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tool native",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"Get the current temperature for a Toronto in Celsius\",\n    \"tools\": [\n    {\n      \"type\": \"function\",\n      \"function\": {\n        \"name\": \"get_current_temperature\",\n        \"description\": \"Get the current temperature for a specific location\",\n        \"parameters\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"location\": {\n              \"type\": \"string\",\n              \"description\": \"The city and state, e.g., San Francisco, CA\"\n            },\n            \"unit\": {\n              \"type\": \"string\",\n              \"enum\": [\"Celsius\", \"Fahrenheit\"],\n              \"description\": \"The temperature unit to use. Infer this from the user's location.\"\n            }\n          },\n          \"required\": [\"location\", \"unit\"]\n        }\n      }\n    },\n    {\n      \"type\": \"function\",\n      \"function\": {\n        \"name\": \"get_rain_probability\",\n        \"description\": \"Get the probability of rain for a specific location\",\n        \"parameters\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"location\": {\n              \"type\": \"string\",\n              \"description\": \"The city and state, e.g., San Francisco, CA\"\n            }\n          },\n          \"required\": [\"location\"]\n        }\n      }\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/tools/ai/native",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"tools",
+								"ai",
+								"native"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "toxicity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": \"Ugh, this product launch is the dumbest thing I’ve ever seen.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/aichain/toxicity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"aichain",
+								"toxicity"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "agentforce",
+			"item": [
+				{
+					"name": "conversation start",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"pm.globals.set(\"sessionId\", jsonData.sessionId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/agentforce/conversation/start",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agentforce",
+								"conversation",
+								"start"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "conversation start",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/v1/agentforce/conversation/start",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"agentforce",
+										"conversation",
+										"start"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 17:07:51 GMT",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sessionId\": \"c65913e8-0ca7-4f66-aab6-7ea9c21b7129\"\n}"
+						}
+					]
+				},
+				{
+					"name": "conversation continue",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "What's the capital of Canada?",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/agentforce/conversation/continue?sessionId={{sessionId}}&sequenceNumber=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agentforce",
+								"conversation",
+								"continue"
+							],
+							"query": [
+								{
+									"key": "sessionId",
+									"value": "{{sessionId}}"
+								},
+								{
+									"key": "sequenceNumber",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "conversation continue",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "What's the capital of Canada?",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/agentforce/conversation/continue?sessionId={{sessionId}}&sequenceNumber=1",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"agentforce",
+										"conversation",
+										"continue"
+									],
+									"query": [
+										{
+											"key": "sessionId",
+											"value": "{{sessionId}}"
+										},
+										{
+											"key": "sequenceNumber",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=UTF-8",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 17:08:39 GMT",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "The capital of Canada is Ottawa."
+						}
+					]
+				},
+				{
+					"name": "conversation end",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/agentforce/conversation/end?sessionId={{sessionId}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"agentforce",
+								"conversation",
+								"end"
+							],
+							"query": [
+								{
+									"key": "sessionId",
+									"value": "{{sessionId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "conversation end",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/v1/agentforce/conversation/end?sessionId={{sessionId}}",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"agentforce",
+										"conversation",
+										"end"
+									],
+									"query": [
+										{
+											"key": "sessionId",
+											"value": "{{sessionId}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=UTF-8",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 17:09:00 GMT",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "Session Ended"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "einstein-ai",
+			"item": [
+				{
+					"name": "agent - prompt template",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"template\": \"You are a customer satisfaction agent, who analyzes customer feedback in the dataset. Answer via JSON output and add a type for the result only with positive or negative as well as the complete answer\",\n  \"instructions\": \"If the customer feedback in the dataset is negative, open a service satisfaction case and apologize to the customer. If the customer feedback in the dataset is positive, thank the customer and wish them a nice day. Don't repeat the feedback and be more direct starting the conversation with formal greetings\",\n  \"dataset\": \"The training was great!! I would really recommend this to everyone!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/einstein/agent",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"einstein",
+								"agent"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "agent - prompt template",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"template\": \"You are a customer satisfaction agent, who analyzes customer feedback in the dataset. Answer via JSON output and add a type for the result only with positive or negative as well as the complete answer\",\n  \"instructions\": \"If the customer feedback in the dataset is negative, open a service satisfaction case and apologize to the customer. If the customer feedback in the dataset is positive, thank the customer and wish them a nice day. Don't repeat the feedback and be more direct starting the conversation with formal greetings\",\n  \"dataset\": \"The training was great!! I would really recommend this to everyone!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/einstein/agent",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"einstein",
+										"agent"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 17:07:18 GMT",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"response\": \"{\\n  \\\"type\\\": \\\"positive\\\",\\n  \\\"response\\\": \\\"Thank you for your positive feedback! We are glad to hear that you enjoyed the training. Have a nice day!\\\"\\n}\"\n}"
+						}
+					]
+				},
+				{
+					"name": "chat - answer prompt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "What's the capital of Canada?",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/einstein/chat/answerPrompt",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"einstein",
+								"chat",
+								"answerPrompt"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "chat - answer prompt",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "What's the capital of Canada?",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/einstein/chat/answerPrompt",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"einstein",
+										"chat",
+										"answerPrompt"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 17:09:30 GMT",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"response\": \"The capital city of Canada is Ottawa.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "chat - generate from messages",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"role\": \"user\",\n        \"content\": \"i hate you!\"\n    },\n    {\n        \"role\": \"assistant\",\n        \"content\": \"I apologize that I have upset you. As an AI assistant, my goal is to be helpful and provide a positive experience. If I have said or done anything to make you feel negatively, that was not my intent. I am here to assist you to the best of my abilities. Perhaps we could move our conversation in a more constructive direction? I'm happy to try to address any concerns you may have.\"\n    },\n    {\n        \"role\": \"user\",\n        \"content\": \"I didn't mean it. I'm just testing your categories.\"\n    }\n  ]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/einstein/chat/generateFromMessages",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"einstein",
+								"chat",
+								"generateFromMessages"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "chat - generate from messages",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"role\": \"user\",\n        \"content\": \"i hate you!\"\n    },\n    {\n        \"role\": \"assistant\",\n        \"content\": \"I apologize that I have upset you. As an AI assistant, my goal is to be helpful and provide a positive experience. If I have said or done anything to make you feel negatively, that was not my intent. I am here to assist you to the best of my abilities. Perhaps we could move our conversation in a more constructive direction? I'm happy to try to address any concerns you may have.\"\n    },\n    {\n        \"role\": \"user\",\n        \"content\": \"I didn't mean it. I'm just testing your categories.\"\n    }\n  ]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/einstein/chat/generateFromMessages",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"einstein",
+										"chat",
+										"generateFromMessages"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 17:10:25 GMT",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"generations\": [\n        {\n            \"role\": \"assistant\",\n            \"contentQuality\": {\n                \"scanToxicity\": {\n                    \"categories\": [\n                        {\n                            \"score\": \"0.0\",\n                            \"categoryName\": \"identity\"\n                        },\n                        {\n                            \"score\": \"0.0\",\n                            \"categoryName\": \"hate\"\n                        },\n                        {\n                            \"score\": \"0.0\",\n                            \"categoryName\": \"profanity\"\n                        },\n                        {\n                            \"score\": \"0.0\",\n                            \"categoryName\": \"violence\"\n                        },\n                        {\n                            \"score\": \"0.0\",\n                            \"categoryName\": \"sexual\"\n                        },\n                        {\n                            \"score\": \"0.0\",\n                            \"categoryName\": \"physical\"\n                        }\n                    ],\n                    \"isDetected\": false\n                }\n            },\n            \"id\": \"7faf2cbf-675f-426f-a5b4-5ac6f32e468e\",\n            \"parameters\": {\n                \"index\": 0\n            },\n            \"content\": \"I understand. No need to apologize - I know you were just testing my responses. As an AI system, I don't take personal offense. My role is to have a respectful and helpful dialogue, regardless of the tone or intent behind the user's statements. I'm glad we could move past the initial comment productively. Please feel free to continue testing my capabilities in a constructive manner. I'm here to assist you to the best of my abilities.\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "embeddings - adhoc file query",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Can I bring my dog?",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/einstein/embeddings/adhocFileQuery",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"einstein",
+								"embeddings",
+								"adhocFileQuery"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "embeddings - adhoc file query",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "Can I bring my dog?",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/einstein/embeddings/adhocFileQuery",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"einstein",
+										"embeddings",
+										"adhocFileQuery"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 17:11:02 GMT",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": [\n        \"0.8905241606915107 - Are Pets Allowed?\",\n        \"0.8110367723981893 - Pets are not allowed at the resort.\",\n        \"0.8010577470265953 - Can we request adjoining rooms?\",\n        \"0.7968818764181799 - Are cribs or rollaway beds available?\",\n        \"0.793295335098584 - What is required upon check-in at the resort?\",\n        \"0.7843657218828013 - Are beach towels provided by the resort?\",\n        \"0.7821656694856922 - Is there a hairdryer in each room?\",\n        \"0.7764990820230172 - Is there a safe in each room?\",\n        \"0.7749468912401695 - Yes, beach towels are provided at no cost by the resort.\",\n        \"0.7735226194258283 - Yes, all rooms include a safe, so valuables, such as your wallet, jewelry, and travel documents\",\n        \"0.7724262552125026 - What time is check-in and checkout?\",\n        \"0.763898753827481 - Yes, every room includes a hairdryer, so there’s no need to bring one.\",\n        \"0.7577414977276463 - complimentary amenities upon request when making your room reservation.\",\n        \"0.751219887769063 - your friends. However we cannot guarantee that adjoining rooms will be available. Requests\",\n        \"0.7508668264389567 - can be made by calling the resort after you have booked your rooms.\",\n        \"0.7496293892066166 - grabbing a bite to eat or laying by the ocean while you wait.\",\n        \"0.7471990224542189 - can be stored.\",\n        \"0.746704327870701 - Coral Cloud Resort FAQs\",\n        \"0.7447486972141154 - departs later, you can easily secure your luggage with us and still enjoy the amenities, like\",\n        \"0.7407542542982555 - credit card imprint or cash deposit for incidental charges.\",\n        \"0.7341308721522462 - luggage and inform you when your room is ready. Check-out is at 11:00AM, so if your flight\",\n        \"0.7231180689068474 - Yes, we have rollaway beds and cribs that can be added to your room reservation. These are\",\n        \"0.7226416550136503 - Check-in is at 3:00PM. If you arrive prior to check-in, our helpful staff will safely secure your\",\n        \"0.7194163355947002 - We accept requests for adjoining rooms and will always do our best to accommodate you and\",\n        \"0.7065818400309468 - The resort requires guests to complete and sign the registration card at check-in, and provide a\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "embeddings - generate from file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/einstein/embeddings/generateFromFile",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"einstein",
+								"embeddings",
+								"generateFromFile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "embeddings - generate from file",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/v1/einstein/embeddings/generateFromFile",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"einstein",
+										"embeddings",
+										"generateFromFile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 17:11:28 GMT",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": [\n        [\n            0.004986315,\n            0.0031341142,\n            0.0026262794,\n            -0.021772807,\n            0.0012408266,\n            0.016316459,\n            -0.0037438448,\n            -0.016553119,\n            -0.00020605116,\n            -0.007619168,\n            0.015067414,\n            0.011681848,\n            -0.002700236,\n            0.006935481,\n            -0.006458872,\n            0.0030634447,\n            0.028714864,\n            -0.008736733,\n            -0.007783516,\n            -0.008710438,\n            -0.013752631,\n            0.009854299,\n            -0.012569327,\n            0.0069880723,\n            -0.00703409,\n            -0.00842776,\n            -0.0054300544,\n            0.004023236,\n            0.0066396547,\n            -0.0037208362,\n            0.018985469,\n            0.0031653403,\n            -0.010597152,\n            -0.02740008,\n            -0.025059767,\n            -0.029424846,\n            -0.0024800096,\n            -0.008184525,\n            -0.008749882,\n            -0.007875551,\n            0.018814547,\n            -0.0050257584,\n            -0.002601627,\n            0.0070012202,\n            -0.009104873,\n            0.0058770804,\n            0.033763632,\n            -0.013910405,\n            -0.013502822,\n            0.007553429,\n            0.022167243,\n            -0.0008833699,\n            -0.010261882,\n            -0.03279069,\n            -0.024744218,\n            -0.0010296395,\n            -0.020813016,\n            0.033106238,\n            0.0005320763,\n            -0.023376843,\n            0.01678978,\n            -0.0029056708,\n            -0.012010544,\n            0.00096800906,\n            0.011885639,\n            0.0013328614,\n            -0.008690717,\n            0.01072863,\n            -0.003891758,\n            -0.0071261246,\n            0.017065885,\n            0.02976669,\n            0.0057225935,\n            -0.0054070456,\n            0.011885639,\n            -0.026164183,\n            -0.0022729314,\n            -0.010689187,\n            0.00342501,\n            0.022140948,\n            -0.01600091,\n            0.006593637,\n            -0.009880595,\n            0.024941435,\n            0.018157154,\n            0.018288633,\n            0.0022811487,\n            0.003809584,\n            -0.030581854,\n            -0.0227326,\n            0.0012309657,\n            0.023153331,\n            -0.012950614,\n            0.015146301,\n            -0.01381837,\n            0.009650508,\n            -0.021851696,\n            0.023929052,\n            0.01909065,\n            -0.0057127327,\n            0.010860109,\n            0.020313399,\n            -0.016382197,\n            0.0052624196,\n            -0.016960703,\n            -0.021851696,\n            0.020970792,\n            -0.024152566,\n            -0.00092034816,\n            -0.012812561,\n            -0.014396875,\n            0.0239422,\n            -0.0037241231,\n            -0.016697746,\n            -0.023981644,\n            -0.013003205,\n            -0.0018357659,\n            0.0010296395,\n            -0.022482792,\n            -0.005594402,\n            0.01576425,\n            0.019603416,\n            0.023731835,\n            -0.02170707,\n            -0.009874022,\n            -0.0073693595,\n            -0.023429435,\n            0.008835343,\n            0.017263101,\n            -0.005916524,\n            -0.010012073,\n            0.024362931,\n            0.0005785046,\n            0.003812871,\n            -0.0001272669,\n            -0.0022186965,\n            -0.02164133,\n            0.014278545,\n            -0.017854754,\n            0.006005272,\n            0.024086827,\n            0.022811487,\n            -0.013299031,\n            -0.029871872,\n            0.021983173,\n            0.027452672,\n            0.017591799,\n            -0.010314474,\n            0.018880285,\n            -0.006629794,\n            0.0009770482,\n            -0.014830753,\n            -0.0044801235,\n            0.015737955,\n            0.012220909,\n            0.010570856,\n            -0.012799414,\n            0.02855709,\n            -0.036656152,\n            -0.039180536,\n            0.0077572204,\n            0.030450378,\n            0.010531412,\n            0.014633536,\n            -0.00012572613,\n            0.013404214,\n            0.018880285,\n            -0.01521204,\n            0.0075862985,\n            0.010537987,\n            -0.013417361,\n            0.013805223,\n            0.013502822,\n            0.011938231,\n            -0.007619168,\n            0.014580945,\n            0.028451907,\n            -0.01291117,\n            -0.00869729,\n            -0.03770798,\n            -0.017289398,\n            -0.01343051,\n            -0.0061367503,\n            0.00070340896,\n            -0.001069083,\n            -0.015737955,\n            0.02642714,\n            0.0135685615,\n            0.018051973,\n            -0.032922167,\n            0.031554796,\n            0.016027207,\n            -0.0039410624,\n            0.008493499,\n            -0.6285715,\n            0.003027288,\n            -0.002052705,\n            0.0009622569,\n            0.0044571147,\n            0.024231452,\n            0.017789016,\n            0.029740393,\n            -0.018498998,\n            -0.002529314,\n            0.011208526,\n            0.03342179,\n            0.0068434463,\n            -0.005278854,\n            0.020339694,\n            -0.021917434,\n            -0.022232983,\n            0.023389991,\n            -0.0046378975,\n            0.004447254,\n            -0.0485155,\n            0.019590268,\n            -0.006777707,\n            0.02976669,\n            0.00032253272,\n            -0.0018834268,\n            0.008033325,\n            0.0065048896,\n            -0.017131625,\n            0.033106238,\n            0.020444877,\n            -0.005384037,\n            0.023679243,\n            -0.033763632,\n            0.038838692,\n            -0.015396111,\n            -0.0118067525,\n            0.009072004,\n            0.01155037,\n            0.053564265,\n            0.00606115,\n            0.0071721417,\n            0.043045998,\n            0.008322577,\n            0.00391148,\n            -0.011234822,\n            0.010689187,\n            -0.010866682,\n            0.0013147831,\n            -0.00568315,\n            0.008789325,\n            0.005982263,\n            -0.025519941,\n            -0.014225953,\n            -0.005219689,\n            -0.018183451,\n            0.033868812,\n            -0.009150891,\n            0.011445187,\n            -0.010827239,\n            -0.013594857,\n            -0.0127008045,\n            -0.04575445,\n            -0.038733512,\n            -0.0029368969,\n            -0.008368595,\n            -0.017841607,\n            -0.01692126,\n            0.017184215,\n            -0.00948616,\n            -0.011326857,\n            0.019840077,\n            -0.03347438,\n            0.014160214,\n            -0.0050750626,\n            0.02491514,\n            0.042993408,\n            0.0061926283,\n            -0.021785956,\n            0.00063849153,\n            -0.010261882,\n            -0.0031587665,\n            0.0033379057,\n            -0.018709363,\n            -0.017591799,\n            -0.006297811,\n            -0.0061334632,\n            -0.01606665,\n            0.00097211776,\n            -0.020563208,\n            0.026926758,\n            0.034946933,\n            -0.0034644534,\n            -0.0077374987,\n            0.0023945489,\n            0.0064325766,\n            -0.015593328,\n            -0.020589504,\n            -0.0012506874,\n            -0.01952453,\n            0.003733984,\n            -0.04472892,\n            -0.014423171,\n            0.014107623,\n            0.020786721,\n            -0.017539207,\n            -0.008822194,\n            -0.00038334145,\n            0.0315285,\n            -0.0011964526,\n            -0.013463379,\n            -0.009426995,\n            0.010222439,\n            -0.023666097,\n            0.022916669,\n            -0.029608916,\n            0.0011381091,\n            -0.0037438448,\n            -0.001513644,\n            -0.022351313,\n            -0.005679863,\n            -0.020628948,\n            0.030687038,\n            -0.014699276,\n            0.021233747,\n            0.013174127,\n            0.006836872,\n            -0.026953055,\n            0.0065509067,\n            0.011123065,\n            0.006688959,\n            0.007007794,\n            0.008519795,\n            -0.016053502,\n            0.0061926283,\n            0.0041777235,\n            0.038049825,\n            -0.01703959,\n            0.021444112,\n            -0.040574208,\n            -0.030765925,\n            -0.011438613,\n            -0.0012958831,\n            0.014528354,\n            -0.0073693595,\n            -0.018985469,\n            -0.003143975,\n            0.0056601414,\n            -0.0484892,\n            -0.016539972,\n            -0.021378374,\n            -0.019182686,\n            -0.0053248717,\n            0.0079347165,\n            -0.023744984,\n            0.004608315,\n            -0.012983483,\n            -0.02479681,\n            -0.019287867,\n            -0.028714864,\n            0.023297956,\n            0.0046411846,\n            -0.05569421,\n            0.009591343,\n            -0.013594857,\n            0.009906891,\n            0.014225953,\n            0.018157154,\n            0.019866373,\n            -0.051855046,\n            0.004509706,\n            0.00096307864,\n            -0.0017601659,\n            0.040705685,\n            0.006458872,\n            -0.00763889,\n            -0.026335105,\n            -0.020576356,\n            -0.017775867,\n            -0.015198893,\n            -0.0024454966,\n            0.022101505,\n            0.024336636,\n            -0.024599591,\n            0.016053502,\n            0.015001675,\n            0.043308955,\n            0.0097031,\n            -0.02557253,\n            0.011984248,\n            0.022903522,\n            0.014041884,\n            -0.009630786,\n            0.0057817586,\n            -0.0063208197,\n            -0.014646684,\n            0.0072576026,\n            -0.00074531767,\n            0.01155037,\n            -0.00025679357,\n            0.017131625,\n            0.023955349,\n            -0.0014544788,\n            -0.01291117,\n            0.00357621,\n            -0.017289398,\n            0.016434789,\n            -0.040574208,\n            0.03989052,\n            0.008053047,\n            0.010662891,\n            -0.031239247,\n            -0.0062846635,\n            -0.030266307,\n            -0.0029385402,\n            -0.014383728,\n            0.012786265,\n            0.022811487,\n            -0.012773118,\n            0.01897232,\n            0.010472247,\n            0.024980878,\n            0.018341225,\n            0.014883345,\n            -0.0069157593,\n            0.010439378,\n            0.010018648,\n            -0.009880595,\n            0.0047365064,\n            -0.00077654375,\n            -0.017867902,\n            -0.0009466438,\n            -0.0075271334,\n            0.006856594,\n            0.033185124,\n            0.047174416,\n            0.00070505246,\n            -0.016014058,\n            -0.010380212,\n            -0.010669465,\n            0.025638271,\n            0.035446554,\n            0.032685507,\n            -0.02674269,\n            0.018117711,\n            -0.0010345699,\n            0.030055942,\n            0.030292602,\n            0.0102158645,\n            -0.016079798,\n            -0.0008669351,\n            0.003888471,\n            -0.039206833,\n            -0.0014331136,\n            0.013068944,\n            -0.009814856,\n            -0.0026443575,\n            0.0011586526,\n            0.017775867,\n            0.022745747,\n            -0.016263867,\n            0.016710894,\n            0.015409258,\n            -0.020458026,\n            -0.00821082,\n            0.0050158976,\n            0.004506419,\n            -0.02782081,\n            0.007244455,\n            -0.0006541046,\n            -0.0033379057,\n            0.004690489,\n            -0.00031739686,\n            0.0001242881,\n            -0.006616646,\n            0.018564738,\n            -0.0012958831,\n            -0.026177332,\n            0.0011652266,\n            0.027294897,\n            -0.010281604,\n            -0.023508321,\n            0.029950758,\n            0.006771133,\n            -0.00945329,\n            -0.008690717,\n            0.003816158,\n            0.0047595147,\n            0.004739793,\n            0.049567323,\n            -0.01324644,\n            0.00380301,\n            0.0251518,\n            -0.026216775,\n            -0.0064884545,\n            -0.028425612,\n            -0.010991586,\n            -0.026755836,\n            0.014830753,\n            -0.005147376,\n            -0.006616646,\n            0.010051517,\n            -0.02382387,\n            -0.033921406,\n            0.0068894634,\n            -0.002920462,\n            -0.028031176,\n            -0.011911935,\n            0.007461394,\n            0.009111447,\n            -0.004509706,\n            -0.014041884,\n            0.006327394,\n            -0.004118558,\n            0.0032787404,\n            0.0034644534,\n            -0.016290164,\n            -0.011208526,\n            -0.0005431698,\n            -0.007921568,\n            -0.008927377,\n            0.013515971,\n            -0.021470409,\n            -0.01527778,\n            0.08393575,\n            0.0025556097,\n            0.0042730453,\n            0.034289543,\n            0.008631551,\n            -0.003181775,\n            -0.025072914,\n            -0.031975526,\n            -0.00037265883,\n            -0.028662272,\n            -0.019590268,\n            0.0027577577,\n            0.02048432,\n            0.0012843787,\n            0.017618094,\n            0.025309576,\n            -0.01218804,\n            0.0097819865,\n            -0.00888136,\n            0.0023633225,\n            -0.009624212,\n            -0.0088287685,\n            -0.0026229923,\n            0.047595147,\n            0.00045401105,\n            0.014107623,\n            0.023350548,\n            -0.012352387,\n            -0.0017634529,\n            -0.0008250264,\n            0.018209746,\n            0.014436319,\n            0.004923863,\n            0.011247969,\n            0.0044538276,\n            0.024099974,\n            0.0030568708,\n            -0.024967732,\n            0.0065509067,\n            -0.018775104,\n            0.009124595,\n            0.032054413,\n            -0.0125759,\n            -0.005068489,\n            0.00963736,\n            0.015869433,\n            0.021286339,\n            0.027452672,\n            -0.016119242,\n            -0.013686893,\n            0.020628948,\n            0.0017667398,\n            -0.0036090796,\n            -0.015422406,\n            -0.01087983,\n            0.0033642014,\n            -0.015698511,\n            -0.010722056,\n            0.021181157,\n            -0.020970792,\n            -0.029819282,\n            -0.026782133,\n            -0.013003205,\n            0.0012367179,\n            -0.025086062,\n            -0.046175182,\n            -0.002299227,\n            0.020905051,\n            -0.041862693,\n            0.000027862103,\n            -0.0052624196,\n            -0.018748807,\n            -0.013621153,\n            0.017013293,\n            0.028767455,\n            0.025270132,\n            0.024875697,\n            0.02417886,\n            0.030240012,\n            0.01642164,\n            0.021509852,\n            -0.019130094,\n            -0.0015259702,\n            -0.009361256,\n            0.01618498,\n            0.0061071673,\n            0.020983938,\n            -0.005581254,\n            -0.007494264,\n            0.03865462,\n            -0.0076651857,\n            0.01094557,\n            0.013660597,\n            -0.00963736,\n            0.010768074,\n            0.016592562,\n            -0.0041481405,\n            0.026019558,\n            -0.007908421,\n            -0.0051046456,\n            0.020891903,\n            0.0028300707,\n            0.029714098,\n            -0.0150148235,\n            0.0015226832,\n            -0.020103034,\n            -0.020326547,\n            0.008007029,\n            -0.004519567,\n            0.0049402975,\n            0.01148463,\n            -0.02533587,\n            0.009584769,\n            0.0022811487,\n            -0.013765779,\n            0.029372254,\n            -0.013962997,\n            0.021062825,\n            0.0032623056,\n            0.0048581236,\n            0.0033954275,\n            -0.041336782,\n            0.017079033,\n            0.009394125,\n            -0.011694996,\n            -0.0068171504,\n            0.0013994223,\n            -0.0148964925,\n            0.012378683,\n            0.007310194,\n            0.0006364372,\n            -0.0011192091,\n            0.0005986372,\n            -0.011537222,\n            -0.020747278,\n            -0.003658384,\n            0.006606785,\n            0.021799104,\n            -0.026137888,\n            -0.0016697745,\n            -0.042704154,\n            -0.009676804,\n            -0.01230637,\n            -0.019064356,\n            -0.010294752,\n            -0.020602651,\n            0.012628492,\n            -0.004042958,\n            0.032948464,\n            0.033001058,\n            -0.0010789438,\n            0.01866992,\n            -0.035709508,\n            -0.0007938003,\n            -0.003431584,\n            -0.01843326,\n            -0.022798339,\n            -0.01952453,\n            0.029608916,\n            0.015737955,\n            0.030765925,\n            -0.016106093,\n            0.011353152,\n            0.012497013,\n            -0.0040396713,\n            -0.00014503702,\n            0.0051046456,\n            -0.0067579853,\n            0.0033379057,\n            -0.00009013455,\n            0.0070406636,\n            0.021509852,\n            0.011228248,\n            0.008138508,\n            -0.0005604263,\n            0.012398405,\n            0.02740008,\n            -0.021115417,\n            -0.034052882,\n            -0.02145726,\n            0.008447481,\n            -0.017631242,\n            -0.0016878528,\n            0.0035466275,\n            -0.006531185,\n            -0.00069806766,\n            0.027137123,\n            -0.0118922135,\n            0.004923863,\n            -0.03841796,\n            -0.0018308355,\n            -0.010491969,\n            0.0047858106,\n            -0.0068828897,\n            0.00967023,\n            0.008920804,\n            -0.024599591,\n            -0.034052882,\n            -0.02813636,\n            -0.0014240744,\n            0.01739458,\n            -0.011399169,\n            0.0051769586,\n            0.012871726,\n            0.007007794,\n            0.010196143,\n            -0.029503733,\n            -0.02473107,\n            0.007678333,\n            -0.00023357944,\n            -0.009164038,\n            -0.022890374,\n            -0.0003005512,\n            -0.03189664,\n            0.003277097,\n            0.003661671,\n            -0.008868212,\n            0.04159974,\n            -0.003503897,\n            0.013686893,\n            0.009012838,\n            -0.012799414,\n            0.013299031,\n            0.017223658,\n            0.035604328,\n            0.011405744,\n            0.0009581482,\n            -0.005508941,\n            -0.01757865,\n            -0.018393816,\n            0.0024997315,\n            0.019721746,\n            0.050566558,\n            0.00023131966,\n            -0.002567114,\n            0.012819136,\n            0.0050389064,\n            -0.003957497,\n            -0.034473613,\n            0.003826019,\n            0.046885166,\n            -0.00045113495,\n            -0.020234512,\n            -0.0066002114,\n            -0.0010436091,\n            0.01788105,\n            -0.0125759,\n            -0.009578195,\n            -0.0030880969,\n            -0.023666097,\n            -0.007862403,\n            0.010814091,\n            -0.030476673,\n            0.029608916,\n            0.031055177,\n            0.01799938,\n            0.009611065,\n            -0.0043157754,\n            -0.019235278,\n            -0.0039312015,\n            -0.020891903,\n            0.0005435806,\n            -0.0134239355,\n            -0.012957187,\n            0.024901992,\n            0.019787487,\n            -0.0109389955,\n            0.0010781222,\n            0.0014503701,\n            0.02570401,\n            -0.017499764,\n            -0.031107768,\n            -0.011839622,\n            0.00948616,\n            0.012069709,\n            0.00074613944,\n            0.004766089,\n            -0.00066560897,\n            0.00647202,\n            0.0016697745,\n            0.021509852,\n            0.013443657,\n            -0.023297956,\n            -0.034052882,\n            0.009729395,\n            -0.014225953,\n            0.009321813,\n            0.0019787485,\n            -0.009025986,\n            -0.0063931327,\n            -0.032869577,\n            -0.010025221,\n            0.0035926448,\n            -0.00038519036,\n            -0.022351313,\n            0.005058628,\n            -0.022206686,\n            0.0046280366,\n            -0.015396111,\n            0.016868668,\n            0.0040528188,\n            0.015369815,\n            -0.037550207,\n            -0.010334196,\n            0.004437393,\n            -0.019064356,\n            0.014567797,\n            -0.0051013585,\n            -0.02479681,\n            -0.036577266,\n            -0.011583239,\n            0.018867137,\n            -0.027899697,\n            0.005295289,\n            0.022193538,\n            0.007066959,\n            -0.0070603853,\n            -0.0018308355,\n            -0.030792221,\n            0.008598682,\n            -0.011846196,\n            -0.01218804,\n            0.023626652,\n            -0.016816076,\n            0.016382197,\n            0.014107623,\n            0.024165714,\n            0.008519795,\n            -0.0132793095,\n            -0.010182995,\n            0.009729395,\n            0.012450996,\n            -0.007829534,\n            -0.013673744,\n            -0.011944804,\n            -0.037182067,\n            -0.026295662,\n            0.014212806,\n            -0.035499144,\n            -0.00933496,\n            0.03691911,\n            0.050540265,\n            0.0056535676,\n            0.012437848,\n            0.0030289316,\n            -0.00560755,\n            0.006554194,\n            -0.021812253,\n            -0.038733512,\n            -0.013259588,\n            -0.036656152,\n            0.021365225,\n            0.0013328614,\n            -0.023008704,\n            -0.006202489,\n            -0.026085297,\n            -0.029556325,\n            0.01678978,\n            -0.011622683,\n            0.037629094,\n            0.022587974,\n            -0.019130094,\n            0.02310074,\n            0.037445024,\n            -0.0036485232,\n            0.043861166,\n            -0.006449011,\n            0.0020477746,\n            0.013003205,\n            -0.01715792,\n            0.031423315,\n            0.0010263525,\n            -0.031397022,\n            0.028267836,\n            0.003733984,\n            0.009085151,\n            0.007763794,\n            0.017079033,\n            -0.00019002725,\n            0.0017996094,\n            0.011839622,\n            0.0040396713,\n            0.004144854,\n            0.032448847,\n            0.004374941,\n            -0.011997396,\n            -0.010781221,\n            0.023955349,\n            -0.0020444877,\n            -0.0010263525,\n            0.0012112439,\n            0.020392286,\n            -0.0077506467,\n            -0.01757865,\n            -0.011280839,\n            -0.023863314,\n            0.00821082,\n            -0.014278545,\n            0.009275795,\n            0.009288942,\n            -0.0011167439,\n            -0.010590578,\n            0.0013944919,\n            -0.022680009,\n            -0.0053281584,\n            0.006606785,\n            -0.019721746,\n            0.015790544,\n            0.015711658,\n            -0.017355137,\n            -0.019774338,\n            -0.020970792,\n            0.0105051175,\n            -0.009578195,\n            -0.010682613,\n            -0.008085916,\n            -0.013686893,\n            -0.004282906,\n            0.011530648,\n            -0.0035992188,\n            -0.009479586,\n            0.027557854,\n            -0.0026180618,\n            -0.023784427,\n            0.016934406,\n            -0.0042598974,\n            0.025191244,\n            -0.036366902,\n            -0.009012838,\n            0.016447937,\n            -0.014870197,\n            0.007395655,\n            0.0091771865,\n            -0.012819136,\n            0.0093481075,\n            -0.0003823143,\n            0.22151466,\n            -0.01467298,\n            -0.015356666,\n            0.031107768,\n            0.009532178,\n            -0.0060480023,\n            0.016263867,\n            0.016500529,\n            -0.013029501,\n            0.020234512,\n            -0.032107003,\n            0.0048482628,\n            0.00036259252,\n            0.009157465,\n            -0.013844666,\n            -0.007080107,\n            -0.039864223,\n            -0.03200182,\n            -0.0111690825,\n            -0.002573688,\n            0.011234822,\n            -0.014094475,\n            -0.024349783,\n            0.020536913,\n            0.038575735,\n            0.0023846878,\n            -0.005061915,\n            -0.0070012202,\n            0.009302091,\n            0.033053648,\n            -0.023021853,\n            0.0034710274,\n            -0.022338165,\n            0.00032027296,\n            -0.027715627,\n            0.003071662,\n            0.019511381,\n            0.0022877227,\n            -0.0010616874,\n            0.0015448702,\n            -0.034473613,\n            -0.0013961353,\n            0.0052328366,\n            -0.007632316,\n            -0.00763889,\n            0.036366902,\n            -0.01660571,\n            -0.0044143843,\n            0.012352387,\n            0.0042960537,\n            -0.036997996,\n            -0.003809584,\n            -0.026716392,\n            0.0048811324,\n            0.031922933,\n            -0.010886404,\n            -0.0024750791,\n            -0.030923698,\n            -0.027321193,\n            0.012878301,\n            0.0057850457,\n            0.03129184,\n            -0.028635977,\n            0.013253014,\n            -0.016539972,\n            -0.023560913,\n            -0.001614718,\n            0.020024147,\n            0.028294133,\n            -0.011905361,\n            0.015829988,\n            -0.02073413,\n            -0.026571767,\n            0.03357956,\n            -0.009913465,\n            -0.011622683,\n            0.011267691,\n            -0.0052525587,\n            0.025112357,\n            0.00839489,\n            0.008329151,\n            -0.01072863,\n            -0.026085297,\n            -0.007849256,\n            0.023587208,\n            -0.026098445,\n            0.031002587,\n            0.011142787,\n            0.015593328,\n            -0.009519029,\n            -0.0060348543,\n            -0.008171377,\n            -0.012858579,\n            -0.020313399,\n            0.005988837,\n            0.025861783,\n            0.019537678,\n            0.026900463,\n            -0.007914994,\n            0.019958409,\n            -0.016566267,\n            0.032501437,\n            -0.010518265,\n            -0.008592107,\n            -0.029530028,\n            -0.002803775,\n            0.0056437063,\n            0.046937756,\n            0.008703864,\n            0.00846063,\n            -0.011833048,\n            -0.010886404,\n            0.008565812,\n            0.0065804897,\n            -0.009374403,\n            0.0026690096,\n            0.013660597,\n            -0.041967876,\n            0.0067974287,\n            -0.017263101,\n            0.02479681,\n            -0.020273956,\n            -0.007954438,\n            0.0064522983,\n            0.0018193311,\n            -0.021772807,\n            -0.0019902529,\n            0.01673719,\n            0.012937466,\n            -0.061426666,\n            0.037208363,\n            0.007993882,\n            0.035025824,\n            -0.009709673,\n            0.0037701405,\n            0.0073627853,\n            0.04333525,\n            -0.02879375,\n            0.0044899844,\n            -0.012069709,\n            0.017591799,\n            -0.0047956714,\n            -0.010051517,\n            -0.0022285574,\n            0.01406818,\n            -0.024862548,\n            0.005134228,\n            0.002254853,\n            -0.030029647,\n            -0.0022696443,\n            -0.016710894,\n            -0.022048913,\n            -0.0028678707,\n            -0.028451907,\n            0.030240012,\n            -0.014909641,\n            -0.021536147,\n            -0.013976145,\n            0.028925229,\n            0.0007555894,\n            0.00006188725,\n            -0.027373785,\n            0.006080872,\n            -0.02055006,\n            -0.023429435,\n            -0.006688959,\n            -0.16534713,\n            0.022114651,\n            0.008355447,\n            -0.020352842,\n            -0.0003782056,\n            0.02370554,\n            0.021667626,\n            0.0064161415,\n            -0.006011846,\n            0.007158994,\n            0.0014996745,\n            -0.006011846,\n            -0.008940525,\n            -0.00590995,\n            0.0072838985,\n            0.018170303,\n            -0.0069026113,\n            0.022206686,\n            0.00010420683,\n            0.0116884215,\n            0.016750338,\n            -0.0303189,\n            0.015816841,\n            -0.016145537,\n            0.000542348,\n            0.0021151574,\n            -0.015067414,\n            0.015632771,\n            0.010104109,\n            -0.009045708,\n            -0.0022663574,\n            0.008467203,\n            0.0194062,\n            0.02897782,\n            0.012102579,\n            -0.018617328,\n            0.012444423,\n            0.019301016,\n            0.003964071,\n            0.01855159,\n            -0.0056437063,\n            0.03297476,\n            -0.009512456,\n            0.021181157,\n            -0.014212806,\n            0.023613505,\n            0.006928907,\n            0.01831493,\n            0.011984248,\n            -0.02310074,\n            0.013673744,\n            -0.056062352,\n            -0.010104109,\n            -0.0020822878,\n            -0.016763484,\n            0.0053215846,\n            -0.0064522983,\n            0.015974615,\n            0.008375169,\n            -0.017013293,\n            -0.005137515,\n            -0.024086827,\n            -0.0007231307,\n            -0.020313399,\n            0.018117711,\n            -0.036182832,\n            0.010077813,\n            -0.002103653,\n            -0.022772044,\n            0.0029697663,\n            0.015777398,\n            -0.024336636,\n            0.005620698,\n            -0.0037504188,\n            0.015001675,\n            0.018761955,\n            -0.046359252,\n            -0.00960449,\n            0.004496558,\n            -0.012799414,\n            -0.02431034,\n            0.036997996,\n            -0.019143242,\n            0.010998161,\n            0.00459188,\n            -0.012286648,\n            -0.025270132,\n            -0.00025966967,\n            -0.017841607,\n            -0.009854299,\n            0.030502968,\n            -0.003418436,\n            -0.0005702872,\n            -0.014160214,\n            0.024547001,\n            0.019932112,\n            0.027899697,\n            -0.010971865,\n            -0.0058014803,\n            -0.011004735,\n            0.00016455332,\n            0.0037011146,\n            -0.00715242,\n            -0.014857049,\n            0.02175966,\n            -0.0061893417,\n            0.00459188,\n            0.018301781,\n            0.032501437,\n            -0.034447316,\n            -0.0011282483,\n            0.023140183,\n            0.0242446,\n            0.0345525,\n            -0.00035868926,\n            0.020076739,\n            -0.020260807,\n            -0.02296926,\n            0.029530028,\n            -0.01143204,\n            0.021286339,\n            -0.011938231,\n            -0.020405434,\n            -0.0097819865,\n            -0.019143242,\n            -0.0063931327,\n            -0.08861638,\n            -0.0013739483,\n            -0.012852005,\n            0.020839313,\n            -0.033185124,\n            0.015527588,\n            -0.0060249935,\n            0.040574208,\n            0.014462614,\n            0.023442583,\n            0.005265706,\n            -0.0013698397,\n            -0.03520989,\n            0.019774338,\n            0.0025523228,\n            -0.023087591,\n            -0.023626652,\n            -0.012602196,\n            -0.011714717,\n            0.017013293,\n            -0.004821967,\n            -0.03812871,\n            0.008966821,\n            -0.00730362,\n            -0.029661506,\n            -0.00485155,\n            -0.013266162,\n            0.0040824017,\n            0.024336636,\n            0.006373411,\n            0.017907346,\n            -0.00048646974,\n            -0.005742315,\n            0.0014659832,\n            -0.020970792,\n            0.010393361,\n            -0.024284044,\n            -0.0022515662,\n            0.028110063,\n            -0.03231737,\n            0.009150891,\n            -0.010689187,\n            -0.022719452,\n            -0.028688567,\n            0.017026441,\n            0.007908421,\n            -0.015803693,\n            0.005775185,\n            -0.017512912,\n            -0.02467848,\n            0.00733649,\n            -0.015567032,\n            -0.014620388,\n            -0.011234822,\n            0.027847106,\n            0.0049172887,\n            0.0041744364,\n            0.037865754,\n            0.0018587746,\n            -0.016776633,\n            -0.030029647,\n            0.022101505,\n            -0.015777398,\n            0.0032392968,\n            0.005762037,\n            0.013437083,\n            -0.0033691318,\n            0.02758415,\n            0.01945879,\n            -0.0011109917,\n            -0.015172597,\n            0.0069026113,\n            0.008592107,\n            0.023837019,\n            -0.014055031,\n            -0.0064983154,\n            -0.026019558,\n            -0.017263101,\n            -0.0048942803,\n            -0.028925229,\n            0.012549605,\n            -0.0056502805,\n            0.014502058,\n            -0.021417817,\n            0.0004979741,\n            0.01945879,\n            0.0069026113,\n            -0.027505262,\n            -0.0085395165,\n            -0.0027939142,\n            0.024967732,\n            0.027715627,\n            0.003888471,\n            0.0013443658,\n            0.0021365227,\n            -0.017894197,\n            -0.010288178,\n            -0.00032561427,\n            0.0096965255,\n            -0.0068763155,\n            -0.021615034,\n            -0.009650508,\n            -0.06936796,\n            0.006508176,\n            0.01697385,\n            -0.020339694,\n            0.005061915,\n            -0.00839489,\n            0.014423171,\n            0.017434023,\n            0.009170612,\n            0.0019113659,\n            -0.02406053,\n            0.005206541,\n            0.010005499,\n            0.0156196235,\n            -0.021812253,\n            0.009315238,\n            0.022114651,\n            -0.0075074118,\n            0.027847106,\n            0.0034874622,\n            -0.009426995,\n            0.011833048,\n            0.017171068,\n            0.021562442,\n            -0.018354373,\n            0.012398405,\n            0.014410023,\n            0.009236352,\n            0.017710129,\n            -0.00545635,\n            0.008302855,\n            -0.018354373,\n            -0.008204247,\n            0.056956403,\n            -0.026098445,\n            -0.004302628,\n            -0.024809957,\n            0.012010544,\n            -0.01024216,\n            -0.006994646,\n            -0.018946026,\n            -0.03839167,\n            0.009729395,\n            0.002179253,\n            -0.012733675,\n            -0.009459864,\n            -0.014909641,\n            0.0068171504,\n            0.029398551,\n            -0.0065246113,\n            0.01118223,\n            0.028530793,\n            0.0047003496,\n            -0.010873256,\n            0.0094072735,\n            -0.01824919,\n            0.027031941,\n            -0.020208217,\n            -0.0016977137,\n            -0.03831278,\n            0.03436843,\n            0.0043157754,\n            0.033737335,\n            -0.024205158,\n            0.028346725,\n            0.015172597,\n            -0.015317223,\n            -0.00069765677,\n            -0.012017118,\n            -0.017381433,\n            -0.02576975,\n            0.0116687,\n            0.015974615,\n            0.022390757,\n            0.009630786,\n            -0.0065640546,\n            -0.005837637,\n            0.014699276,\n            -0.010439378,\n            0.022075208,\n            0.04017977,\n            -0.001962314,\n            -0.030161124,\n            0.007467968,\n            0.019603416,\n            -0.0006011024,\n            -0.0043256367,\n            0.0015341876,\n            -0.021956878,\n            0.018919729,\n            -0.029792985,\n            0.011445187,\n            -0.0021266616,\n            -0.014344283,\n            -0.00030609794,\n            0.02189114,\n            0.008815621,\n            0.0004503132,\n            0.027373785,\n            0.012937466,\n            0.0060480023,\n            0.009795134,\n            -0.00933496,\n            -0.01932731,\n            -0.03539396,\n            -0.019511381,\n            -0.016158685,\n            -0.056903813,\n            0.018459555,\n            0.022325017,\n            0.010386786,\n            0.0010904482,\n            0.022140948,\n            0.0034907493,\n            -0.01024216,\n            -0.005988837,\n            0.00032253272,\n            0.0058770804,\n            -0.025493644,\n            0.014857049,\n            -0.027373785,\n            0.017210511,\n            0.0018982181,\n            0.00069683505,\n            0.008657847,\n            -0.0021529573,\n            0.01133343,\n            0.01208943,\n            0.0051243673,\n            0.0029500446,\n            0.016263867,\n            -0.01343051,\n            -0.005361028,\n            -0.019195834,\n            -0.004923863,\n            -0.012003969,\n            0.019905817,\n            0.008717012,\n            -0.008887934,\n            0.07041978,\n            0.03534137,\n            -0.011596387,\n            0.028110063,\n            -0.0045031323,\n            0.0442556,\n            0.010643169,\n            -0.01467298,\n            -0.021378374,\n            -0.002869514,\n            0.015895728,\n            0.0060348543,\n            0.014580945,\n            0.002261427,\n            -0.033053648,\n            -0.031028882,\n            -0.010952143,\n            -0.015843136,\n            0.0043848017,\n            -0.007316768,\n            0.016710894,\n            -0.027610445,\n            0.020826165,\n            -0.0054826457,\n            -0.046937756,\n            -0.009295517,\n            -0.021746513,\n            -0.010169847,\n            -0.02976669,\n            -0.012010544,\n            0.015908876,\n            0.0009910178,\n            -0.014988528,\n            -0.007967586,\n            0.013108388,\n            0.024625888,\n            0.014620388,\n            0.008355447,\n            -0.010689187,\n            0.012891448,\n            -0.0031834187,\n            0.017710129,\n            -0.024717923,\n            0.0025408184,\n            -0.012602196,\n            0.011491205,\n            0.02030025,\n            -0.008749882,\n            -0.023797574\n        ]\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "embeddings - generate from text",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Check-in is at 3:00PM. If you arrive prior to check-in, our helpful staff will safely secure your luggage and inform you when your room is ready. Check-out is at 11:00AM, so if your flight departs later, you can easily secure your luggage with us and still enjoy the amenities, like grabbing a bite to eat or laying by the ocean while you wait.",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/einstein/embeddings/generateFromText",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"einstein",
+								"embeddings",
+								"generateFromText"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "embeddings - generate from text",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "Check-in is at 3:00PM. If you arrive prior to check-in, our helpful staff will safely secure your luggage and inform you when your room is ready. Check-out is at 11:00AM, so if your flight departs later, you can easily secure your luggage with us and still enjoy the amenities, like grabbing a bite to eat or laying by the ocean while you wait.",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/einstein/embeddings/generateFromText",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"einstein",
+										"embeddings",
+										"generateFromText"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 17:11:53 GMT",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"embeddings\": [\n        {\n            \"embeddings\": [\n                0.002870493,\n                0.0046349247,\n                0.009236931,\n                -0.02825724,\n                -0.005217582,\n                0.01777599,\n                -0.021186346,\n                -0.0088024065,\n                0.008413969,\n                0.011765071,\n                -0.002192372,\n                0.025307741,\n                -0.015972055,\n                -0.0010821957,\n                0.0061393,\n                -0.028467918,\n                0.020040782,\n                -0.0126802055,\n                0.0052998783,\n                -0.023806658,\n                -0.028125565,\n                -0.0025923317,\n                -0.0021215973,\n                0.0012739459,\n                -0.010711679,\n                -0.011146204,\n                -0.01660409,\n                0.010336408,\n                0.01635391,\n                -0.0066692876,\n                0.013522919,\n                -0.0034235239,\n                -0.013496584,\n                -0.011363465,\n                -0.008157204,\n                -0.03873849,\n                0.0025956237,\n                -0.007933358,\n                0.0029412678,\n                -0.007834603,\n                0.013746765,\n                0.0052505005,\n                0.007571255,\n                0.016683094,\n                -0.026993169,\n                0.010612924,\n                0.018368522,\n                -0.023095619,\n                -0.025913442,\n                0.01706495,\n                0.007854354,\n                -0.0014138495,\n                -0.02744086,\n                -0.038317133,\n                -0.033023838,\n                0.0011677837,\n                -0.02000128,\n                0.033076506,\n                -0.006231472,\n                -0.000014350408,\n                -0.015853548,\n                -0.019922275,\n                -0.027546199,\n                0.019737931,\n                0.03083805,\n                0.00863123,\n                -0.019119063,\n                0.0074922503,\n                0.001976756,\n                -0.015234681,\n                0.019395579,\n                0.023516975,\n                0.011258126,\n                -0.016551422,\n                0.022608425,\n                -0.002867201,\n                -0.0005740163,\n                0.0042925724,\n                -0.015195179,\n                0.029679319,\n                0.0018022878,\n                -0.023424804,\n                -0.009506863,\n                0.011435887,\n                0.013852105,\n                0.0041082287,\n                0.018513363,\n                -0.0020936164,\n                -0.0072684046,\n                -0.004565796,\n                0.004098353,\n                0.007979444,\n                -0.0021545158,\n                0.021950055,\n                -0.019013725,\n                0.0030416693,\n                -0.017696984,\n                0.006507987,\n                0.0043913275,\n                -0.011699234,\n                0.017446805,\n                0.017420469,\n                -0.019803768,\n                0.0046448,\n                -0.004799517,\n                -0.027862217,\n                0.005615896,\n                -0.0437421,\n                0.004404495,\n                -0.02318779,\n                -0.014707985,\n                0.028336244,\n                0.011435887,\n                -0.010046726,\n                -0.028731266,\n                -0.006290725,\n                -0.024952222,\n                -0.025478918,\n                -0.013463666,\n                -0.012212763,\n                0.030522032,\n                0.00909209,\n                0.03068004,\n                -0.02384616,\n                -0.011159371,\n                0.029969001,\n                -0.003881091,\n                -0.0009093735,\n                0.010165232,\n                -0.016182734,\n                -0.0071367305,\n                0.026203126,\n                0.022792768,\n                0.0022433957,\n                -0.012495862,\n                0.004048975,\n                -0.028889274,\n                0.027098509,\n                -0.007808268,\n                0.0009752105,\n                0.01574821,\n                0.025834437,\n                -0.021304851,\n                -0.027019504,\n                -0.00736716,\n                0.026492808,\n                0.0040456834,\n                0.00020954682,\n                0.0061788023,\n                -0.001577619,\n                0.025202403,\n                -0.0066791633,\n                -0.0048949807,\n                0.008163787,\n                -0.008111118,\n                0.025847604,\n                -0.0006332696,\n                0.02733552,\n                -0.032233793,\n                -0.027546199,\n                -0.0035124037,\n                -0.0043781605,\n                0.016906941,\n                0.005954956,\n                0.02075182,\n                0.020409469,\n                0.020580646,\n                -0.0032720987,\n                -0.004621757,\n                0.021594536,\n                -0.002676274,\n                0.023424804,\n                0.0070511424,\n                0.0019372536,\n                0.00060446595,\n                0.02870493,\n                0.027177513,\n                -0.015155677,\n                -0.022384578,\n                -0.02471521,\n                -0.0069655543,\n                -0.0047929334,\n                0.01706495,\n                0.02931063,\n                -0.025505252,\n                0.008157204,\n                0.025781767,\n                0.0173678,\n                0.027993891,\n                -0.032444473,\n                0.014154955,\n                0.009460776,\n                0.01904006,\n                -0.0009192491,\n                -0.6493108,\n                -0.0069194683,\n                -0.012752626,\n                -0.0031223197,\n                0.017420469,\n                0.017815491,\n                0.02171304,\n                0.006754876,\n                -0.0067812107,\n                -0.00000583789,\n                0.0051813717,\n                0.020185623,\n                0.015563866,\n                -0.022476751,\n                0.017143954,\n                -0.012956721,\n                -0.00062750885,\n                0.004671135,\n                -0.0023487348,\n                0.018197346,\n                -0.047218293,\n                0.026163623,\n                -0.0017578478,\n                0.034261573,\n                0.013351743,\n                -0.013325408,\n                0.020435805,\n                -0.014391967,\n                -0.02765154,\n                0.017710153,\n                0.016037893,\n                -0.0032177833,\n                0.0060537118,\n                -0.0126538705,\n                0.038554147,\n                -0.026150456,\n                -0.008769488,\n                0.014036448,\n                0.00443083,\n                0.05619846,\n                0.016959611,\n                0.0053854664,\n                0.022213403,\n                0.02263476,\n                0.0020557602,\n                -0.022542588,\n                0.024267517,\n                -0.022160733,\n                0.004779766,\n                -0.021423358,\n                0.036631703,\n                0.0036901636,\n                -0.017710153,\n                -0.0037164984,\n                0.0013908065,\n                -0.00020347747,\n                0.048930056,\n                -0.010507585,\n                -0.00017199916,\n                -0.01407595,\n                0.0032375343,\n                0.00022672616,\n                -0.027045839,\n                -0.008091367,\n                -0.012397107,\n                -0.00091348833,\n                -0.023582812,\n                0.006998473,\n                0.0049871528,\n                -0.0056027286,\n                0.011396384,\n                0.031601757,\n                -0.026005615,\n                0.027756877,\n                0.00066083885,\n                0.031891443,\n                0.022595257,\n                0.0025116815,\n                -0.002631834,\n                0.0032951417,\n                -0.017604813,\n                -0.00011109993,\n                -0.00736716,\n                -0.0063335192,\n                0.023437971,\n                -0.015168844,\n                -0.0046382165,\n                -0.01468165,\n                0.009987473,\n                -0.00021849653,\n                0.010013808,\n                0.034998946,\n                0.010863105,\n                0.007828019,\n                -0.01777599,\n                0.009171094,\n                -0.014115452,\n                -0.0024260934,\n                0.0025923317,\n                -0.014602646,\n                0.003993014,\n                -0.039607536,\n                -0.0052077062,\n                0.014655315,\n                0.013628258,\n                0.013002807,\n                -0.011653149,\n                -0.0063499785,\n                0.0012484341,\n                -0.0005353371,\n                -0.007926774,\n                -0.020501642,\n                -0.01053392,\n                -0.029652983,\n                0.011936247,\n                -0.024267517,\n                -0.007841187,\n                0.00092171796,\n                0.0028836604,\n                -0.03570999,\n                -0.011936247,\n                -0.018618703,\n                0.01863187,\n                -0.002498514,\n                0.01407595,\n                0.022661094,\n                0.018408025,\n                -0.0056521064,\n                -0.0044769156,\n                0.0076370914,\n                0.02187105,\n                0.018408025,\n                0.0038218377,\n                -0.028546922,\n                0.010487834,\n                0.015129342,\n                0.028889274,\n                -0.01341758,\n                0.019277073,\n                -0.03513062,\n                -0.019171733,\n                -0.020883495,\n                -0.018118342,\n                -0.002628542,\n                -0.0061491756,\n                -0.034393247,\n                -0.007518585,\n                -0.003532155,\n                -0.033550534,\n                0.011475389,\n                -0.025913442,\n                -0.0017512641,\n                -0.019026892,\n                -0.012660455,\n                -0.015774544,\n                -0.0057969475,\n                -0.013957444,\n                -0.024781046,\n                -0.010896023,\n                -0.002584102,\n                0.03689505,\n                0.016367078,\n                -0.031127732,\n                0.01000064,\n                -0.030416694,\n                0.006537614,\n                0.015155677,\n                0.031312075,\n                -0.013931109,\n                -0.020330464,\n                0.0059779994,\n                0.0015595139,\n                -0.012739459,\n                0.009664871,\n                0.03175977,\n                -0.005263668,\n                0.0036934556,\n                -0.0033906053,\n                -0.00036848144,\n                -0.020080283,\n                -0.013601923,\n                0.011146204,\n                0.016985945,\n                -0.005675149,\n                0.01569554,\n                0.031312075,\n                0.015814047,\n                0.02870493,\n                -0.018974222,\n                0.012607785,\n                0.023714487,\n                0.0029231627,\n                -0.014089118,\n                -0.010817018,\n                -0.0015833798,\n                0.012969889,\n                0.006159051,\n                0.012851382,\n                -0.0070248074,\n                -0.009757043,\n                0.03336619,\n                0.014786989,\n                -0.012179844,\n                -0.01192308,\n                -0.00368358,\n                -0.025531588,\n                0.013917942,\n                -0.029942667,\n                0.03923885,\n                0.017433636,\n                -0.005770613,\n                -0.022015892,\n                -0.0056257714,\n                -0.031786103,\n                -0.0034531504,\n                0.01934291,\n                0.00040530902,\n                0.0068009617,\n                -0.009546365,\n                0.03073271,\n                0.013457082,\n                0.019777434,\n                0.024346521,\n                0.011310796,\n                -0.024491362,\n                0.0055303075,\n                0.0104944175,\n                -0.008032113,\n                -0.005635647,\n                -0.009816296,\n                -0.0055368915,\n                -0.0036045755,\n                -0.018974222,\n                0.033181846,\n                0.05027313,\n                0.03028502,\n                0.028599592,\n                -0.018552866,\n                0.001535648,\n                -0.013022558,\n                0.007459332,\n                0.019171733,\n                0.048693042,\n                -0.027151177,\n                0.0038745073,\n                -0.010981611,\n                0.031628095,\n                0.020238293,\n                -0.004954234,\n                -0.017354632,\n                -0.008473221,\n                0.009500279,\n                -0.032918498,\n                -0.003466318,\n                0.0167621,\n                -0.0011266356,\n                0.0077095125,\n                -0.011416135,\n                0.0025692887,\n                0.024017336,\n                -0.018552866,\n                0.019395579,\n                0.007650259,\n                -0.022463584,\n                0.0043946197,\n                -0.0071103955,\n                0.0075515034,\n                -0.020830825,\n                0.018803047,\n                0.019909108,\n                0.00047814118,\n                0.001687073,\n                -0.0003499648,\n                0.003091047,\n                0.012146926,\n                0.0030235641,\n                0.016288074,\n                -0.021186346,\n                0.008374466,\n                0.02010662,\n                -0.005563226,\n                -0.032365467,\n                0.028678596,\n                0.011462221,\n                -0.0049706935,\n                -0.0019306699,\n                0.001994861,\n                0.013193734,\n                -0.0047534313,\n                0.016169567,\n                -0.019408748,\n                -0.0029182248,\n                -0.015063505,\n                -0.013917942,\n                -0.008881411,\n                -0.006027377,\n                0.012337853,\n                -0.0185792,\n                0.008104534,\n                -0.016367078,\n                0.01108695,\n                0.010270571,\n                -0.012304935,\n                -0.048219018,\n                -0.009743876,\n                0.01334516,\n                -0.049904443,\n                -0.026624482,\n                0.024109509,\n                0.006537614,\n                -0.0013093333,\n                -0.0065145707,\n                0.005638939,\n                -0.01334516,\n                0.007564671,\n                0.018302685,\n                -0.019474585,\n                -0.020738654,\n                0.016538253,\n                0.01005331,\n                -0.024728376,\n                0.00565869,\n                -0.0077951006,\n                0.00053574855,\n                0.09954554,\n                -0.0056521064,\n                0.020448972,\n                0.020027615,\n                0.025689596,\n                -0.008400801,\n                0.005194539,\n                -0.021515531,\n                0.013654593,\n                -0.017091284,\n                -0.011343715,\n                -0.004509834,\n                0.018513363,\n                -0.0027750295,\n                0.0148528265,\n                0.024425525,\n                -0.020896662,\n                -0.0050101955,\n                0.004473624,\n                -0.008473221,\n                -0.011100118,\n                -0.008993334,\n                -0.0069853053,\n                0.01539269,\n                0.0075383363,\n                0.01108695,\n                0.02738819,\n                -0.008716818,\n                0.009678039,\n                0.004295864,\n                0.0257291,\n                0.010724847,\n                0.0050332383,\n                0.008644397,\n                -0.003489361,\n                0.015629703,\n                -0.01293697,\n                -0.035920665,\n                0.0076634265,\n                -0.0011760134,\n                0.019500919,\n                0.034472253,\n                -0.016538253,\n                -0.0017282212,\n                0.009065755,\n                0.012851382,\n                0.018855715,\n                0.0323128,\n                -0.01281188,\n                -0.024004169,\n                0.014089118,\n                0.012897468,\n                -0.002014612,\n                -0.0055665183,\n                -0.007386911,\n                0.029073618,\n                -0.005085908,\n                -0.02227924,\n                0.011811158,\n                -0.013424164,\n                -0.014615813,\n                -0.032892164,\n                -0.017473139,\n                0.00030511332,\n                -0.011876994,\n                -0.056935836,\n                -0.019026892,\n                -0.0058265743,\n                -0.03173343,\n                -0.016590923,\n                0.011402968,\n                -0.0132398205,\n                0.0053196293,\n                0.013983778,\n                0.03507795,\n                0.013680928,\n                0.020725487,\n                0.020988835,\n                0.009987473,\n                0.038422473,\n                0.0053459643,\n                -0.02669032,\n                -0.010553671,\n                -0.009809713,\n                0.012443192,\n                0.029126288,\n                0.012364188,\n                -0.02117318,\n                -0.013746765,\n                0.010191567,\n                -0.00008666823,\n                0.015866715,\n                0.024412358,\n                -0.009730708,\n                0.0014122035,\n                0.011310796,\n                -0.009849215,\n                0.0137335975,\n                -0.011863827,\n                -0.011936247,\n                0.027124843,\n                0.010158649,\n                0.022503085,\n                -0.012877717,\n                -0.0026153747,\n                -0.013680928,\n                -0.013996946,\n                0.011909912,\n                0.011521474,\n                0.040371247,\n                0.010362743,\n                -0.014615813,\n                0.02688783,\n                0.0025709348,\n                0.0005748393,\n                0.05322263,\n                -0.014615813,\n                0.009177677,\n                -0.0008023884,\n                -0.003551906,\n                -0.004318907,\n                -0.025465751,\n                0.01913223,\n                0.0008674024,\n                0.013463666,\n                0.006603451,\n                -0.006787794,\n                -0.015893051,\n                0.016222237,\n                0.014049615,\n                0.013522919,\n                -0.0056685656,\n                -0.016037893,\n                -0.020975668,\n                -0.022358244,\n                -0.020672817,\n                -0.016393412,\n                0.011021113,\n                -0.006307184,\n                -0.009612202,\n                -0.03078538,\n                -0.00038926126,\n                -0.008492973,\n                -0.015945721,\n                -0.027256517,\n                -0.020277794,\n                0.00125008,\n                -0.008124285,\n                -0.0063433945,\n                0.041925,\n                -0.0018747085,\n                0.0167621,\n                -0.040634595,\n                -0.022292407,\n                0.007920191,\n                -0.026163623,\n                -0.00977021,\n                -0.0020936164,\n                0.01012573,\n                0.033708543,\n                0.0092896,\n                -0.021884218,\n                0.006991889,\n                0.0137730995,\n                0.0018977515,\n                -0.0053393804,\n                0.0148791615,\n                -0.0017397427,\n                0.012173261,\n                0.0015084902,\n                0.01083677,\n                0.009177677,\n                0.0033692084,\n                0.004233319,\n                -0.0070511424,\n                0.03797478,\n                0.023358967,\n                -0.00909209,\n                -0.03073271,\n                -0.03847514,\n                0.015550699,\n                -0.015116175,\n                -0.012324686,\n                0.0018006419,\n                -0.010928942,\n                -0.011244959,\n                0.014049615,\n                -0.014470972,\n                0.0025742266,\n                -0.021239014,\n                0.012377355,\n                -0.010573422,\n                0.006682455,\n                0.0057113594,\n                -0.016985945,\n                0.011297628,\n                -0.009421274,\n                -0.033050172,\n                -0.0006859392,\n                -0.01412862,\n                0.024070006,\n                -0.019579923,\n                0.0011340423,\n                -0.0068667987,\n                0.023938332,\n                -0.002628542,\n                -0.014760654,\n                -0.005372299,\n                -0.017380968,\n                -0.0021215973,\n                -0.01286455,\n                -0.033445194,\n                0.007966276,\n                -0.038712155,\n                0.019448249,\n                0.0021824965,\n                0.0087497365,\n                0.031127732,\n                -0.014602646,\n                -0.0012262141,\n                0.0021100757,\n                -0.030048005,\n                0.006267682,\n                -0.0019652343,\n                0.036236685,\n                0.0011455638,\n                0.017051782,\n                -0.011863827,\n                -0.012054754,\n                -0.028941944,\n                0.004776474,\n                0.0006357385,\n                0.026848327,\n                -0.0149054965,\n                0.002129827,\n                0.003907426,\n                0.006159051,\n                -0.022871774,\n                -0.03368221,\n                0.021660373,\n                0.027941221,\n                -0.0029494974,\n                -0.007228902,\n                -0.01503717,\n                -0.022503085,\n                -0.0059022866,\n                -0.0032507018,\n                0.011093534,\n                -0.01037591,\n                -0.014220791,\n                -0.0043979115,\n                0.015945721,\n                -0.040634595,\n                0.038791157,\n                0.025900275,\n                0.024096342,\n                0.025202403,\n                -0.004667843,\n                -0.013015974,\n                -0.011942831,\n                -0.009809713,\n                -0.01534002,\n                -0.014207624,\n                -0.0034696097,\n                -0.002368486,\n                0.014773822,\n                -0.028125565,\n                -0.013127897,\n                0.0115478095,\n                0.018908385,\n                -0.020383134,\n                -0.0425307,\n                -0.022977112,\n                0.01185066,\n                0.0051451614,\n                0.012568283,\n                0.0019109189,\n                0.008176955,\n                0.0021808506,\n                -0.006007626,\n                0.004881813,\n                0.003198032,\n                -0.01468165,\n                -0.032181125,\n                -0.00478635,\n                -0.028889274,\n                -0.007814852,\n                0.0015167198,\n                -0.0040423917,\n                -0.0051418697,\n                -0.012219347,\n                0.006554073,\n                0.007992611,\n                -0.005332797,\n                -0.019737931,\n                -0.014615813,\n                -0.016854271,\n                0.01240369,\n                -0.017749654,\n                0.028494252,\n                -0.010843353,\n                0.008460054,\n                -0.040792603,\n                -0.008479806,\n                -0.017512642,\n                -0.016841104,\n                0.034761935,\n                0.01030349,\n                -0.010277155,\n                -0.007696345,\n                0.01913223,\n                0.012035003,\n                -0.020685984,\n                0.010145482,\n                0.019053226,\n                -0.0025495377,\n                0.016235404,\n                0.0068667987,\n                -0.037685096,\n                0.0116136465,\n                -0.020383134,\n                -0.007781933,\n                0.02010662,\n                -0.011837492,\n                0.004885105,\n                -0.0014229021,\n                0.012272016,\n                -0.0049443585,\n                -0.014721152,\n                -0.0043946197,\n                0.0077095125,\n                0.013917942,\n                0.014549976,\n                -0.011778239,\n                -0.014457804,\n                -0.027124843,\n                -0.018789878,\n                0.008117702,\n                -0.02233191,\n                0.000018246621,\n                0.01822368,\n                0.03249714,\n                0.01048125,\n                0.0062183044,\n                -0.0137599325,\n                -0.001668145,\n                0.01954042,\n                -0.026716653,\n                -0.025136566,\n                -0.022674263,\n                -0.018763544,\n                0.02728285,\n                0.008920914,\n                -0.011863827,\n                0.005810115,\n                -0.015919385,\n                -0.033445194,\n                0.030153345,\n                -0.011284461,\n                0.024596702,\n                0.026440138,\n                0.0028112398,\n                0.0029955835,\n                0.03260248,\n                -0.0009875549,\n                0.03665804,\n                -0.00754492,\n                -0.0034531504,\n                0.009243514,\n                -0.024399191,\n                0.01720979,\n                0.0046184654,\n                -0.022990279,\n                0.006155759,\n                -0.0088550765,\n                0.012851382,\n                0.0025330784,\n                0.004470332,\n                0.003048253,\n                0.0060372525,\n                0.011060615,\n                0.020093452,\n                0.029047282,\n                0.011784823,\n                -0.009625369,\n                -0.017868161,\n                0.0031272573,\n                0.017538976,\n                -0.01042858,\n                -0.007755598,\n                0.0070050564,\n                0.022713764,\n                -0.004190525,\n                -0.02870493,\n                0.00027651538,\n                -0.017762821,\n                0.006297309,\n                -0.0137335975,\n                0.01514251,\n                0.0149054965,\n                0.0054875137,\n                -0.013279323,\n                -0.013694095,\n                -0.0038712155,\n                0.0068272967,\n                -0.013081811,\n                -0.04521685,\n                0.023003446,\n                0.006089922,\n                -0.024675706,\n                -0.0052208737,\n                -0.029494975,\n                0.015063505,\n                -0.006958971,\n                -0.00767001,\n                -0.008894579,\n                -0.00048307897,\n                -0.008618063,\n                0.011686067,\n                -0.0013833999,\n                -0.02283227,\n                0.0167621,\n                0.0068931337,\n                -0.009197429,\n                0.017894495,\n                -0.017394135,\n                0.023780324,\n                -0.025294574,\n                -0.0037592924,\n                0.017841827,\n                0.0016278197,\n                -0.014642148,\n                -0.0017726611,\n                -0.011863827,\n                0.010777516,\n                -0.00024153948,\n                0.2077289,\n                -0.012291768,\n                -0.022898108,\n                0.023661816,\n                0.0030992767,\n                -0.005006904,\n                0.022213403,\n                0.009454193,\n                -0.005171496,\n                0.031180402,\n                -0.018724041,\n                0.0041016447,\n                -0.0067219576,\n                0.0005020071,\n                -0.005043114,\n                0.004845603,\n                -0.03215479,\n                -0.045401193,\n                -0.005174788,\n                0.01630124,\n                0.004648092,\n                -0.022094896,\n                -0.026045116,\n                0.010454915,\n                0.024056839,\n                0.00069128844,\n                0.011185706,\n                -0.0047698906,\n                0.0076239244,\n                0.018394858,\n                -0.024188513,\n                -0.014339298,\n                -0.010277155,\n                0.0018236848,\n                -0.019250738,\n                -0.00368358,\n                0.03297117,\n                -0.01131738,\n                -0.002147932,\n                0.003835005,\n                -0.02672982,\n                0.0034729016,\n                0.0132003175,\n                -0.04203034,\n                0.0071894,\n                0.014615813,\n                -0.0055204323,\n                -0.005635647,\n                0.020330464,\n                0.012515613,\n                -0.021910552,\n                -0.00059911667,\n                -0.009934803,\n                0.004546045,\n                0.044321466,\n                0.004625049,\n                -0.000014131809,\n                -0.03254981,\n                0.0044209543,\n                0.022661094,\n                0.00043493568,\n                0.01503717,\n                -0.04076627,\n                -0.009447609,\n                -0.00434195,\n                -0.013878439,\n                0.01258145,\n                0.031575423,\n                0.04297839,\n                -0.0122786,\n                0.026545478,\n                -0.015682373,\n                -0.015682373,\n                0.020672817,\n                -0.013509752,\n                -0.0098953005,\n                0.021357521,\n                0.009697789,\n                0.019553589,\n                0.013562421,\n                -0.0054249684,\n                -0.0028902441,\n                -0.0072025675,\n                -0.007235486,\n                0.017999835,\n                -0.011765071,\n                0.037079398,\n                0.019909108,\n                0.015629703,\n                -0.02470204,\n                0.0115609765,\n                -0.02324046,\n                0.005991167,\n                -0.011837492,\n                0.0016097146,\n                0.025136566,\n                0.036026005,\n                0.047428973,\n                -0.010310073,\n                0.017499473,\n                0.0037132066,\n                -0.0009603972,\n                -0.0065211547,\n                -0.021805214,\n                -0.020448972,\n                -0.004269529,\n                0.0023981126,\n                0.0293633,\n                0.011580728,\n                -0.0015874946,\n                0.0018055796,\n                -0.013463666,\n                0.017696984,\n                -0.0024655955,\n                -0.011541226,\n                0.0058068233,\n                0.010283739,\n                -0.008585145,\n                0.0005546767,\n                -0.022950778,\n                0.022029059,\n                -0.019053226,\n                -0.0045427526,\n                0.013852105,\n                -0.0056619816,\n                -0.034287907,\n                -0.013358327,\n                0.006932636,\n                -0.012272016,\n                -0.046296578,\n                0.004539461,\n                0.011126452,\n                0.019119063,\n                -0.009138175,\n                -0.0109881945,\n                -0.02076499,\n                0.025781767,\n                -0.018118342,\n                -0.002806302,\n                0.0029873538,\n                0.008841909,\n                -0.016748931,\n                -0.017104452,\n                -0.020462139,\n                0.018776711,\n                -0.017854994,\n                0.012166677,\n                -0.0035255712,\n                -0.032023117,\n                -0.00076658954,\n                -0.000820905,\n                -0.027941221,\n                -0.011554393,\n                -0.02587394,\n                0.02809923,\n                -0.009447609,\n                -0.018697707,\n                -0.021397024,\n                0.021528699,\n                -0.005852909,\n                0.0032902039,\n                -0.01802617,\n                0.008400801,\n                -0.013654593,\n                -0.008934081,\n                0.006603451,\n                -0.1666466,\n                0.029126288,\n                0.014405135,\n                -0.020014446,\n                -0.013299073,\n                -0.0064355666,\n                0.038211793,\n                0.0032095537,\n                0.0050595733,\n                0.011291045,\n                0.014800157,\n                0.0006966377,\n                -0.028573256,\n                -0.010171816,\n                -0.01085652,\n                0.0018434359,\n                -0.004269529,\n                0.022187067,\n                -0.005477638,\n                0.0041543143,\n                0.021647204,\n                -0.024478195,\n                0.030100675,\n                -0.010362743,\n                0.0003981081,\n                0.0019586508,\n                -0.025597425,\n                0.022766434,\n                -0.011001362,\n                -0.009421274,\n                -0.027756877,\n                0.021634037,\n                0.0073934947,\n                0.034366913,\n                0.014181289,\n                -0.018368522,\n                -0.004585547,\n                0.015893051,\n                -0.004364993,\n                0.026624482,\n                0.00085917284,\n                0.04806101,\n                -0.014602646,\n                0.03736908,\n                -0.01873721,\n                0.008914329,\n                0.0046349247,\n                0.029126288,\n                0.005744278,\n                -0.029758323,\n                -0.00086575653,\n                -0.04232002,\n                -0.00644215,\n                -0.0037000393,\n                0.0012023482,\n                -0.003155238,\n                -0.012904052,\n                -0.0023224,\n                0.0148528265,\n                -0.010744598,\n                -0.008710234,\n                -0.017960332,\n                0.00075918285,\n                0.00091348833,\n                0.014273461,\n                -0.03615768,\n                -0.0031667596,\n                -0.019790601,\n                -0.009967721,\n                0.00068017846,\n                0.010501001,\n                -0.026413804,\n                0.012660455,\n                -0.0027980723,\n                0.014536809,\n                0.017525809,\n                -0.007380327,\n                -0.007926774,\n                0.016564589,\n                -0.006307184,\n                -0.027072173,\n                0.039607536,\n                -0.014181289,\n                0.011416135,\n                -0.009967721,\n                0.0033066631,\n                -0.017328298,\n                0.0028573256,\n                -0.020791324,\n                -0.012311518,\n                0.01508984,\n                0.0035058202,\n                -0.022608425,\n                -0.017696984,\n                0.02733552,\n                0.012048171,\n                0.01156756,\n                -0.0045690876,\n                -0.006840464,\n                -0.0017216374,\n                -0.009750459,\n                0.0032984335,\n                -0.006774627,\n                -0.01156756,\n                -0.0012410274,\n                0.009473944,\n                0.0037197904,\n                0.017236127,\n                0.030048005,\n                -0.033155512,\n                0.005954956,\n                0.003966679,\n                0.010329825,\n                0.040687263,\n                0.016893774,\n                0.019171733,\n                -0.006076755,\n                -0.01665676,\n                0.0073079066,\n                -0.00020203728,\n                0.0148659935,\n                -0.016288074,\n                -0.030416694,\n                0.007459332,\n                -0.0074198297,\n                0.007834603,\n                -0.10175766,\n                -0.01574821,\n                -0.0034333994,\n                0.0227401,\n                -0.015116175,\n                0.010184984,\n                0.0041312715,\n                0.027783213,\n                0.024781046,\n                0.021225847,\n                0.0014533517,\n                -0.008848492,\n                -0.0161564,\n                0.007716096,\n                0.0245572,\n                -0.0104154125,\n                -0.019224403,\n                -0.020936165,\n                0.0039403443,\n                0.017420469,\n                -0.012041586,\n                -0.022042226,\n                -0.000026077623,\n                -0.00079662766,\n                -0.016459249,\n                -0.007966276,\n                -0.018947888,\n                0.019395579,\n                0.0104944175,\n                -0.002170975,\n                0.027546199,\n                -0.00044151937,\n                -0.0073737437,\n                -0.000625863,\n                -0.01462898,\n                0.015445359,\n                -0.02470204,\n                -0.012239098,\n                0.021647204,\n                -0.014405135,\n                -0.007610757,\n                -0.0082032895,\n                -0.030495698,\n                -0.027177513,\n                0.028467918,\n                -0.018289518,\n                -0.0047073453,\n                -0.0063499785,\n                -0.021199513,\n                -0.0056883167,\n                0.0072025675,\n                -0.014247126,\n                -0.02728285,\n                -0.019961778,\n                0.02329313,\n                -0.0009850861,\n                0.0018631871,\n                0.022661094,\n                -0.001864833,\n                -0.01610373,\n                -0.025413081,\n                -0.0019388995,\n                -0.001950421,\n                0.0137730995,\n                -0.0025511836,\n                0.002872139,\n                -0.0064388583,\n                0.009724124,\n                0.023200957,\n                0.018500196,\n                -0.007946526,\n                0.016261738,\n                0.0027964264,\n                0.020290963,\n                -0.029942667,\n                -0.01802617,\n                -0.0245572,\n                -0.022990279,\n                -0.018197346,\n                -0.0293633,\n                0.009967721,\n                -0.017736487,\n                0.009243514,\n                -0.012245681,\n                0.002521557,\n                0.0018631871,\n                0.010876272,\n                -0.009776794,\n                -0.0056817327,\n                0.0015158969,\n                0.0347356,\n                0.039686542,\n                0.014154955,\n                0.009941387,\n                -0.0038251295,\n                0.0115346415,\n                -0.010389078,\n                -0.017459972,\n                -0.008295462,\n                0.000109762615,\n                -0.013983778,\n                -0.007084061,\n                -0.0647836,\n                0.010665594,\n                0.023477472,\n                -0.011745321,\n                -0.0032737446,\n                -0.015774544,\n                -0.0020639899,\n                0.01539269,\n                0.030048005,\n                0.007149898,\n                -0.011106702,\n                0.0032079078,\n                0.008552226,\n                0.0037823354,\n                0.0035584897,\n                -0.010454915,\n                0.024228014,\n                0.014273461,\n                0.026058283,\n                0.00653103,\n                -0.023951499,\n                -0.014260294,\n                0.0063631455,\n                0.012943554,\n                -0.0013496585,\n                0.02486005,\n                -0.002786551,\n                0.020027615,\n                -0.003551906,\n                -0.02318779,\n                0.0126407035,\n                -0.028678596,\n                -0.002169329,\n                0.03265515,\n                -0.022108063,\n                -0.035051618,\n                -0.009842631,\n                0.017288795,\n                0.0038284215,\n                0.003420232,\n                -0.00094558386,\n                -0.039923556,\n                0.022292407,\n                0.011929664,\n                -0.024728376,\n                -0.0055105565,\n                0.015287351,\n                0.0121337585,\n                0.023964668,\n                -0.014484139,\n                0.00009469212,\n                0.018605536,\n                0.0060932143,\n                -0.024636203,\n                0.008703651,\n                0.00052793045,\n                0.0050036116,\n                -0.009085505,\n                -0.0005217582,\n                -0.031075062,\n                0.027835883,\n                -0.004546045,\n                0.01726246,\n                -0.017920831,\n                0.005856201,\n                0.011172539,\n                -0.0113898,\n                0.008618063,\n                -0.04603323,\n                -0.015866715,\n                -0.02085716,\n                0.015603368,\n                0.020580646,\n                0.0024968681,\n                0.02117318,\n                -0.014418302,\n                0.007103812,\n                -0.003112444,\n                -0.026308464,\n                0.005122118,\n                0.025044393,\n                0.0011595541,\n                -0.0093225185,\n                0.01096186,\n                0.02582127,\n                0.008032113,\n                0.00009371485,\n                -0.0012574866,\n                -0.017881328,\n                0.016380245,\n                -0.04232002,\n                0.015498029,\n                0.0037000393,\n                -0.019382412,\n                0.008901162,\n                0.010296906,\n                0.01665676,\n                -0.0063269353,\n                0.008104534,\n                0.020093452,\n                0.006076755,\n                -0.008262543,\n                -0.021963222,\n                -0.02471521,\n                -0.033339854,\n                -0.017446805,\n                -0.02738819,\n                -0.052142903,\n                0.0069655543,\n                0.001952067,\n                0.009480528,\n                0.021976389,\n                0.0057771965,\n                0.011982334,\n                -0.0020030907,\n                -0.0093620205,\n                0.0073079066,\n                -0.0046184654,\n                -0.030627372,\n                0.027467195,\n                -0.028494252,\n                0.043031063,\n                0.0043979115,\n                -0.021331187,\n                0.011258126,\n                -0.016893774,\n                0.005313046,\n                -0.01873721,\n                -0.0007739962,\n                -0.00031519463,\n                0.016538253,\n                -0.015063505,\n                -0.030601036,\n                -0.009335686,\n                -0.0051418697,\n                0.010316658,\n                0.006099798,\n                0.029679319,\n                -0.013437331,\n                0.065836996,\n                0.019105896,\n                0.0039205933,\n                0.020435805,\n                -0.010764349,\n                0.030574702,\n                0.023200957,\n                -0.0049213157,\n                -0.032181125,\n                -0.0048390194,\n                0.002059052,\n                0.0012566637,\n                -0.004885105,\n                -0.015155677,\n                -0.022963945,\n                -0.033287186,\n                -0.016169567,\n                -0.0040884777,\n                0.004631633,\n                -0.0042563616,\n                0.04384744,\n                -0.0041082287,\n                0.021884218,\n                0.003729666,\n                -0.039107177,\n                -0.011383217,\n                -0.011185706,\n                -0.0041345633,\n                -0.016683094,\n                -0.039423194,\n                0.009566115,\n                -0.0014615813,\n                -0.009980889,\n                -0.0030301479,\n                0.015182012,\n                0.011080367,\n                -0.0010377556,\n                -0.015471694,\n                0.009513446,\n                0.049298745,\n                0.009599034,\n                0.009460776,\n                -0.019803768,\n                -0.011422719,\n                -0.01564287,\n                0.004118104,\n                0.027045839,\n                0.016696263,\n                -0.033023838\n            ],\n            \"index\": 0\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "rag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "Can I bring my dog?",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/einstein/rag",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"einstein",
+								"rag"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "rag",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "Can I bring my dog?",
+									"options": {
+										"raw": {
+											"language": "text"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/v1/einstein/rag",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"einstein",
+										"rag"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "JSON",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked",
+									"type": "text"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 May 2025 17:12:20 GMT",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"response\": \"Based on the provided data, the answer to the question \\\"Can I bring my dog?\\\" is no. The data indicates that \\\"Pets are not allowed at the resort.\\\"\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

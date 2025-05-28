@@ -1,139 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ms-webcrawler="http://www.mulesoft.org/schema/mule/ms-webcrawler" xmlns:whisperer="http://www.mulesoft.org/schema/mule/whisperer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=" http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd  http://www.mulesoft.org/schema/mule/whisperer http://www.mulesoft.org/schema/mule/whisperer/current/mule-whisperer.xsd http://www.mulesoft.org/schema/mule/ms-webcrawler http://www.mulesoft.org/schema/mule/ms-webcrawler/current/mule-ms-webcrawler.xsd">
-    <http:listener-config name="mac-api-httpListenerConfig">
-        <http:listener-connection host="0.0.0.0" port="8081" />
-    </http:listener-config>
-    <apikit:config name="mac-api-config" api="resource::3601e070-90dc-4a3a-b659-ee1347ae831c:mac-api:1.0.1:raml:zip:mac-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
-    <flow name="mac-api-main">
-        <http:listener config-ref="mac-api-httpListenerConfig" path="/api/v1/*">
-            <http:response statusCode="#[vars.httpStatus default 200]">
-                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
-            </http:response>
-            <http:error-response statusCode="#[vars.httpStatus default 500]">
-                <http:body><![CDATA[#[payload]]]></http:body>
-                <http:headers><![CDATA[#[vars.outboundHeaders default {}]]]></http:headers>
-            </http:error-response>
-        </http:listener>
-        <logger level="INFO" doc:name="START" doc:id="ea01f56f-9204-4ca7-a4f5-f2e6a59e895b" message="START - Request received" />
-        <apikit:router config-ref="mac-api-config" />
-        <logger level="INFO" doc:name="END" doc:id="7c83ec85-d60f-4d0c-8dbd-e9944e8ff9b1" message="END - Response returned" />
-    </flow>
-    <flow name="mac-api-console">
-        <http:listener config-ref="mac-api-httpListenerConfig" path="/console/*">
-            <http:response statusCode="#[vars.httpStatus default 200]">
-                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
-            </http:response>
-            <http:error-response statusCode="#[vars.httpStatus default 500]">
-                <http:body>#[payload]</http:body>
-                <http:headers>#[vars.outboundHeaders default {}]</http:headers>
-            </http:error-response>
-        </http:listener>
-        <apikit:console config-ref="mac-api-config" />
-        <error-handler>
-            <on-error-propagate type="APIKIT:NOT_FOUND">
-                <ee:transform doc:name="Transform Message">
-                    <ee:message>
-                        <ee:set-payload><![CDATA[%dw 2.0
+  <flow name="mac-api-main">
+    <http:listener config-ref="mac-api-httpListenerConfig" path="/api/v1/*">
+      <http:response statusCode="#[vars.httpStatus default 200]">
+        <http:headers>
+          <![CDATA[#[vars.outboundHeaders default {}]]]>
+        </http:headers>
+      </http:response>
+      <http:error-response statusCode="#[vars.httpStatus default 500]">
+        <http:body>
+          <![CDATA[#[payload]]]>
+        </http:body>
+        <http:headers>
+          <![CDATA[#[vars.outboundHeaders default {}]]]>
+        </http:headers>
+      </http:error-response>
+    </http:listener>
+    <logger level="INFO" doc:name="START" doc:id="ea01f56f-9204-4ca7-a4f5-f2e6a59e895b" message="START - Request received" />
+    <apikit:router config-ref="mac-api-config" />
+    <logger level="INFO" doc:name="END" doc:id="7c83ec85-d60f-4d0c-8dbd-e9944e8ff9b1" message="END - Response returned" />
+  </flow>
+  <flow name="mac-api-console">
+    <http:listener config-ref="mac-api-httpListenerConfig" path="/console/*">
+      <http:response statusCode="#[vars.httpStatus default 200]">
+        <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+      </http:response>
+      <http:error-response statusCode="#[vars.httpStatus default 500]">
+        <http:body>#[payload]</http:body>
+        <http:headers>#[vars.outboundHeaders default {}]</http:headers>
+      </http:error-response>
+    </http:listener>
+    <apikit:console config-ref="mac-api-config" />
+    <error-handler>
+      <on-error-propagate type="APIKIT:NOT_FOUND">
+        <ee:transform doc:name="Transform Message">
+          <ee:message>
+            <ee:set-payload>
+              <![CDATA[%dw 2.0
 output application/json
 ---
-{message: "Resource not found"}]]></ee:set-payload>
-                    </ee:message>
-                    <ee:variables>
-                        <ee:set-variable variableName="httpStatus">404</ee:set-variable>
-                    </ee:variables>
-                </ee:transform>
-            </on-error-propagate>
-        </error-handler>
-    </flow>
-    <flow name="get:\webcrawler\content:mac-api-config">
-        <flow-ref doc:name="mule-webcrawler-get-content-subflow" doc:id="773bf732-e3f8-443d-95de-74f5cea687d6" name="mule-webcrawler-get-content-subflow" />
-    </flow>
-    <flow name="get:\webcrawler\documents:mac-api-config">
-        <flow-ref doc:name="mule-webcrawler-download-documents-subflow" doc:id="85b97e73-78b8-49d2-b8c0-575cc49c2a17" name="mule-webcrawler-download-documents-subflow" />
-    </flow>
-    <flow name="get:\webcrawler\images:mac-api-config">
-        <flow-ref doc:name="mule-webcrawler-download-images-subflow" doc:id="c05e0850-d32e-4ee9-90e2-aa34bc2346db" name="mule-webcrawler-download-images-subflow" />
-    </flow>
-    <flow name="get:\webcrawler\insights:mac-api-config">
-        <flow-ref doc:name="mule-webcrawler-get-insights-subflow" doc:id="c526b477-fd27-46b4-a42e-121f7fcb9e3f" name="mule-webcrawler-get-insights-subflow" />
-    </flow>
-    <flow name="get:\webcrawler\sitemap:mac-api-config">
-        <flow-ref doc:name="mule-webcrawler-get-sitemap-subflow" doc:id="95346edb-8709-4df3-9fd2-5ede929ddf3e" name="mule-webcrawler-get-sitemap-subflow" />
-    </flow>
-    <flow name="get:\whisperer\speech-to-text:mac-api-config">
-        <flow-ref doc:name="mule-whisperer-speech-to-text-subflow" doc:id="df5f89ec-73bc-405c-8df5-4d25b0f106a6" name="mule-whisperer-speech-to-text-subflow" />
-    </flow>
-    <flow name="get:\webcrawler\tags:mac-api-config">
-        <flow-ref doc:name="mule-webcrawler-get-meta-tags-subflow" doc:id="e6f6243f-c149-411b-b361-e2889278cbe2" name="mule-webcrawler-get-meta-tags-subflow" />
-    </flow>
-    <flow name="get:\webcrawler\website:mac-api-config">
-        <flow-ref doc:name="mule-webcrawler-scan-website-subflow" doc:id="d8c758de-32f0-4099-bec1-2f5e2f8335b4" name="mule-webcrawler-scan-website-subflow" />
-    </flow>
-    <flow name="post:\webcrawler\search:application\json:mac-api-config">
-        <flow-ref doc:name="mule-webcrawler-search-subflow" doc:id="770f3a55-ccc7-43a0-b675-633c1253b87f" name="mule-webcrawler-search-subflow" />
-    </flow>
-    <flow name="post:\whisperer\text-to-speech:application\json:mac-api-config">
-        <flow-ref doc:name="mule-whisperer-text-to-speech-subflow" doc:id="5a8fe0a9-057d-4071-9a8e-6f960c6c750e" name="mule-whisperer-text-to-speech-subflow" />
-    </flow>
-    <flow name="post:\inference\agent:application\json:mac-api-config">
-		<flow-ref doc:name="mule-inference-agent-subflow" doc:id="d8592cc8-012c-4856-8921-1d8329ce6106" name="mule-inference-agent-subflow"/>
-    </flow>
-    <flow name="post:\aichain\agent:application\json:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-agent-subflow" doc:id="4bdee330-12bc-4721-9cb8-76500597c776" name="mule-ai-chain-agent-subflow"/>
-    </flow>
-    <flow name="post:\inference\chat\answer:application\json:mac-api-config">
-		<flow-ref doc:name="mule-inference-chat-answer-subflow" doc:id="e42f7e53-c96c-47d0-aec5-ee62f2b46487" name="mule-inference-chat-answer-subflow"/>
-    </flow>
-    <flow name="post:\aichain\chat:application\json:mac-api-config">
-		<set-variable value="#[attributes.queryParams.memory]" doc:name="VL Set inMemory" doc:id="1325cbe0-59e6-4420-ac58-131decfb1381" variableName="inMemory"/>
-		<flow-ref doc:name="mule-ai-chain-chat-subflow" doc:id="469ed7aa-5f01-480b-86e8-53eca496ddda" name="mule-ai-chain-chat-subflow"/>
-    </flow>
-    <flow name="post:\inference\chat\completion:application\json:mac-api-config">
-		<flow-ref doc:name="mule-inference-chat-completion-subflow" doc:id="ab02297b-a90b-4cf7-81bc-5beb9d88a29a" name="mule-inference-chat-completion-subflow"/>
-    </flow>
-    <flow name="post:\aichain\embeddings\store\add\document:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-embeddings-add-document-subflow" doc:id="b409bb66-cb52-415f-9df6-8b1945a1479b" name="mule-ai-chain-embeddings-add-document-subflow"/>
-    </flow>
-    <flow name="post:\aichain\embeddings\store\add\folder:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-embeddings-add-folder-subflow" doc:id="54fdccc4-2132-4d1d-b99d-b64e6ca592fe" name="mule-ai-chain-embeddings-add-folder-subflow"/>
-    </flow>
-    <flow name="post:\aichain\image\generate:application\json:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-image-generate-subflow" doc:id="e80e3496-26ef-4a0c-82e6-cb48ae2d102e" name="mule-ai-chain-image-generate-subflow"/>
-    </flow>
-    <flow name="post:\inference\chat\image:application\json:mac-api-config">
-		<flow-ref doc:name="mule-inference-image-subflow" doc:id="872128db-9045-4dc0-b8df-12b94a8f4314" name="mule-inference-image-subflow"/>
-    </flow>
-    <flow name="post:\aichain\embeddings\store\info:application\json:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-embeddings-store-info-subflow" doc:id="4a971a68-a802-4a43-a3a4-832e6c199a85" name="mule-ai-chain-embeddings-store-info-subflow"/>
-    </flow>
-    <flow name="post:\aichain\tools\ai\native:application\json:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-tools-native-subflow" doc:id="4a504444-ee48-4be2-9699-76e8ec26abb5" name="mule-ai-chain-tools-native-subflow"/>
-    </flow>
-	<flow name="post:\aichain\embeddings\store\new:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-embeddings-store-new-subflow" doc:id="caf35dab-42bb-4ba4-b009-d9e710fe1d51" name="mule-ai-chain-embeddings-store-new-subflow"/>
-    </flow>
-    <flow name="post:\aichain\embeddings\store\query:application\json:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-embeddings-store-query-subflow" doc:id="dce289e2-be72-4b24-8203-7df09c052bd7" name="mule-ai-chain-embeddings-store-query-subflow"/>
-    </flow>
-    <flow name="post:\aichain\rag:application\json:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-rag-subflow" doc:id="671603ca-4fb7-41a9-924e-bae6ca27d79a" name="mule-ai-chain-rag-subflow"/>
-    </flow>
-    <flow name="post:\aichain\image\read:application\json:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-image-read-subflow" doc:id="cb887bfb-5af7-406a-9ce9-29012c733604" name="mule-ai-chain-image-read-subflow"/>
-    </flow>
-    <flow name="post:\aichain\sentiment:application\json:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-sentiment-subflow" doc:id="8e9f1c32-fd68-43d5-860f-c4a85a46f933" name="mule-ai-chain-sentiment-subflow"/>
-    </flow>
-    <flow name="post:\aichain\tools\ai\service:application\json:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-tools-service-subflow" doc:id="1df76505-6ce4-40ca-a8f1-f87d29e916d5" name="mule-ai-chain-tools-service-subflow"/>
-    </flow>
-    <flow name="post:\inference\chat\tools:application\json:mac-api-config">
-		<flow-ref doc:name="mule-inference-tools-subflow" doc:id="60e5a4cf-188e-4379-860a-f6fa6c5403ea" name="mule-inference-tools-subflow"/>
-    </flow>
-    <flow name="post:\inference\chat\toxicity:application\json:mac-api-config">
-		<flow-ref doc:name="mule-inference-toxicity-subflow" doc:id="b87dec35-5467-482b-92aa-78305df36e6f" name="mule-inference-toxicity-subflow"/>
-    </flow>
-    <flow name="post:\aichain\toxicity:application\json:mac-api-config">
-		<flow-ref doc:name="mule-ai-chain-toxicity-subflow" doc:id="a603b1cc-7f98-4230-bb45-011a080b0d00" name="mule-ai-chain-toxicity-subflow"/>
-    </flow>
+{message: "Resource not found"}]]>
+            </ee:set-payload>
+          </ee:message>
+          <ee:variables>
+            <ee:set-variable variableName="httpStatus">404</ee:set-variable>
+          </ee:variables>
+        </ee:transform>
+      </on-error-propagate>
+    </error-handler>
+  </flow>
+  <flow name="get:\webcrawler\content:mac-api-config">
+    <flow-ref doc:name="mule-webcrawler-get-content-subflow" doc:id="773bf732-e3f8-443d-95de-74f5cea687d6" name="mule-webcrawler-get-content-subflow" />
+  </flow>
+  <flow name="get:\webcrawler\documents:mac-api-config">
+    <flow-ref doc:name="mule-webcrawler-download-documents-subflow" doc:id="85b97e73-78b8-49d2-b8c0-575cc49c2a17" name="mule-webcrawler-download-documents-subflow" />
+  </flow>
+  <flow name="get:\webcrawler\images:mac-api-config">
+    <flow-ref doc:name="mule-webcrawler-download-images-subflow" doc:id="c05e0850-d32e-4ee9-90e2-aa34bc2346db" name="mule-webcrawler-download-images-subflow" />
+  </flow>
+  <flow name="get:\webcrawler\insights:mac-api-config">
+    <flow-ref doc:name="mule-webcrawler-get-insights-subflow" doc:id="c526b477-fd27-46b4-a42e-121f7fcb9e3f" name="mule-webcrawler-get-insights-subflow" />
+  </flow>
+  <flow name="get:\webcrawler\sitemap:mac-api-config">
+    <flow-ref doc:name="mule-webcrawler-get-sitemap-subflow" doc:id="95346edb-8709-4df3-9fd2-5ede929ddf3e" name="mule-webcrawler-get-sitemap-subflow" />
+  </flow>
+  <flow name="get:\whisperer\speech-to-text:mac-api-config">
+    <flow-ref doc:name="mule-whisperer-speech-to-text-subflow" doc:id="df5f89ec-73bc-405c-8df5-4d25b0f106a6" name="mule-whisperer-speech-to-text-subflow" />
+  </flow>
+  <flow name="get:\webcrawler\tags:mac-api-config">
+    <flow-ref doc:name="mule-webcrawler-get-meta-tags-subflow" doc:id="e6f6243f-c149-411b-b361-e2889278cbe2" name="mule-webcrawler-get-meta-tags-subflow" />
+  </flow>
+  <flow name="get:\webcrawler\website:mac-api-config">
+    <flow-ref doc:name="mule-webcrawler-scan-website-subflow" doc:id="d8c758de-32f0-4099-bec1-2f5e2f8335b4" name="mule-webcrawler-scan-website-subflow" />
+  </flow>
+  <flow name="post:\webcrawler\search:application\json:mac-api-config">
+    <flow-ref doc:name="mule-webcrawler-search-subflow" doc:id="770f3a55-ccc7-43a0-b675-633c1253b87f" name="mule-webcrawler-search-subflow" />
+  </flow>
+  <flow name="post:\whisperer\text-to-speech:application\json:mac-api-config">
+    <flow-ref doc:name="mule-whisperer-text-to-speech-subflow" doc:id="5a8fe0a9-057d-4071-9a8e-6f960c6c750e" name="mule-whisperer-text-to-speech-subflow" />
+  </flow>
+  <flow name="post:\inference\agent:application\json:mac-api-config">
+    <logger level="INFO" message="post:\inference\agent:application\json:mac-api-config" />
+  </flow>
+  <flow name="post:\aichain\agent:application\json:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-agent-subflow" doc:id="4bdee330-12bc-4721-9cb8-76500597c776" name="mule-ai-chain-agent-subflow" />
+  </flow>
+  <flow name="post:\inference\chat\answer:application\json:mac-api-config">
+    <logger level="INFO" message="post:\inference\chat\answer:application\json:mac-api-config" />
+  </flow>
+  <flow name="post:\aichain\chat:application\json:mac-api-config">
+    <set-variable value="#[attributes.queryParams.memory]" doc:name="VL Set inMemory" doc:id="1325cbe0-59e6-4420-ac58-131decfb1381" variableName="inMemory" />
+    <flow-ref doc:name="mule-ai-chain-chat-subflow" doc:id="469ed7aa-5f01-480b-86e8-53eca496ddda" name="mule-ai-chain-chat-subflow" />
+  </flow>
+  <flow name="post:\inference\chat\completion:application\json:mac-api-config">
+    <logger level="INFO" message="post:\inference\chat\completion:application\json:mac-api-config" />
+  </flow>
+  <flow name="post:\aichain\embeddings\store\add\document:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-embeddings-add-document-subflow" doc:id="b409bb66-cb52-415f-9df6-8b1945a1479b" name="mule-ai-chain-embeddings-add-document-subflow" />
+  </flow>
+  <flow name="post:\aichain\embeddings\store\add\folder:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-embeddings-add-folder-subflow" doc:id="54fdccc4-2132-4d1d-b99d-b64e6ca592fe" name="mule-ai-chain-embeddings-add-folder-subflow" />
+  </flow>
+  <flow name="post:\aichain\image\generate:application\json:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-image-generate-subflow" doc:id="e80e3496-26ef-4a0c-82e6-cb48ae2d102e" name="mule-ai-chain-image-generate-subflow" />
+  </flow>
+  <flow name="post:\inference\chat\image:application\json:mac-api-config">
+    <logger level="INFO" message="post:\inference\chat\image:application\json:mac-api-config" />
+  </flow>
+  <flow name="post:\aichain\embeddings\store\info:application\json:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-embeddings-store-info-subflow" doc:id="4a971a68-a802-4a43-a3a4-832e6c199a85" name="mule-ai-chain-embeddings-store-info-subflow" />
+  </flow>
+  <flow name="post:\aichain\tools\ai\native:application\json:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-tools-native-subflow" doc:id="4a504444-ee48-4be2-9699-76e8ec26abb5" name="mule-ai-chain-tools-native-subflow" />
+  </flow>
+  <flow name="post:\aichain\embeddings\store\new:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-embeddings-store-new-subflow" doc:id="caf35dab-42bb-4ba4-b009-d9e710fe1d51" name="mule-ai-chain-embeddings-store-new-subflow" />
+  </flow>
+  <flow name="post:\aichain\embeddings\store\query:application\json:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-embeddings-store-query-subflow" doc:id="dce289e2-be72-4b24-8203-7df09c052bd7" name="mule-ai-chain-embeddings-store-query-subflow" />
+  </flow>
+  <flow name="post:\aichain\rag:application\json:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-rag-subflow" doc:id="671603ca-4fb7-41a9-924e-bae6ca27d79a" name="mule-ai-chain-rag-subflow" />
+  </flow>
+  <flow name="post:\aichain\image\read:application\json:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-image-read-subflow" doc:id="cb887bfb-5af7-406a-9ce9-29012c733604" name="mule-ai-chain-image-read-subflow" />
+  </flow>
+  <flow name="post:\aichain\sentiment:application\json:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-sentiment-subflow" doc:id="8e9f1c32-fd68-43d5-860f-c4a85a46f933" name="mule-ai-chain-sentiment-subflow" />
+  </flow>
+  <flow name="post:\aichain\tools\ai\service:application\json:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-tools-service-subflow" doc:id="1df76505-6ce4-40ca-a8f1-f87d29e916d5" name="mule-ai-chain-tools-service-subflow" />
+  </flow>
+  <flow name="post:\inference\chat\tools:application\json:mac-api-config">
+    <logger level="INFO" message="post:\inference\chat\tools:application\json:mac-api-config" />
+  </flow>
+  <flow name="post:\inference\chat\toxicity:application\json:mac-api-config">
+    <logger level="INFO" message="post:\inference\chat\toxicity:application\json:mac-api-config" />
+  </flow>
+  <flow name="post:\aichain\toxicity:application\json:mac-api-config">
+    <flow-ref doc:name="mule-ai-chain-toxicity-subflow" doc:id="a603b1cc-7f98-4230-bb45-011a080b0d00" name="mule-ai-chain-toxicity-subflow" />
+  </flow>
+  <flow name="get:\agentforce\conversation\start:mac-api-config">
+    <flow-ref name="mule-agentforce-conversation-start-subflow" />
+  </flow>
+  <flow name="post:\agentforce\conversation\continue:text\plain:mac-api-config">
+    <flow-ref name="mule-agentforce-conversation-continue-subflow" />
+  </flow>
+  <flow name="delete:\agentforce\conversation\end:mac-api-config">
+    <flow-ref name="mule-agentforce-conversation-end-subflow" />
+  </flow>
+  <flow name="post:\einstein\agent:application\json:mac-api-config">
+    <flow-ref name="mule-einstein-agent-define_prompt_template-subflow"/>
+  </flow>
+  <flow name="post:\einstein\chat\answerPrompt:text\plain:mac-api-config">
+    <flow-ref name="mule-einstein-chat-answer_prompt-subflow"/>
+  </flow>
+  <flow name="post:\einstein\chat\generateFromMessages:application\json:mac-api-config">
+    <flow-ref name="mule-einstein-chat-generate_from_messages-subflow"/>
+  </flow>
+  <flow name="post:\einstein\embeddings\adhocFileQuery:text\plain:mac-api-config">
+    <flow-ref name="mule-einstein-embeddings-adhoc_file_query-subflow"/>
+  </flow>
+  <flow name="get:\einstein\embeddings\generateFromFile:mac-api-config">
+    <flow-ref name="mule-einstein-embeddings-generate_from_file-subflow"/>
+  </flow>
+  <flow name="post:\einstein\embeddings\generateFromText:text\plain:mac-api-config">
+    <flow-ref name="mule-einstein-embeddings-generate_from_text-subflow"/>
+  </flow>
+  <flow name="post:\einstein\rag:text\plain:mac-api-config">
+    <flow-ref name="mule-einstein-rag-adhoc_load_document-subflow"/>
+  </flow>
 </mule>

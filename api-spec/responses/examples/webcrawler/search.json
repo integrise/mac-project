@@ -1,0 +1,121 @@
+{
+    "peopleAlsoAsk": [
+        {
+            "snippet": "MuleSoft's AI Chain is a cutting-edge project that enhances the MuleSoft ecosystem with advanced AI capabilities, providing low-code and no-code tools that make it easier for developers to build smart applications.\nNov 19, 2024",
+            "question": "What is the MuleSoft AI chain?",
+            "link": "https://blogs.mulesoft.com/automation/mulesoft-ai-chain-autonomous-agents/",
+            "title": "MuleSoft AI Chain: Welcoming the Era of Autonomous Agents"
+        },
+        {
+            "snippet": "So what is MuleSoft? MuleSoft is a platform that gives IT the tools to automate everything. This includes integrating data and systems, automating workflows and processes, and creating incredible digital experiences — all on a single, easy-to-use platform.",
+            "question": "What does MuleSoft actually do?",
+            "link": "https://www.salesforce.com/mulesoft/what-is-mulesoft/",
+            "title": "What is MuleSoft? | Salesforce US"
+        },
+        {
+            "snippet": "San Francisco, California, U.S. In 2018, Mulesoft was acquired by Salesforce for $6.5 billion in a cash-and-stock deal.",
+            "question": "Is MuleSoft owned by Salesforce?",
+            "link": "https://en.wikipedia.org/wiki/MuleSoft",
+            "title": "MuleSoft - Wikipedia"
+        },
+        {
+            "snippet": "MuleSoft users need extensive training and experience to operate the platform – and because it offers so many features and capabilities, MuleSoft is expensive.",
+            "question": "Why is MuleSoft so expensive?",
+            "link": "https://www.integrate.io/blog/mulesoft-vs-integrateio-comparison-and-review/",
+            "title": "MuleSoft vs Integrate.io: Pricing, Features and Support"
+        }
+    ],
+    "credits": 1,
+    "searchParameters": {
+        "q": "What is the MuleSoft AI Chain Project?",
+        "engine": "google",
+        "type": "search"
+    },
+    "answerBox": {
+        "snippet": "Anypoint Connector for MuleSoft AI Chain (MuleSoft AI Chain Connector) helps developers design, build, and manage AI agents within Anypoint Platform. It provides the tools and support to integrate Large Language Models (LLMs), vector stores, and other advanced AI services into MuleSoft applications.",
+        "snippetHighlighted": [
+            "helps developers design, build, and manage AI agents within Anypoint Platform"
+        ],
+        "link": "https://docs.mulesoft.com/mulesoft-ai-chain-connector/latest/",
+        "title": "MuleSoft AI Chain Connector 1.0 - Mule 4"
+    },
+    "organic": [
+        {
+            "snippet": "It offers a suite of connectors designed for MuleSoft developers, enabling seamless interaction with LLMs, vector databases, APIs, and token management.",
+            "date": "Sep 9, 2024",
+            "link": "https://blogs.mulesoft.com/news/mulesoft-ai-chain-project/",
+            "position": 1,
+            "title": "Introducing the MuleSoft AI Chain Project: Simplify Orchestration of ..."
+        },
+        {
+            "snippet": "MuleSoft AI Chain enables MuleSoft developers to leverage powerful AI capabilities with minimal coding. Easily configure and manage AI agents directly within ...",
+            "link": "https://mac-project.ai/",
+            "sitelinks": [
+                {
+                    "link": "https://mac-project.ai/docs",
+                    "title": "Introduction"
+                },
+                {
+                    "link": "https://mac-project.ai/docs/mulechain-ai",
+                    "title": "MuleSoft AI Chain Connector"
+                },
+                {
+                    "link": "https://mac-project.ai/docs/einstein-ai",
+                    "title": "Einstein AI Connector"
+                },
+                {
+                    "link": "https://mac-project.ai/docs/mulechain-ai/getting-started",
+                    "title": "Getting Started"
+                }
+            ],
+            "position": 2,
+            "title": "The MuleSoft AI Chain (MAC) Project"
+        },
+        {
+            "snippet": "The aim of the MuleSoft AI Chain (MAC) project is to help organisations to design, build, and manage AI agents in MuleSoft's Anypoint Platform.",
+            "link": "https://mac-project.ai/docs",
+            "position": 3,
+            "title": "Introduction - MuleSoft AI Chain (MAC)"
+        },
+        {
+            "snippet": "Simplifying AI Orchestration with the MuleSoft AI Chain Project MuleSoft's latest innovation tackles a growing challenge: AI sprawl.",
+            "date": "Oct 2, 2024",
+            "link": "https://www.linkedin.com/posts/donaldrhall_introducing-the-mulesoft-ai-chain-project-activity-7247310212183773185-HxV0",
+            "position": 4,
+            "title": "Donnie Hall - Introducing the MuleSoft AI Chain Project - LinkedIn"
+        },
+        {
+            "snippet": "Welcome to MuleSoft AI Chain (MAC) Project - your gateway to integrating advanced AI capabilities into the MuleSoft ecosystem! Discover our projects, explore ...",
+            "link": "https://github.com/MuleSoft-AI-Chain-Project",
+            "position": 5,
+            "title": "MuleSoft AI Chain (MAC) Project - GitHub"
+        },
+        {
+            "snippet": "MuleSoft's AI Chain is a cutting-edge project that enhances the MuleSoft ecosystem with advanced AI capabilities, providing low-code and no-code ...",
+            "date": "Nov 19, 2024",
+            "link": "https://blogs.mulesoft.com/automation/mulesoft-ai-chain-autonomous-agents/",
+            "position": 6,
+            "title": "MuleSoft AI Chain: Welcoming the Era of Autonomous Agents"
+        },
+        {
+            "snippet": "The MuleSoft AI Chain project will remain open source and we will continue to release features and improvements on the open source repositories ...",
+            "date": "Nov 14, 2024",
+            "link": "https://www.linkedin.com/pulse/mulesoft-ai-chain-product-now-amir-khan-rphae",
+            "position": 7,
+            "title": "MuleSoft AI Chain is a Product now - LinkedIn"
+        },
+        {
+            "snippet": "The MuleSoft AI Chain Project connects AI services with MuleSoft components. This way, it enables functionalities of sentiment analysis, chat prompts, image ...",
+            "link": "https://dotsandarrows.eu/insights/mac-project/",
+            "position": 8,
+            "title": "Enhance your workflows: The power of MuleSoft AI Chain (MAC)"
+        },
+        {
+            "snippet": "MuleSoft AI Chain Introduction + short demo · URL Document Loader · Working with Embedding Stores (In Memory).",
+            "link": "https://www.youtube.com/@MuleSoft-MAC-Project",
+            "position": 9,
+            "title": "MuleSoft AI Chain Project - YouTube"
+        }
+    ]
+}
+ 
