@@ -1,3 +1,8 @@
+openai:
+  api:
+    type: "OPENAI"
+    model: "gpt-4o-mini"
+
 aiChain:
   chat:
     maxMessages: "10"
