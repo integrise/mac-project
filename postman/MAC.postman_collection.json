@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "73d5b174-08b2-4e9b-b98b-a32a1078b048",
+		"_postman_id": "5a589a7c-1159-4f5f-a09d-eaf0976ea6a9",
 		"name": "MAC",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "3359450"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -666,66 +665,6 @@
 								"tools",
 								"ai",
 								"service"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "tool native",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"prompt\": \"Get the current temperature for a Toronto in Celsius\",\n    \"tools\": [\n    {\n      \"type\": \"function\",\n      \"function\": {\n        \"name\": \"get_current_temperature\",\n        \"description\": \"Get the current temperature for a specific location\",\n        \"parameters\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"location\": {\n              \"type\": \"string\",\n              \"description\": \"The city and state, e.g., San Francisco, CA\"\n            },\n            \"unit\": {\n              \"type\": \"string\",\n              \"enum\": [\"Celsius\", \"Fahrenheit\"],\n              \"description\": \"The temperature unit to use. Infer this from the user's location.\"\n            }\n          },\n          \"required\": [\"location\", \"unit\"]\n        }\n      }\n    },\n    {\n      \"type\": \"function\",\n      \"function\": {\n        \"name\": \"get_rain_probability\",\n        \"description\": \"Get the probability of rain for a specific location\",\n        \"parameters\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"location\": {\n              \"type\": \"string\",\n              \"description\": \"The city and state, e.g., San Francisco, CA\"\n            }\n          },\n          \"required\": [\"location\"]\n        }\n      }\n    }\n  ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/api/v1/aichain/tools/ai/native",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"aichain",
-								"tools",
-								"ai",
-								"native"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "toxicity",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"data\": \"Ugh, this product launch is the dumbest thing I’ve ever seen.\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{host}}/api/v1/aichain/toxicity",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"v1",
-								"aichain",
-								"toxicity"
 							]
 						}
 					},
@@ -1547,6 +1486,70 @@
 							"body": "{\n    \"response\": \"Based on the provided data, the answer to the question \\\"Can I bring my dog?\\\" is no. The data indicates that \\\"Pets are not allowed at the resort.\\\"\"\n}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "inference",
+			"item": [
+				{
+					"name": "toxicity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"prompt\": \"Ugh, this product launch is the dumbest thing I’ve ever seen.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/inference/toxicity",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"inference",
+								"toxicity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tool native",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"prompt\": \"Get the current temperature for a Toronto in Celsius\",\n    \"tools\": [\n    {\n      \"type\": \"function\",\n      \"function\": {\n        \"name\": \"get_current_temperature\",\n        \"description\": \"Get the current temperature for a specific location\",\n        \"parameters\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"location\": {\n              \"type\": \"string\",\n              \"description\": \"The city and state, e.g., San Francisco, CA\"\n            },\n            \"unit\": {\n              \"type\": \"string\",\n              \"enum\": [\"Celsius\", \"Fahrenheit\"],\n              \"description\": \"The temperature unit to use. Infer this from the user's location.\"\n            }\n          },\n          \"required\": [\"location\", \"unit\"]\n        }\n      }\n    },\n    {\n      \"type\": \"function\",\n      \"function\": {\n        \"name\": \"get_rain_probability\",\n        \"description\": \"Get the probability of rain for a specific location\",\n        \"parameters\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"location\": {\n              \"type\": \"string\",\n              \"description\": \"The city and state, e.g., San Francisco, CA\"\n            }\n          },\n          \"required\": [\"location\"]\n        }\n      }\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/inference/tools/native",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"inference",
+								"tools",
+								"native"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

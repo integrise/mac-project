@@ -2,6 +2,8 @@ openai:
   api:
     type: "OPENAI"
     model: "gpt-4o-mini"
+    moderation:
+      model: "omni-moderation-latest"
 
 aiChain:
   chat:
@@ -18,3 +20,7 @@ http:
 
 api:
   version: "1.0.2"
+  
+webcrawler:
+  user:
+    agent: "Mozilla/5.0 (X11; Linux x86_64; rv:112.0) Gecko/20100101 Firefox/112.0"
