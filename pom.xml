@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mycompany</groupId>
+    <groupId>3601e070-90dc-4a3a-b659-ee1347ae831c</groupId>
     <artifactId>mac-project</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>mule-application</packaging>
     <name>mac-project</name>
     <properties>
@@ -31,7 +31,7 @@
         <dependency>
             <groupId>3601e070-90dc-4a3a-b659-ee1347ae831c</groupId>
             <artifactId>mac-api</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.2</version>
             <classifier>raml</classifier>
             <type>zip</type>
         </dependency>
