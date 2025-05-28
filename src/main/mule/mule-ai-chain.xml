@@ -112,16 +112,13 @@ output application/json
 	</sub-flow>
 	<sub-flow name="mule-ai-chain-sentiment-subflow" doc:id="18cd583a-49e2-470a-a623-6c71442e9efc" >
 		<logger level="INFO" doc:name="START" doc:id="c71a5246-ba6b-41be-a6a7-1973d78456fb" message="START - AI Chain Sentiment Analyzer Operation" />
-		<ms-aichain:sentiment-analyze doc:name="Sentiment analyze" doc:id="20b8bd44-6ddc-4637-9e9b-1483424c3f12" config-ref="MuleSoft_AI_Chain_Config" generateResponse="true">
+		<ms-aichain:sentiment-analyze doc:name="Sentiment analyze" doc:id="20b8bd44-6ddc-4637-9e9b-1483424c3f12" config-ref="MuleSoft_AI_Chain_Config">
 			<ms-aichain:data ><![CDATA[#[payload.prompt]]]></ms-aichain:data>
 		</ms-aichain:sentiment-analyze>
 		<logger level="INFO" doc:name="END" doc:id="31a63783-d90d-4b18-9f71-72363672325a" message="END - AI Chain Sentiment Analyzer Operation" />
 	</sub-flow>
 	<sub-flow name="mule-ai-chain-tools-native-subflow" doc:id="609cb7a3-1f0a-40f5-8d2e-07fbd4f00796" >
 		<logger level="INFO" doc:name="START" doc:id="c8ce3690-2336-4a3c-8b33-31ec631c2936" message="START - AI Chain Tools Use AI Native Operation" />
-		<ms-aichain:tools-use-ai-native doc:name="Tools use ai native" doc:id="9225ea00-9bca-4a8a-ac62-ff5d48bf8aab" config-ref="MuleSoft_AI_Chain_Config" toolsArray="#[payload.tools]">
-			<ms-aichain:data ><![CDATA[#[payload.prompt]]]></ms-aichain:data>
-		</ms-aichain:tools-use-ai-native>
 		<logger level="INFO" doc:name="END" doc:id="580a02f4-aa63-4ebd-b750-b57b9a3ef13e" message="END - AI Chain Tools Use AI Native Operation" />
 	</sub-flow>
 	<sub-flow name="mule-ai-chain-tools-service-subflow" doc:id="e13bf751-5822-4b02-81de-d36a95d53c0d" >
@@ -133,7 +130,6 @@ output application/json
 	</sub-flow>
 	<sub-flow name="mule-ai-chain-toxicity-subflow" doc:id="8d7e00de-5320-4296-8d40-6dccf0b7f12e" >
 		<logger level="INFO" doc:name="START" doc:id="87d48238-a526-4cce-a1fd-301f9ca3fb27" message="START - AI Chain Toxicity Detection Operation" />
-		<ms-aichain:toxicity-detection doc:name="Toxicity detection" doc:id="1883c0c3-41b9-47c3-aa1e-e6dccaf34cfa" config-ref="MuleSoft_AI_Chain_Config" input="#[payload.data]"/>
 		<logger level="INFO" doc:name="END" doc:id="517434de-50e0-4564-b884-bbc85fdddbf5" message="END - AI Chain Toxicity Detection Operation" />
 	</sub-flow>
 </mule>
