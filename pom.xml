@@ -24,6 +24,9 @@
                 <artifactId>mule-maven-plugin</artifactId>
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <classifier>mule-application</classifier>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -36,13 +39,13 @@
             <type>zip</type>
         </dependency>
         <dependency>
-            <groupId>com.mulesoft.connectors</groupId>
+            <groupId>io.github.mulesoft-ai-chain-project</groupId>
             <artifactId>mule4-whisperer-connector</artifactId>
             <version>0.2.80</version>
             <classifier>mule-plugin</classifier>
         </dependency>
         <dependency>
-            <groupId>com.mulesoft.connectors</groupId>
+            <groupId>io.github.mulesoft-ai-chain-project</groupId>
             <artifactId>mule4-webcrawler-connector</artifactId>
             <version>0.3.60</version>
             <classifier>mule-plugin</classifier>
@@ -57,12 +60,6 @@
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-sockets-connector</artifactId>
             <version>1.2.5</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.modules</groupId>
-            <artifactId>mule-apikit-module</artifactId>
-            <version>1.11.5</version>
             <classifier>mule-plugin</classifier>
         </dependency>
         <dependency>
@@ -87,6 +84,18 @@
             <groupId>org.mule.connectors</groupId>
             <artifactId>mule-file-connector</artifactId>
             <version>1.5.3</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-apikit-module</artifactId>
+            <version>1.11.5</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.mulesoft.connectors</groupId>
+            <artifactId>mule4-aichain-connector</artifactId>
+            <version>1.0.0</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     </dependencies>

@@ -6,3 +6,10 @@ aiChain:
 
 files:
   pdf: CoralCloudResortFAQs.pdf
+
+http:
+  host: "0.0.0.0"
+  port: "8081"
+
+api:
+  version: "1.0.2"
