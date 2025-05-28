@@ -1,0 +1,62 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:ms-einstein-ai="http://www.mulesoft.org/schema/mule/ms-einstein-ai" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd  http://www.mulesoft.org/schema/mule/ms-einstein-ai http://www.mulesoft.org/schema/mule/ms-einstein-ai/current/mule-ms-einstein-ai.xsd  http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd  http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+  <sub-flow name="mule-einstein-agent-define_prompt_template-subflow">
+    <logger doc:id="bexbto" doc:name="START" message="START - Einstein AI Agent Define Prompt Template Operation"></logger>
+    <ms-einstein-ai:agent-define-prompt-template config-ref="EinsteinAI-config" doc:id="jcfmxc" doc:name="Agent define prompt template">
+      <ms-einstein-ai:template>#[payload.template]</ms-einstein-ai:template>
+      <ms-einstein-ai:instructions>#[payload.instructions]</ms-einstein-ai:instructions>
+      <ms-einstein-ai:dataset>#[payload.dataset]</ms-einstein-ai:dataset>
+    </ms-einstein-ai:agent-define-prompt-template>
+    <logger doc:id="kjbcwk" doc:name="END" message="END - Einstein AI Agent Define Prompt Template Operation"></logger>
+  </sub-flow>
+  <sub-flow name="mule-einstein-chat-answer_prompt-subflow">
+    <logger doc:id="afideq" doc:name="START" message="START - Einstein AI Chat Answer Prompt Operation"></logger>
+    <ms-einstein-ai:chat-answer-prompt config-ref="EinsteinAI-config" doc:id="rqbyrn" doc:name="Chat answer prompt" modelApiName="sfdc_ai__DefaultBedrockAnthropicClaude3Haiku"></ms-einstein-ai:chat-answer-prompt>
+    <logger doc:id="ksnhit" doc:name="END" message="END - Einstein AI Chat Answer Prompt Operation"></logger>
+  </sub-flow>
+  <sub-flow name="mule-einstein-chat-generate_from_messages-subflow">
+    <logger doc:id="aualwh" doc:name="START" message="START - Einstein AI Chat Generate From Messages Operation"></logger>
+    <ee:transform doc:id="hlommx" doc:name="JSON to String">
+      <ee:message>
+        <ee:set-payload doc:id="qijqws" doc:name="Set payload"><![CDATA[%dw 2.0
+output application/json
+---
+payload match {
+    case is String -> payload
+    else -> write(payload, "application/json", {indent:false})
+}]]></ee:set-payload>
+      </ee:message>
+    </ee:transform>
+    <ms-einstein-ai:chat-generate-from-messages config-ref="EinsteinAI-config" doc:id="lkgmgp" doc:name="Chat generate from messages" modelApiName="sfdc_ai__DefaultBedrockAnthropicClaude3Haiku"></ms-einstein-ai:chat-generate-from-messages>
+    <logger doc:id="aczwwn" doc:name="END" message="END - Einstein AI Chat Generate From Messages Operation"></logger>
+  </sub-flow>
+  <sub-flow name="mule-einstein-embeddings-adhoc_file_query-subflow">
+    <logger doc:id="qenzfw" doc:name="START" message="START - Einstein AI Embeddings Adhoc File Query Operation"></logger>
+    <set-variable doc:id="rczoat" doc:name="inputPayload" value="#[payload]" variableName="inputPayload"></set-variable>
+    <file:read config-ref="File-config" doc:id="jnbsco" doc:name="CoralCloudResortFAQs.pdf" path="${files.pdf}"></file:read>
+    <ms-einstein-ai:embedding-adhoc-file-query config-ref="EinsteinAI-config" doc:id="azlkmv" doc:name="Embedding adhoc file query" optionType="PARAGRAPH">
+      <ms-einstein-ai:prompt>#[vars.inputPayload]</ms-einstein-ai:prompt>
+      <ms-einstein-ai:input-stream>#[payload]</ms-einstein-ai:input-stream>
+    </ms-einstein-ai:embedding-adhoc-file-query>
+    <logger doc:id="vdambt" doc:name="END" message="END - Einstein AI Embeddings Adhoc File Query Operation"></logger>
+  </sub-flow>
+  <sub-flow name="mule-einstein-embeddings-generate_from_file-subflow">
+    <logger doc:id="wriuzt" doc:name="START" message="START - Einstein AI Embeddings Generate From File Operation"></logger>
+    <file:read config-ref="File-config" doc:id="jnbscso" doc:name="CoralCloudResortFAQs.pdf" path="${files.pdf}"></file:read>
+    <ms-einstein-ai:embedding-generate-from-file config-ref="EinsteinAI-config" doc:id="keadwn" doc:name="Embedding generate from file"></ms-einstein-ai:embedding-generate-from-file>
+    <logger doc:id="rbwmta" doc:name="END" message="END - START - Einstein AI Embeddings Generate From File Operation"></logger>
+  </sub-flow>
+  <sub-flow name="mule-einstein-embeddings-generate_from_text-subflow">
+    <logger doc:id="hytils" doc:name="START" message="START - Einstein AI Embeddings Generate From Text Operation"></logger>
+    <ms-einstein-ai:embedding-generate-from-text config-ref="EinsteinAI-config" doc:id="pvxvdc" doc:name="Embedding generate from text"></ms-einstein-ai:embedding-generate-from-text>
+    <logger doc:id="nypqcf" doc:name="END" message="END - Einstein AI Embeddings Generate From Text Operation"></logger>
+  </sub-flow>
+  <sub-flow name="mule-einstein-rag-adhoc_load_document-subflow">
+    <logger doc:name="START" doc:id="wxqbgm" message="START - Einstein AI RAG Adhoc Load Document Operation"/>
+    <set-variable doc:id="rczsoat" doc:name="inputPayload" value="#[payload]" variableName="inputPayload"></set-variable>
+    <file:read config-ref="File-config" doc:id="jnbssco" doc:name="CoralCloudResortFAQs.pdf" path="${files.pdf}"></file:read>
+    <ms-einstein-ai:rag-adhoc-load-document config-ref="EinsteinAI-config" doc:id="iplxkc" doc:name="Rag adhoc load document" modelApiName="sfdc_ai__DefaultBedrockAnthropicClaude3Haiku" optionType="PARAGRAPH">
+      <ms-einstein-ai:prompt>#[vars.inputPayload]</ms-einstein-ai:prompt>
+      <ms-einstein-ai:input-stream>#[payload]</ms-einstein-ai:input-stream>
+    </ms-einstein-ai:rag-adhoc-load-document>
+    <logger doc:name="END" doc:id="mmtoou" message="END - Einstein AI RAG Adhoc Load Document Operation"/></sub-flow>
+</mule>

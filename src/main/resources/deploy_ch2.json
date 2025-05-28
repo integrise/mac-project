@@ -1,0 +1,7 @@
+{
+  "applicationName": "mac-project",
+  "runtime": "4.9.5:1-java17",
+  "replicas": 1,
+  "replicaSize": "0.1",
+  "deploymentModel": "rolling"
+}

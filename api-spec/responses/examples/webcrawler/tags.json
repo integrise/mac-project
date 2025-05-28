@@ -1,0 +1,38 @@
+[
+    {
+        "name": "robots",
+        "content": "index,follow"
+    },
+    {
+        "name": "description",
+        "content": "MAC Project - Integrate advanced AI capabilities into the MuleSoft Anypoint Platform."
+    },
+    {
+        "property": "og:description",
+        "content": "MAC Project - Integrate advanced AI capabilities into the MuleSoft Anypoint Platform."
+    },
+    {
+        "property": "og:type",
+        "content": "website"
+    },
+    {
+        "property": "og:title",
+        "content": "The MuleSoft AI Chain (MAC) Project – MAC Project"
+    },
+    {
+        "property": "og:url",
+        "content": "https://mac-project.ai"
+    },
+    {
+        "name": "twitter:image:alt",
+        "content": "MAC Project - AI Integration"
+    },
+    {
+        "name": "apple-mobile-web-app-title",
+        "content": "MAC Project"
+    },
+    {
+        "name": "next-head-count",
+        "content": "32"
+    }
+]

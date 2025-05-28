@@ -1,0 +1,21 @@
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ms-agentforce="http://www.mulesoft.org/schema/mule/ms-agentforce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd  http://www.mulesoft.org/schema/mule/ms-agentforce http://www.mulesoft.org/schema/mule/ms-agentforce/current/mule-ms-agentforce.xsd">
+  <sub-flow name="mule-agentforce-conversation-start-subflow">
+    <logger doc:name="START" doc:id="zjmduk" message="START - Agentforce Conversation Start Operation" />
+    <ms-agentforce:start-agent-conversation agent="0XxgK000000KDvZSAW" config-ref="Agentforce-config" doc:id="fokpbn" doc:name="Start agent conversation"></ms-agentforce:start-agent-conversation>
+    <logger doc:name="END" doc:id="jllmyj" message="END - Agentforce Conversation Start Operation" />
+  </sub-flow>
+  <sub-flow name="mule-agentforce-conversation-continue-subflow">
+    <logger doc:name="START" doc:id="ezqnre" message="START - Agentforce Conversation Continue Operation" />
+    <ms-agentforce:continue-agent-conversation config-ref="Agentforce-config" doc:id="bbhbgk" doc:name="Continue agent conversation" messageSequenceNumber="#[attributes.queryParams.sequenceNumber]">
+      <ms-agentforce:session-id>#[attributes.queryParams.sessionId]</ms-agentforce:session-id>
+    </ms-agentforce:continue-agent-conversation>
+    <logger doc:name="END" doc:id="mduabv" message="END - Agentforce Conversation Continue Operation" />
+  </sub-flow>
+  <sub-flow name="mule-agentforce-conversation-end-subflow">
+    <logger doc:name="START" doc:id="mxwomc" message="START - Agentforce Conversation End Operation" />
+    <ms-agentforce:end-agent-conversation doc:name="End agent conversation" doc:id="jgjphp" config-ref="Agentforce-config">
+      <ms-agentforce:session-id>#[attributes.queryParams.sessionId]</ms-agentforce:session-id>
+    </ms-agentforce:end-agent-conversation>
+    <logger doc:name="END" doc:id="voudzc" message="END - Agentforce Conversation End Operation" />
+  </sub-flow>
+</mule>

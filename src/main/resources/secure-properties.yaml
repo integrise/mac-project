@@ -2,3 +2,10 @@
 openai:  
   api:
     key: "![P3AVnMnY9xIii9xjBnjI9RUkWb9m9AWalS0vsddEQFmCFr+EnbtVZcbGGjr8G5ZdKOjTk0VIDZV5QFJSMyNs6W205ua9aUwBCNajMGeJreGAZSgYEZ4B10xZhnobhWYutn3urQ6tjHXwuSWuJe0PdTAy7eZhtdWMK/w3Gs6E/8KCvzPx6ncwp7aHbPUS3+XwY8i6bJmgiakX1FKWg2PMdLFAmkU0l3ms]"
+
+#Salesforce Config
+salesforce:
+  domain: "![uez6G+Y0xYk+bBsRKNUhjlAi5CqW6L+v9G1zR/cTGwmfY3sUkkOxJgCvaYFbKrLdoISpAB0b+n0=]"
+  clientId: "![7yoM1PjNAaRD+bFq3E2fLilCcoRZ6kES5i2mW30uWHqGBM99iDYyhbNDbD+NxMjBBF25gNtlWr6163WBboCLBMyYl7unvAP+6l9QcUcdpD4B6RPL0d9+rw==]"
+  clientSecret: "![6EEtn4HLJ9aAmL3A7m04BG3XW4g8LIZlgAvePcePBtyLOQEJ855YSDFDU9mtT90hEQrfyi2EElHaZrvkPAPnfQWPC0NMnkbc]"
+  tokenUrl: https://${secure::salesforce.domain}/services/oauth2/token
