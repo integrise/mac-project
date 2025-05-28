@@ -1,0 +1,49 @@
+Sentiment Operations
+Sentiment | Analyzer
+The Sentiment analyzer operation is a simple prompt request operation to the configured LLM. It uses a plain text prompt as input and responds with a sentiment for the input text. The sentiment value can be NEUTRAL, POSITIVE, or NEGATIVE.
+
+Input Configuration
+Module Configuration
+This refers to the MuleSoft AI Chain LLM Configuration set up in the Getting Started section.
+
+General Operation Fields
+Prompt: Contains the plain text prompt for the operation. This is the text that will be analyzed for its sentiment.
+XML Configuration
+Below is the XML configuration for this operation:
+
+<ms-aichain:sentiment-analyze 
+  doc:name="Sentiment analyze" 
+  doc:id="cad4ef27-5c85-47f7-a68c-f666809b0846" 
+  config-ref="MAC_AI_Llm_configuration" 
+  data="#[payload.inputText]"
+/>
+
+Output Configuration
+Response Payload
+This operation responds with a json payload containing the sentiment of the input text. Additionally, attributes such as token usage and sentiment details are included as part of the metadata (attributes) but not within the main payload.
+
+Example Response Payload
+{
+    "response": "POSITIVE"
+}
+
+Attributes
+Along with the JSON payload, the operation also returns attributes, which include information about token usage:
+
+{
+  "tokenUsage": {
+      "outputCount": 2,
+      "totalCount": 39,
+      "inputCount": 37
+  },
+  "additionalAttributes": {
+      "isPositive": "false"
+  }
+}
+
+Example Use Cases
+This operation is particularly useful in scenarios where you need to analyze the sentiment of text, such as:
+
+Customer Feedback Analysis: Determining whether customer feedback is positive, negative, or neutral.
+Social Media Monitoring: Analyzing the sentiment of social media posts or comments to gauge public opinion.
+Market Research: Assessing the sentiment of survey responses or market research data.

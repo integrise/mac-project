@@ -1,5 +1,8 @@
-audio:  
-  path: "/Users/kseniiatarantsova/AnypointStudio/mule-dreamin-2025/mule-whisperer/src/main/resources/"
+aiChain:
+  chat:
+    maxMessages: "10"
+    memory:
+      name: "Test"
 
 files:
   pdf: CoralCloudResortFAQs.pdf
