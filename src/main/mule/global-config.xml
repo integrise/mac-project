@@ -1,34 +1,40 @@
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ms-agentforce="http://www.mulesoft.org/schema/mule/ms-agentforce" xmlns:ms-aichain="http://www.mulesoft.org/schema/mule/ms-aichain" xmlns:ms-einstein-ai="http://www.mulesoft.org/schema/mule/ms-einstein-ai" xmlns:ms-webcrawler="http://www.mulesoft.org/schema/mule/ms-webcrawler" xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties" xmlns:whisperer="http://www.mulesoft.org/schema/mule/whisperer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/whisperer http://www.mulesoft.org/schema/mule/whisperer/current/mule-whisperer.xsd http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd  http://www.mulesoft.org/schema/mule/ms-agentforce http://www.mulesoft.org/schema/mule/ms-agentforce/current/mule-ms-agentforce.xsd  http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd  http://www.mulesoft.org/schema/mule/ms-einstein-ai http://www.mulesoft.org/schema/mule/ms-einstein-ai/current/mule-ms-einstein-ai.xsd  http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd
-http://www.mulesoft.org/schema/mule/ms-webcrawler http://www.mulesoft.org/schema/mule/ms-webcrawler/current/mule-ms-webcrawler.xsd
-http://www.mulesoft.org/schema/mule/ms-aichain http://www.mulesoft.org/schema/mule/ms-aichain/current/mule-ms-aichain.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:mac-inference="http://www.mulesoft.org/schema/mule/mac-inference" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:ms-agentforce="http://www.mulesoft.org/schema/mule/ms-agentforce" xmlns:ms-aichain="http://www.mulesoft.org/schema/mule/ms-aichain" xmlns:ms-einstein-ai="http://www.mulesoft.org/schema/mule/ms-einstein-ai" xmlns:ms-webcrawler="http://www.mulesoft.org/schema/mule/ms-webcrawler" xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties" xmlns:whisperer="http://www.mulesoft.org/schema/mule/whisperer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/whisperer http://www.mulesoft.org/schema/mule/whisperer/current/mule-whisperer.xsd http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd  http://www.mulesoft.org/schema/mule/ms-agentforce http://www.mulesoft.org/schema/mule/ms-agentforce/current/mule-ms-agentforce.xsd  http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd  http://www.mulesoft.org/schema/mule/ms-einstein-ai http://www.mulesoft.org/schema/mule/ms-einstein-ai/current/mule-ms-einstein-ai.xsd  http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd http://www.mulesoft.org/schema/mule/ms-webcrawler http://www.mulesoft.org/schema/mule/ms-webcrawler/current/mule-ms-webcrawler.xsd http://www.mulesoft.org/schema/mule/ms-aichain http://www.mulesoft.org/schema/mule/ms-aichain/current/mule-ms-aichain.xsd
+http://www.mulesoft.org/schema/mule/mac-inference http://www.mulesoft.org/schema/mule/mac-inference/current/mule-mac-inference.xsd">
     <http:listener-config name="mac-api-httpListenerConfig">
-        <http:listener-connection host="${http.host}" port="${http.port}"></http:listener-connection>
+        <http:listener-connection host="${http.host}" port="${http.port}" />
     </http:listener-config>
-    <apikit:config api="resource::3601e070-90dc-4a3a-b659-ee1347ae831c:mac-api:${api.version}:raml:zip:mac-api.raml" httpStatusVarName="httpStatus" name="mac-api-config" outboundHeadersMapName="outboundHeaders"></apikit:config>
-    <ms-webcrawler:config doc:id="1233dd5d-c884-43aa-aa51-eb8ea8225654" doc:name="MuleSoft WebCrawler Connector Config" name="MuleSoft_WebCrawler_Connector_Config"> 
-      <ms-webcrawler:http-connection userAgent="Mozilla/5.0 (X11; Linux x86_64; rv:112.0) Gecko/20100101 Firefox/112.0"></ms-webcrawler:http-connection>
+    <apikit:config name="mac-api-config" api="resource::3601e070-90dc-4a3a-b659-ee1347ae831c:mac-api:1.0.3:raml:zip:mac-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <ms-webcrawler:config doc:id="1233dd5d-c884-43aa-aa51-eb8ea8225654" doc:name="MuleSoft WebCrawler Connector Config" name="MuleSoft_WebCrawler_Connector_Config">
+        <ms-webcrawler:http-connection userAgent="${webcrawler.user.agent}" />
     </ms-webcrawler:config>
     <secure-properties:config doc:id="d383c787-7b66-4b23-af40-5615b4cfed62" doc:name="Secure Properties Config" file="secure-properties.yaml" key="${mule.key}" name="Secure_Properties_Config">
-        <secure-properties:encrypt algorithm="Blowfish"></secure-properties:encrypt>
+        <secure-properties:encrypt algorithm="Blowfish" />
     </secure-properties:config>
-    <configuration-properties doc:id="4f8978f1-0194-4d2b-9fa5-89f906fb02c5" doc:name="Configuration properties" file="properties.yaml"></configuration-properties>
+    <configuration-properties doc:id="4f8978f1-0194-4d2b-9fa5-89f906fb02c5" doc:name="Configuration properties" file="properties.yaml" />
     <whisperer:config doc:id="025fb7cd-8c92-465c-99fb-877dcae1d94c" doc:name="MAC Whisperer Config" name="MAC_Whisperer_Config">
-        <whisperer:openai-connection apiKey="${secure::openai.api.key}"></whisperer:openai-connection>
+        <whisperer:openai-connection apiKey="${secure::openai.api.key}" />
     </whisperer:config>
-    <configuration defaultErrorHandler-ref="global-error-handling" doc:id="dac644ec-e157-441b-a0dc-19597130443e" doc:name="Configuration"></configuration>
-<!--     <ms-aichain:config configType="Environment Variables" doc:id="a1a21db4-df42-48bc-b6d9-18bc0c348b37" doc:name="MuleSoft AI Chain Config" filePath="-" llmType="OPENAI" modelName="gpt-4o-mini" name="MuleSoft_AI_Chain_Config"></ms-aichain:config> -->
+    <configuration defaultErrorHandler-ref="global-error-handling" doc:id="dac644ec-e157-441b-a0dc-19597130443e" doc:name="Configuration" />
+    <!--     <ms-aichain:config configType="Environment Variables" doc:id="a1a21db4-df42-48bc-b6d9-18bc0c348b37" doc:name="MuleSoft AI Chain Config" filePath="-" llmType="OPENAI" modelName="gpt-4o-mini" name="MuleSoft_AI_Chain_Config"></ms-aichain:config> -->
     <ms-agentforce:config doc:name="AgentForce Config" name="Agentforce-config">
         <ms-agentforce:oauth-client-credentials-connection>
-            <ms-agentforce:oauth-client-credentials clientId="${secure::salesforce.clientId}" clientSecret="${secure::salesforce.clientSecret}" tokenUrl="${secure::salesforce.tokenUrl}"></ms-agentforce:oauth-client-credentials>
+            <ms-agentforce:oauth-client-credentials clientId="${secure::salesforce.clientId}" clientSecret="${secure::salesforce.clientSecret}" tokenUrl="${secure::salesforce.tokenUrl}" />
         </ms-agentforce:oauth-client-credentials-connection>
     </ms-agentforce:config>
     <ms-einstein-ai:config doc:name="Einstein AI Config" name="EinsteinAI-config">
         <ms-einstein-ai:oauth-client-credentials-connection>
-            <ms-einstein-ai:oauth-client-credentials clientId="${secure::salesforce.clientId}" clientSecret="${secure::salesforce.clientSecret}" tokenUrl="${secure::salesforce.tokenUrl}"></ms-einstein-ai:oauth-client-credentials>
+            <ms-einstein-ai:oauth-client-credentials clientId="${secure::salesforce.clientId}" clientSecret="${secure::salesforce.clientSecret}" tokenUrl="${secure::salesforce.tokenUrl}" />
         </ms-einstein-ai:oauth-client-credentials-connection>
     </ms-einstein-ai:config>
     <file:config doc:name="File Config" name="File-config">
-        <file:connection workingDir="#[Mule::p('app.home')]"></file:connection>
+        <file:connection workingDir="#[Mule::p('app.home')]" />
     </file:config>
-	<ms-aichain:config name="MuleSoft_AI_Chain_Config" llmType="OPENAI" configType="Environment Variables" modelName="gpt-4o-mini" doc:name="MuleSoft AI Chain Config" doc:id="e735a80c-6411-4262-8624-c7a571692eff" filePath="-" />
+    <ms-aichain:config name="MuleSoft_AI_Chain_Config" llmType="${openai.api.type}" configType="Environment Variables" modelName="${openai.api.model}" doc:name="MuleSoft AI Chain Config" doc:id="e735a80c-6411-4262-8624-c7a571692eff" filePath="-" />
+	<mac-inference:moderation-config name="MuleSoft_Inference_Moderation_config" doc:name="MuleSoft Inference Moderation config" doc:id="3e8e05ec-3ac2-452d-a60a-149ef7e10415" >
+		<mac-inference:moderation-model-connection inferenceType="${openai.api.type}" apiKey="${secure::openai.api.key}" modelName="${openai.api.moderation.model}" />
+	</mac-inference:moderation-config>
+	<mac-inference:text-generation-config name="MuleSoft_Inference_Text_generation_config" doc:name="MuleSoft Inference Text generation config" doc:id="e76f13bc-295b-4673-81bc-b4ddb71286bc" >
+		<mac-inference:llm-connection apiKey="${secure::openai.api.key}" inferenceType="${openai.api.type}" modelName="${openai.api.model}"/>
+	</mac-inference:text-generation-config>
 </mule>

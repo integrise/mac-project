@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:mac-inference="http://www.mulesoft.org/schema/mule/mac-inference"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/mac-inference http://www.mulesoft.org/schema/mule/mac-inference/current/mule-mac-inference.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<sub-flow name="mule-inference-tools-native-subflow" doc:id="c59dcb70-3a57-42b9-9f08-524262e1f6db" >
+		<logger level="INFO" doc:name="START" doc:id="4b31a4c7-e45c-409c-a54e-7f900d27130d" message="START - MuleSoft Inference Tools Operation" />
+		<mac-inference:tools-native-template doc:name="[Tools] Native Template (Reasoning only)" doc:id="5c6551b1-ab33-4d8b-b947-51cd87b21cd4" config-ref="MuleSoft_Inference_Text_generation_config">
+			<mac-inference:template ><![CDATA[#[payload.template default '']]]></mac-inference:template>
+			<mac-inference:instructions ><![CDATA[#[payload.instructions default '']]]></mac-inference:instructions>
+			<mac-inference:data ><![CDATA[#[payload.prompt]]]></mac-inference:data>
+			<mac-inference:tools ><![CDATA[#[payload.tools]]]></mac-inference:tools>
+		</mac-inference:tools-native-template>
+		<logger level="INFO" doc:name="END" doc:id="f1ef40a1-42a1-4c6d-a6fc-d1a177b355b2" message="END - MuleSoft Inference Tools Operation" />
+	</sub-flow>
+	<sub-flow name="mule-inference-toxicity-subflow" doc:id="c71ed959-4c10-4ba2-b723-a048c0eab24a" >
+		<logger level="INFO" doc:name="START" doc:id="608de089-6c66-422f-9aa7-925edd2b1880" message="START - MuleSoft Inference Toxicity Operation" />
+		<mac-inference:toxicity-detection-text doc:name="[Toxicity] Detection by Text" doc:id="77b77fd0-3647-416d-9020-80b6240f0a19" config-ref="MuleSoft_Inference_Moderation_config">
+			<mac-inference:text ><![CDATA[#[payload.prompt]]]></mac-inference:text>
+		</mac-inference:toxicity-detection-text>
+		<logger level="INFO" doc:name="END" doc:id="48a75fc2-df07-4114-b7ad-a9836dd4230d" message="END - MuleSoft Inference Toxicity Operation" />
+	</sub-flow>
+</mule>

@@ -117,19 +117,11 @@ output application/json
 		</ms-aichain:sentiment-analyze>
 		<logger level="INFO" doc:name="END" doc:id="31a63783-d90d-4b18-9f71-72363672325a" message="END - AI Chain Sentiment Analyzer Operation" />
 	</sub-flow>
-	<sub-flow name="mule-ai-chain-tools-native-subflow" doc:id="609cb7a3-1f0a-40f5-8d2e-07fbd4f00796" >
-		<logger level="INFO" doc:name="START" doc:id="c8ce3690-2336-4a3c-8b33-31ec631c2936" message="START - AI Chain Tools Use AI Native Operation" />
-		<logger level="INFO" doc:name="END" doc:id="580a02f4-aa63-4ebd-b750-b57b9a3ef13e" message="END - AI Chain Tools Use AI Native Operation" />
-	</sub-flow>
 	<sub-flow name="mule-ai-chain-tools-service-subflow" doc:id="e13bf751-5822-4b02-81de-d36a95d53c0d" >
 		<logger level="INFO" doc:name="START" doc:id="4f057441-38a5-4555-acf4-6071d0b5bbd7" message="START - AI Chain Tools Use AI Service Operation" />
 		<ms-aichain:tools-use-ai-service doc:name="Tools use ai service" doc:id="7b93e872-845c-4654-905a-68b675d8ab23" config-ref="MuleSoft_AI_Chain_Config" toolConfig='#[mule.home ++ "/apps/" ++ app.name ++ "/ai-chain/tools-config.json"]'>
 			<ms-aichain:data ><![CDATA[#[payload.prompt]]]></ms-aichain:data>
 		</ms-aichain:tools-use-ai-service>
 		<logger level="INFO" doc:name="END" doc:id="7225e464-3e6f-4c33-8928-757d4c039d6a" message="END - AI Chain Tools Use AI Service Operation" />
-	</sub-flow>
-	<sub-flow name="mule-ai-chain-toxicity-subflow" doc:id="8d7e00de-5320-4296-8d40-6dccf0b7f12e" >
-		<logger level="INFO" doc:name="START" doc:id="87d48238-a526-4cce-a1fd-301f9ca3fb27" message="START - AI Chain Toxicity Detection Operation" />
-		<logger level="INFO" doc:name="END" doc:id="517434de-50e0-4564-b884-bbc85fdddbf5" message="END - AI Chain Toxicity Detection Operation" />
 	</sub-flow>
 </mule>
