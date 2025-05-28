@@ -29,29 +29,11 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-http-connector</artifactId>
-            <version>1.10.3</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-sockets-connector</artifactId>
-            <version>1.2.5</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-        <dependency>
             <groupId>3601e070-90dc-4a3a-b659-ee1347ae831c</groupId>
             <artifactId>mac-api</artifactId>
             <version>1.0.0</version>
             <classifier>raml</classifier>
             <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.modules</groupId>
-            <artifactId>mule-apikit-module</artifactId>
-            <version>1.11.5</version>
-            <classifier>mule-plugin</classifier>
         </dependency>
         <dependency>
             <groupId>com.mulesoft.connectors</groupId>
@@ -66,6 +48,24 @@
             <classifier>mule-plugin</classifier>
         </dependency>
         <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-http-connector</artifactId>
+            <version>1.10.3</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-sockets-connector</artifactId>
+            <version>1.2.5</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-apikit-module</artifactId>
+            <version>1.11.5</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
             <groupId>com.mulesoft.modules</groupId>
             <artifactId>mule-secure-configuration-property-module</artifactId>
             <version>1.2.7</version>
@@ -74,7 +74,7 @@
         <dependency>
             <groupId>com.mulesoft.connectors</groupId>
             <artifactId>mule4-agentforce-connector</artifactId>
-            <version>1.0.1</version>
+            <version>1.1.0</version>
             <classifier>mule-plugin</classifier>
         </dependency>
         <dependency>
