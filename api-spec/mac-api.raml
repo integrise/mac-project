@@ -1,0 +1,518 @@
+#%RAML 1.0
+title: MuleSoft AI Chain API
+version: v1
+
+/whisperer:
+  description: Provide access to OpenAIs whisper model and whisper local models.
+
+  /speech-to-text:
+    description: Transcribes audio into whatever language the audio is in.
+    get:
+      responses:
+        200:
+          body:
+            application/json: !include responses/examples/whisperer/speechToText.json
+
+  /text-to-speech:
+    description: Converts a provided text into an audio file.
+    post:
+      body:
+        application/json:
+          type: !include requests/dataTypes/whisperer/textToSpeech.raml
+      responses:
+        201:
+          body:
+            application/json: !include responses/examples/whisperer/textToSpeech.json
+
+/webcrawler:
+  description: Offers the ability to crawl websites and retrieve valuable content, empowering you to seamlessly organize data into vectors for structured knowledge extraction. 
+
+  /sitemap:
+    description: Creates a sitemap of a website to aid in SEO and site structure analysis. 
+    get:
+      queryParameters:
+        url:
+          description: The website to generate a sitemap for.
+          required: true
+          type: string
+        depth:
+          description: Crawl will be limited to the specified maximum depth.
+          required: true
+          type: string
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include responses/examples/webcrawler/sitemap.json
+
+  /website:
+    description: Crawls for website content, at a specified depth. 
+    get:
+      queryParameters:
+        url:
+          description: The website to generate a sitemap for.
+          required: true
+          type: string
+        depth:
+          description: Crawl will be limited to the specified maximum depth.
+          required: true
+          type: string      
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include responses/examples/webcrawler/website.json
+
+  /images:
+    description: Downloads images from a specified webpage. 
+    get:
+      queryParameters:
+        url:
+          description: Webpage url that contains the images you wish to download. This will download all images found on the webpage. Alternatively, you can provided a direct link to the image if you want to download a single image only.
+          required: true
+          type: string
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include responses/examples/webcrawler/images.json
+
+  /documents:
+    description: Downloads documents from a specified webpage. 
+    get:
+      queryParameters:
+        url:
+          description: Webpage url that contains the documents you wish to download. This will download all documents found on the webpage. Alternatively, you can provided a direct link to the document if you want to download a single document only.
+          required: true
+          type: string
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include responses/examples/webcrawler/documents.json    
+
+  /content:
+    description: Retrieves the contents of a specified webpage.
+    get:
+      queryParameters:
+        url:
+          description: The webpage to fetch the contents for.
+          required: true
+          type: string
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include responses/examples/webcrawler/content.json    
+
+  /insights:
+    description: Fetches insights from a webpage like word count, count on elements or tags such as H1, H2, DIV, P etc, link structures, image links etc.
+    get:
+      queryParameters:
+        url:
+          description: The webpage to fetch the insights for.
+          required: true
+          type: string
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include responses/examples/webcrawler/insights.json        
+
+  /tags:
+    description: Retrieves metadata from a webpage, including title, description, keywords, and other SEO-related information.
+    get:
+      queryParameters:
+        url:
+          description: The webpage to fetch the meta tags for.
+          required: true
+          type: string
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include responses/examples/webcrawler/tags.json        
+
+  /search:
+    description: Allows you to perform a Google search and return a list of websites matching the search criteria. You can then retrieve contents of the links using the Get Page Contents operation.
+    post:
+      body:
+        application/json:
+          type: !include requests/dataTypes/webcrawler/search.raml
+      responses:
+        201:
+          body:
+            application/json:
+              example: !include responses/examples/webcrawler/search.json    
+
+/aichain:
+  description: Brings the power of LangChain4j, enabling seamless integration of AI capabilities. 
+
+  /agent:
+    post:
+      description: Essential for using specific prompt templates with your LLMs. 
+      body:
+        application/json:
+          type: !include requests/dataTypes/aichain/agent.raml
+      responses:
+        201:
+          body:
+            application/json:
+
+  /chat:
+    post:
+      description: Simple prompt request operation to the configured LLM. 
+      queryParameters:
+        memory:
+          description: Useful when you want to retain conversation history for a multi-user chat operation.
+          type: string
+          enum:
+            - on
+            - off
+      body:
+        application/json:
+          type: !include requests/dataTypes/aichain/chat.raml
+      responses:
+        201:
+          body:
+            application/json:
+
+  /embeddings:
+    /store:
+
+      /new:
+        description: Creates a new in-memory embedding and exports it to a physical file.
+        post:
+          responses:
+            201:
+              body:
+                application/json:
+                  
+      /add:
+        /document:
+          description: Adds a document into an embedding store and exports it to a file.
+          post:
+            responses:
+              201:
+                body:
+                  application/json:
+                    
+        /folder:
+          description: Adds a complete folder with subfolder files into an embedding store and exports it to a file.
+          post:
+            responses:
+              201:
+                body:
+                  application/json:
+                    
+      /query:
+        description: Retrieves information based on a plain text prompt using semantic search from an in-memory embedding store.
+        post:
+          body:
+            application/json:
+          responses:
+            201:
+              body:
+                application/json:
+                  
+      /info: 
+        description: Retrieves information from an in-memory embedding store based on a plain text prompt.
+        post:
+          body:
+            application/json:
+          responses:
+            201:
+              body:
+                application/json:
+
+  /image:
+
+    /read:
+      description: Reads and interprets an image based on a prompt. Currently, the MuleSoft AI Chain connector supports only OpenAI Image Models.
+      post:
+        body:
+          application/json:
+        responses:
+          201:
+            body:
+              application/json:
+                
+    /generate:
+      description: Generates an image based on a prompt sent to the LLM. Currently, the MuleSoft AI Chain connector supports only OpenAI Image Models.
+      post:
+        body:
+          application/json:
+        responses:
+          201:
+            body:
+              application/json:      
+
+  /rag:
+    description: Retrieves information based on a plain text prompt from an in-memory embedding store. In this context, "RAG" stands for Retrieval-Augmented Generation, which combines the retrieval of relevant documents with the generation of responses.
+    post:
+      body:
+        application/json:
+      responses:
+        201:
+          body:
+            application/json:      
+
+  /sentiment:
+    description: Simple prompt request operation to the configured LLM. This operation responds with a json payload containing the sentiment of the input text. 
+    post:
+      body:
+        application/json:
+      responses:
+        201:
+          body:
+            application/json:       
+
+  /tools:
+    /ai:
+
+      /service:
+        description: Useful to create autonomous agents that can use external tools whenever a prompt cannot be answered directly by the AI model.
+        post:
+          body:
+            application/json:
+          responses:
+            201:
+              body:
+                application/json:       
+
+      /native:
+        description: Useful to create autonomous agents that can chain tool call request for you based on the provided tool json.
+        post:
+          body:
+            application/json:
+          responses:
+            201:
+              body:
+                application/json:     
+
+  /toxicity:
+    description: Classifies and scores any harmful content by the user or the LLM.
+    post:
+      body:
+        application/json:
+      responses:
+        201:
+          body:
+            application/json:      
+
+/inference:
+  description: Provides access to Inference Offering for Large Language Models i.e. Groq, Hugging Face, Github Models, etc.
+
+  /agent:
+    description: Allows to define and compose AI functions using plain text, enabling the creation of natural language prompts, generating responses, extracting information, invoking other prompts, or performing any text-based task.
+    post:
+      body:
+        application/json:
+      responses:
+        201:
+          body:
+            application/json:      
+  
+  /chat:
+
+    /answer:
+      description: Simple prompt request operation to the configured LLM. 
+      post:
+        body:
+          application/json:
+        responses:
+          201:
+            body:
+              application/json:     
+
+    /completion:
+      description: Useful to retain conversation history for a multi-user chat operation. MuleSoft Object Store or any Database can hold previous user converation, which can be provided as messages into the Chat completion operation.
+      post:
+        body:
+          application/json:
+        responses:
+          201:
+            body:
+              application/json:     
+
+    /image:
+      description: Reads and interprets an image based on a prompt.
+      post:
+        body:
+          application/json:
+        responses:
+          201:
+            body:
+              application/json:     
+
+    /tools:
+      description: Useful to create autonomous agents that can use external tools whenever a prompt cannot be answered directly by the AI model. 
+      post:
+        body:
+          application/json:
+        responses:
+          201:
+            body:
+              application/json:           
+
+    /toxicity:
+      description: Useful to classify and score any harmful content by the user or the LLM.
+      post:
+        body:
+          application/json:
+        responses:
+          201:
+            body:
+              application/json:     
+
+/agentforce:
+  description: Agentforce Connector enables developers to easily integrate with AI agents in Salesforce from within Anypoint Platform.
+
+  /conversation:
+    description: Handle the conversations with an Agentforce Agent.
+
+    /start:
+      description: Start a new agent conversation.
+      get:
+        responses:
+          200:
+            description: Conversation started successfully.
+            body:
+              application/json: !include responses/examples/agentforce/start.json
+    
+    /continue:
+      description: Continue an existing agent conversation by sending a message.
+      post:
+        queryParameters:
+          sessionId:
+            type: string
+            required: true
+            description: The session identifier for the conversation.
+            example: "376b5eca-94ac-4acd-81cc-ce0131e241f6"
+          sequenceNumber:
+            type: integer
+            required: true
+            description: The message sequence number in the conversation.
+            example: 1
+        body:
+          text/plain:
+            description: The message to send to the agent.
+            example: "What's the capital of Canada?"
+        responses:
+          200:
+            description: Conversation continued successfully.
+            body:
+              text/plain:
+                example:
+                  "The capital of Canada is Ottawa."
+    
+    /end:
+      description: End an existing agent conversation.
+      delete:
+        queryParameters:
+          sessionId:
+            type: string
+            required: true
+            description: The session identifier for the conversation.
+            example: "376b5eca-94ac-4acd-81cc-ce0131e241f6"
+        responses:
+          200:
+            description: Conversation ended successfully.
+            body:
+              text/plain:
+                example:
+                  "Session Ended"
+
+/einstein:
+  description: Einstein AI provides access to the Einstein Trust Layer through the Models APIs.
+
+  /agent:
+    description: Defines a prompt template to be processed by the agent.
+    post:
+      body:
+        application/json: 
+          type: !include requests/dataTypes/einstein/promptTemplate.raml
+      responses:
+        200:
+          description: The response generated by the agent.
+          body:
+            application/json:
+              example: !include responses/examples/einstein/promptTemplateResponse.json
+  
+  /chat:
+    
+    /answerPrompt:
+      description: Simple prompt request operation to the configured LLM.
+      post:
+        body:
+          text/plain:
+            example:
+              "What's the capital of Canada?"
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include responses/examples/einstein/chatAnswerPromptResponse.json
+    
+    /generateFromMessages:
+      description: This operation is a prompt request operation with provided messages to the configured LLM.
+      post:
+        body:
+          application/json:
+            type: !include requests/dataTypes/einstein/chatGenerateFromMessages.raml
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include responses/examples/einstein/chatGenerateFromMessagesResponse.json
+  
+  /embeddings:
+
+    /adhocFileQuery:
+      description: Takes a document and ingests it into the vector database along with its query. The output of this operation is a set of scores with the complete content of the document, which is most likely the answer to the query. The vector database is used to identify the numeric representation of the content before creating the likely score.
+      post:
+        body:
+          text/plain:
+            example:
+              "Can I bring my dog?"
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include responses/examples/einstein/embeddingsAdhocFileQueryResponse.json
+    
+    /generateFromFile:
+      description: Takes a document and ingests it into the vector database. The output of this operation is a numeric representation of the content.
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include responses/examples/einstein/embeddingsGenerateFromFileResponse.json
+    
+    /generateFromText:
+      description: Takes text and ingests it into the vector database. The output of this operation is a numeric representation of the content.
+      post:
+        body:
+          text/plain:
+            example:
+              "Check-in is at 3:00PM. If you arrive prior to check-in, our helpful staff will safely secure your luggage and inform you when your room is ready. Check-out is at 11:00AM, so if your flight departs later, you can easily secure your luggage with us and still enjoy the amenities, like grabbing a bite to eat or laying by the ocean while you wait."
+        responses:
+          200:
+            body:
+              application/json:
+                example: !include responses/examples/einstein/embeddingsGenerateFromTextResponse.json
+  
+  /rag:
+    description: Retrieves information based on a plain text prompt and file from embedding and LLM.
+    post:
+      body:
+        text/plain:
+          example:
+            "Can I bring my dog?"
+      responses:
+        200:
+          body:
+            application/json:
+              example: !include responses/examples/einstein/ragResponse.json
+              

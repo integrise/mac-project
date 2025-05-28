@@ -1,0 +1,44 @@
+{
+    "pageStats": {
+        "internal": 6,
+        "images": 6,
+        "wordCount": 168,
+        "h1": 1,
+        "h2": 0,
+        "h3": 4,
+        "h4": 0,
+        "h5": 0,
+        "div": 37,
+        "p": 6,
+        "reference": 0,
+        "external": 2,
+        "iframe": 0
+    },
+    "links": {
+        "reference": [],
+        "internal": [
+            "https://mac-project.ai/docs",
+            "https://mac-project.ai/",
+            "https://mac-project.ai/docs/mulechain-ai/getting-started",
+            "https://mac-project.ai/docs/contribute",
+            "https://mac-project.ai/docs/mulechain-ai/supported-operations",
+            "https://mac-project.ai/about"
+        ],
+        "external": [
+            "https://www.linkedin.com/groups/13047000/",
+            "https://github.com/MuleSoft-AI-Chain-Project"
+        ],
+        "images": [
+            "https://mac-project.ai/_next/image?url=%2Flogos%2Fmulechain-project-logo.png&w=96&q=75",
+            "https://mac-project.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcard-1.dark.b34c0349.png&w=3840&q=75",
+            "https://mac-project.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcard-operations.dark.d99fd531.png&w=1920&q=75",
+            "https://mac-project.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcard-operations.114cee09.png&w=1920&q=75",
+            "https://mac-project.ai/logos/mulechain-ai-logo.png",
+            "https://mac-project.ai/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fcard-1.7bf2b1df.png&w=3840&q=75"
+        ],
+        "documents": [],
+        "iframe": []
+    },
+    "title": "The MuleSoft AI Chain (MAC) Project",
+    "url": "https://mac-project.ai"
+}

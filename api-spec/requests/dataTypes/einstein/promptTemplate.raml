@@ -1,0 +1,16 @@
+#%RAML 1.0 DataType
+
+type: object
+properties:
+  template:
+    description: The instruction for the agent to generate the response for the user.
+    type: string
+    example: "You are a customer satisfaction agent, who analyzes customer feedback in the dataset. Answer via JSON output and add a type for the result only with positive or negative as well as the complete answer"
+  instructions:
+    description: The actions to take based on the user's input.
+    type: string
+    example: "If the customer feedback in the dataset is negative, open a service satisfaction case and apologize to the customer. If the customer feedback in the dataset is positive, thank the customer and wish them a nice day. Don't repeat the feedback and be more direct starting the conversation with formal greetings"
+  dataset:
+    description: The input from the user.
+    type: string
+    example: "The training was great!! I would really recommend this to everyone!"
