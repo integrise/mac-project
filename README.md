@@ -56,32 +56,32 @@ Build a unification layer for LLMs, vector stores (in-memory), and AI Services.
   - Load Document
 - [**Sentiment Analysis**] (https://mac-project.ai/docs/mulechain-ai/supported-operations/sentiment-analysis)
   - Analyzer
-- [**Tools**] (https://mac-project.ai/docs/mulechain-ai/supported-operations/tools)
+- [**Tools**](https://mac-project.ai/docs/mulechain-ai/supported-operations/tools)
   - Use AI Service
 
 ### MuleSoft Inference
 
 Long-term successor of MuleSoft AI Chain Connector
 
-- [**Tools**] (https://mac-project.ai/docs/ms-inference/supported-operations/tools)
+- [**Tools**](https://mac-project.ai/docs/ms-inference/supported-operations/tools)
   - Use Native Templates
-- [**Toxicity**] (https://mac-project.ai/docs/ms-inference/supported-operations/toxicity)
+- [**Toxicity**](https://mac-project.ai/docs/ms-inference/supported-operations/toxicity)
   - Detection by
 
 ### MuleSoft WebCrawler
 
 A connector toolkit that provide web crawling capabilities to extract data from web pages.
 
-- [**Crawl**] (https://mac-project.ai/docs/ms-webcrawler/supported-operations/crawl)
+- [**Crawl**](https://mac-project.ai/docs/ms-webcrawler/supported-operations/crawl)
   - Website (Full Scan)
   - Get Sitemap
-- [**Page**] (https://mac-project.ai/docs/ms-webcrawler/supported-operations/page)
+- [**Page**](https://mac-project.ai/docs/ms-webcrawler/supported-operations/page)
   - Download Document
   - Download Image
   - Get Content
   - Get Insights
   - Get Meta Tags
-- [**Search**] (https://mac-project.ai/docs/ms-webcrawler/supported-operations/search)
+- [**Search**](https://mac-project.ai/docs/ms-webcrawler/supported-operations/search)
   - Google
 
 ### MuleSoft Whisperer
@@ -230,7 +230,7 @@ The project includes Postman collections and environments for testing the APIs. 
 - [Salesforce OAuth Scopes Documentation](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_scopes.htm)
 - [Salesforce Agent API - Get Started](https://developer.salesforce.com/docs/einstein/genai/guide/agent-api-get-started.html)
 - [Agentforce Supported Operations - Conversation](https://mac-project.ai/docs/agentforce/supported-operations/conversation)
-- [MuleSoft Whisperer Getting Started] (https://mac-project.ai/docs/ms-whisperer/getting-started)
-- [MuleSoft WebCrawler Getting Started] (https://mac-project.ai/docs/ms-webcrawler/getting-started)
-- [MuleSoft AI Chain Getting Started] (https://mac-project.ai/docs/mulechain-ai/getting-started)
-- [MuleSoft Inference Getting Started] (https://mac-project.ai/docs/ms-inference/getting-started)
+- [MuleSoft Whisperer Getting Started](https://mac-project.ai/docs/ms-whisperer/getting-started)
+- [MuleSoft WebCrawler Getting Started](https://mac-project.ai/docs/ms-webcrawler/getting-started)
+- [MuleSoft AI Chain Getting Started](https://mac-project.ai/docs/mulechain-ai/getting-started)
+- [MuleSoft Inference Getting Started](https://mac-project.ai/docs/ms-inference/getting-started)
