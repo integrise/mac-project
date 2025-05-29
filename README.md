@@ -49,12 +49,12 @@ Build a unification layer for LLMs, vector stores (in-memory), and AI Services.
   - Add Folder To Store
   - Query From Store
   - Get Info from Store
-- [**Image Generation**] (https://mac-project.ai/docs/mulechain-ai/supported-operations/image-generation)
+- [**Image Generation**](https://mac-project.ai/docs/mulechain-ai/supported-operations/image-generation)
   - Read
   - Generate
 - [**RAG**](https://mac-project.ai/docs/mulechain-ai/supported-operations/rag)
   - Load Document
-- [**Sentiment Analysis**] (https://mac-project.ai/docs/mulechain-ai/supported-operations/sentiment-analysis)
+- [**Sentiment Analysis**](https://mac-project.ai/docs/mulechain-ai/supported-operations/sentiment-analysis)
   - Analyzer
 - [**Tools**](https://mac-project.ai/docs/mulechain-ai/supported-operations/tools)
   - Use AI Service
