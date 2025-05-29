@@ -88,8 +88,8 @@ A connector toolkit that provide web crawling capabilities to extract data from 
 
 Support Speech-to-text and text-to-speech to enhance other MuleSoft AI Chain connectors.
 
-- [**Speech to Text**] (https://mac-project.ai/docs/ms-whisperer/supported-operations/speech-to-text)
-- [**Text to Speech**] (https://mac-project.ai/docs/ms-whisperer/supported-operations/text-to-speech)
+- [**Speech to Text**](https://mac-project.ai/docs/ms-whisperer/supported-operations/speech-to-text)
+- [**Text to Speech**](https://mac-project.ai/docs/ms-whisperer/supported-operations/text-to-speech)
 
 
 # Prerequisites
