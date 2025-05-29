@@ -34,7 +34,65 @@ Use the Einstein AI trust layer to make use of different models from Einstein.
 >
 > **Tools - Use AI Service** operation is not included in this project.
 
-## Prerequisites
+### MuleSoft AI Chain
+
+Build a unification layer for LLMs, vector stores (in-memory), and AI Services.
+
+- [**Agent**](https://mac-project.ai/docs/mulechain-ai/supported-operations/agent)
+  - Define Prompt Template
+- [**Chat**](https://mac-project.ai/docs/mulechain-ai/supported-operations/chat)
+  - Answer Prompt
+  - Answer Prompt with Memory
+- [**Embeddings**](https://mac-project.ai/docs/mulechain-ai/supported-operations/embeddings)
+  - New Store
+  - Add Document to Store
+  - Add Folder To Store
+  - Query From Store
+  - Get Info from Store
+- [**Image Generation**] (https://mac-project.ai/docs/mulechain-ai/supported-operations/image-generation)
+  - Read
+  - Generate
+- [**RAG**](https://mac-project.ai/docs/mulechain-ai/supported-operations/rag)
+  - Load Document
+- [**Sentiment Analysis**] (https://mac-project.ai/docs/mulechain-ai/supported-operations/sentiment-analysis)
+  - Analyzer
+- [**Tools**] (https://mac-project.ai/docs/mulechain-ai/supported-operations/tools)
+  - Use AI Service
+
+### MuleSoft Inference
+
+Long-term successor of MuleSoft AI Chain Connector
+
+- [**Tools**] (https://mac-project.ai/docs/ms-inference/supported-operations/tools)
+  - Use Native Templates
+- [**Toxicity**] (https://mac-project.ai/docs/ms-inference/supported-operations/toxicity)
+  - Detection by
+
+### MuleSoft WebCrawler
+
+A connector toolkit that provide web crawling capabilities to extract data from web pages.
+
+- [**Crawl**] (https://mac-project.ai/docs/ms-webcrawler/supported-operations/crawl)
+  - Website (Full Scan)
+  - Get Sitemap
+- [**Page**] (https://mac-project.ai/docs/ms-webcrawler/supported-operations/page)
+  - Download Document
+  - Download Image
+  - Get Content
+  - Get Insights
+  - Get Meta Tags
+- [**Search**] (https://mac-project.ai/docs/ms-webcrawler/supported-operations/search)
+  - Google
+
+### MuleSoft Whisperer
+
+Support Speech-to-text and text-to-speech to enhance other MuleSoft AI Chain connectors.
+
+- [**Speech to Text**] (https://mac-project.ai/docs/ms-whisperer/supported-operations/speech-to-text)
+- [**Text to Speech**] (https://mac-project.ai/docs/ms-whisperer/supported-operations/text-to-speech)
+
+
+# Prerequisites
 
 - **Salesforce org** - Create a new dev account [here](https://www.salesforce.com/form/developer-signup/?d=pb)
 - **Anypoint Platform account** - Create a free trial account [here](https://anypoint.mulesoft.com/)
@@ -42,6 +100,7 @@ Use the Einstein AI trust layer to make use of different models from Einstein.
 - Mule Runtime 4.9.x
 - Maven 3.x
 - Java 17
+- **OpenAI API key** - Create OpenAI account [here](https://auth.openai.com/create-account), generate OpenAI API key.
 
 ## Project Structure
 
@@ -171,3 +230,7 @@ The project includes Postman collections and environments for testing the APIs. 
 - [Salesforce OAuth Scopes Documentation](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_scopes.htm)
 - [Salesforce Agent API - Get Started](https://developer.salesforce.com/docs/einstein/genai/guide/agent-api-get-started.html)
 - [Agentforce Supported Operations - Conversation](https://mac-project.ai/docs/agentforce/supported-operations/conversation)
+- [MuleSoft Whisperer Getting Started] (https://mac-project.ai/docs/ms-whisperer/getting-started)
+- [MuleSoft WebCrawler Getting Started] (https://mac-project.ai/docs/ms-webcrawler/getting-started)
+- [MuleSoft AI Chain Getting Started] (https://mac-project.ai/docs/mulechain-ai/getting-started)
+- [MuleSoft Inference Getting Started] (https://mac-project.ai/docs/ms-inference/getting-started)
