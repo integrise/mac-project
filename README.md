@@ -163,7 +163,7 @@ Support Speech-to-text and text-to-speech to enhance other MuleSoft AI Chain con
 5. In **Agentforce Agents**, click on **New Agent**.
 6. Create from a Template > **Agentforce Service Agent**
 7. Remove all the topics to start from scratch
-   - (optional) Add the Off Topic topic with the information from [off-topic.md](/topics/off-topic.md)
+   - (optional) Add the Off Topic topic with the information from [off-topic.md](/off-topic.md)
 8. Add the following details:
     - Name: `Agentforce MuleSoft Agent`
     - API Name: `Agentforce_MuleSoft_Agent`
